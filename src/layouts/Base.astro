@@ -10,8 +10,6 @@ interface Props {
   title: string;
   description: string;
   path?: string;
-  lang?: 'tr' | 'en' | 'de';
-  alternates?: { lang: string; path: string }[];
   schema?: unknown[];
   noindex?: boolean;
   ogType?: 'website' | 'article';
@@ -22,30 +20,29 @@ interface Props {
   includeBusiness?: boolean;
 }
 const {
-  title, description, path, lang = 'tr', alternates = [], schema = [],
+  title, description, path, schema = [],
   noindex, ogType, publishedTime, modifiedTime, waMessage, includeBusiness = true,
 } = Astro.props;
 
 const allSchema = includeBusiness
-  ? [businessSchema(), websiteSchema(lang), ...schema]
+  ? [businessSchema(), websiteSchema(), ...schema]
   : schema;
-const skip = lang === 'tr' ? 'İçeriğe geç' : lang === 'de' ? 'Zum Inhalt' : 'Skip to content';
 ---
 <!doctype html>
-<html lang={lang} prefix="og: https://ogp.me/ns#">
+<html lang="tr" prefix="og: https://ogp.me/ns#">
   <head>
     <Seo
-      title={title} description={description} path={path} lang={lang}
-      alternates={alternates} schema={allSchema} noindex={noindex}
+      title={title} description={description} path={path}
+      schema={allSchema} noindex={noindex}
       ogType={ogType} publishedTime={publishedTime} modifiedTime={modifiedTime}
     />
     <slot name="head" />
   </head>
   <body>
-    <a class="skip-link" href="#main">{skip}</a>
-    <Header lang={lang} />
+    <a class="skip-link" href="#main">İçeriğe geç</a>
+    <Header />
     <main id="main"><slot /></main>
     <Footer />
-    <CallBar lang={lang} waMessage={waMessage} />
+    <CallBar waMessage={waMessage} />
   </body>
 </html>

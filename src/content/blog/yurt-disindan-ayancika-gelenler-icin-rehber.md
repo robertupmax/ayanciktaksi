@@ -13,8 +13,8 @@ faq:
     a: "Yaklaşık 250 kilometre ve 3,5 saat. Bu mesafede transferin önceden rezerve edilmesi gerekiyor; havalimanında bekleyen hazır bir ulaşım seçeneği yoktur."
   - q: "Ayancık'ta araç kiralama var mı?"
     a: "İlçede seçenek çok sınırlı. Sinop merkezde daha fazla firma var. Kısa süreli ziyaretlerde araç kiralamak yerine ihtiyaç duyulan günlerde taksi kullanmak çoğu zaman daha hesaplı oluyor."
-  - q: "Türkçe bilmeyen biri taksi çağırabilir mi?"
-    a: "Evet. WhatsApp üzerinden İngilizce veya Almanca yazabilirsiniz; konum, tarih ve saat paylaşmanız yeterli. Yazılı iletişim telefonla konuşmaktan daha kolay oluyor."
+  - q: "Yurt dışından nasıl iletişim kurarım?"
+    a: "En pratik yol WhatsApp: arama ücreti ödemeden yazışır, konum, tarih ve saat paylaşırsınız. Telefonla arayacaksanız numara yurt dışından +90 531 830 20 17 şeklinde çevrilir."
 ---
 
 Ayancık'a her yaz, yurt dışında yaşayan hemşehrilerimiz geliyor — çoğunlukla Almanya, Hollanda, Fransa ve Avusturya'dan. Bazıları her yıl aynı rutinle, bazıları ise yıllar sonra ilk kez.
@@ -75,9 +75,9 @@ Bizim en çok işe yaradığını gördüğümüz yöntem bu. Varıştan önce b
 
 Her defasında yeniden fiyat konuşmak, numara aramak veya yol tarif etmek gerekmiyor. Bir numara, baştan konuşulmuş fiyatlar.
 
-## Dil
+## İletişim
 
-**WhatsApp'tan İngilizce veya Almanca yazabilirsiniz.** Yazılı iletişim telefonla konuşmaktan daha kolay oluyor — özellikle yer adları ve saatlerde.
+**En pratik yol WhatsApp.** Yurt dışındayken arama ücreti ödemeden yazışırsınız ve yer adları, saatler gibi şeyler yazılı olunca karışmaz. Numaramız yurt dışından **+90 531 830 20 17** şeklinde çevrilir.
 
 Paylaşmanız gereken bilgi basit:
 - Konum (WhatsApp canlı konum en pratik)

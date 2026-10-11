@@ -45,7 +45,7 @@ const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hizmet Bölgesi', href
       <div class="table-wrap">
         <table>
           <caption>Mesafeler Ayancık merkezden karayolu üzerinden yaklaşık değerlerdir.</caption>
-          <thead><tr><th scope="col">Yer</th><th scope="col" class="num">Mesafe</th><th scope="col" class="num">Süre</th><th scope="col"></th></tr></thead>
+          <thead><tr><th scope="col">Yer</th><th scope="col" class="num">Mesafe</th><th scope="col" class="num">Süre</th><th scope="col"><span class="sr-only">Güzergah ayrıntısı</span></th></tr></thead>
           <tbody>
             {[...routes].sort((a,b)=>a.km-b.km).map((r) => (
               <tr>

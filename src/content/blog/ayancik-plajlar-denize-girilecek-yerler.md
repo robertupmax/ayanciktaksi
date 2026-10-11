@@ -78,4 +78,4 @@ Merkez sahili ve Kuğu Yalısı dışındaki noktaların hiçbirine düzenli top
 
 **Gün boyu araç:** Birkaç koyu gezmek, arada yemeğe gitmek veya çocukla esnek hareket etmek isteyenler için. Tek bir toplam fiyat verilir.
 
-Kaç kişi olduğunuzu ve çocuk olup olmadığını söylerseniz hangi noktanın size uygun olduğuna telefonda birlikte karar verebiliriz. Şemsiye, soğuk kutu ve sörf malzemesi için bagaj yeterince geniş.
+Kaç kişi olduğunuzu ve çocuk olup olmadığını söylerseniz hangi noktanın size uygun olduğuna telefonda birlikte karar verebiliriz. Yanınıza alacağınız eşyalar için bagaj yeterince geniş.

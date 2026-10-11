@@ -17,7 +17,7 @@ export function businessSchema() {
     name: `${site.brand} — ${site.legalName}`,
     alternateName: [site.legalName, 'Ayancık Taksi Durağı', 'Güven Taksi Ayancık'],
     description:
-      'Sinop Ayancık’ta 7/24 ticari taksi hizmeti. Sinop Havalimanı transferi, hastane ve köy yolculukları, plaj ve koy turları, şehirler arası taksi.',
+      'Sinop Ayancık’ta 7/24 ticari taksi hizmeti. Büyük bagajlı araç, esnek çalışma saatleri. Sinop Havalimanı transferi, hastane ve köy yolculukları, plaj ve koy turları, şehirler arası taksi.',
     url: site.url,
     telephone: site.phone.displayIntl,
     email: site.email,
@@ -57,8 +57,8 @@ export function businessSchema() {
       geoMidpoint: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
       geoRadius: site.serviceArea.radiusKm * 1000,
     },
-    knowsLanguage: ['tr', 'en', 'de'],
-    availableLanguage: ['Türkçe', 'English', 'Deutsch'],
+    knowsLanguage: ['tr'],
+    availableLanguage: ['Türkçe'],
     provider: { '@id': ORG_ID },
     potentialAction: [
       { '@type': 'ReserveAction',
@@ -70,14 +70,14 @@ export function businessSchema() {
 }
 
 /** Site + arama kutusu */
-export function websiteSchema(lang = 'tr') {
+export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
     url: site.url,
     name: site.brand,
-    inLanguage: lang,
+    inLanguage: 'tr',
     publisher: { '@id': ORG_ID },
   };
 }

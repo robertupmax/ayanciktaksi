@@ -106,7 +106,7 @@ export const routes: Route[] = [
     notes: [
       'Orman yolu stabilize; yağışlı havada süre uzar, bazı kesimler zorlaşır.',
       'Aynı güzergahta İnaltı Mağarası’na da uğranabilir.',
-      'Piknik malzemesi için geniş bagaj var; dönüş saatini baştan belirleyelim.',
+      'Dönüş saatini baştan belirleyelim; aracımız büyük bagajlıdır.',
     ],
     popular: true,
   },

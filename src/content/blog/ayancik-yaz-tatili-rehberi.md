@@ -85,7 +85,7 @@ Ayancık'a yazın gelen misafirlerin önemli bölümü yurt dışında yaşayan 
 - **Araç kiralamak ilçede sınırlı.** Sinop merkezde seçenek daha fazla.
 - **Samsun Çarşamba Havalimanı** yurt dışı bağlantılarında Sinop'tan belirgin şekilde daha iyi — ama 3,5 saatlik transfer gerektiriyor.
 - **Tatil boyunca tek numara** mantığı işe yarıyor: havalimanı karşılama, köy evine bırakma, plaj turları ve dönüş transferini baştan birlikte planlamak hem daha rahat hem daha hesaplı.
-- **WhatsApp'tan İngilizce veya Almanca** yazabilirsiniz.
+- **İletişim için WhatsApp** en pratiği: yurt dışındayken arama ücreti ödemeden yazışır, tarih ve saatleri yazılı olarak teyit edersiniz.
 
 ## Ne zaman gelmeli?
 

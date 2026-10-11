@@ -30,10 +30,11 @@ export const services: Service[] = [
     icon: 'plane',
     wa: 'airport',
     highlights: [
+      'Büyük bagajlı araç',
       'Sabit fiyat — taksimetre sürprizi yok',
+      'Gece ve sabah erken uçuşlar dahil, ek ücret yok',
       'Uçuş saatinize göre kapınızdan alış',
-      'Gece ve sabah erken uçuşlar dahil',
-      'Rötar olursa ek ücret yok',
+      'Rötar olursa bekleme ücreti yok',
     ],
     body: [
       {
@@ -52,8 +53,17 @@ export const services: Service[] = [
         list: [
           'Giden yolcu: uçuş saatinden geriye doğru planlama',
           'Gelen yolcu: terminal çıkışında karşılama',
+          'Büyük bagaj — ek ücret yok',
           'Bebek/çocuk koltuğu talebi ücretsiz',
-          'Valiz, bisiklet, sörf malzemesi gibi büyük bagajlar için önceden bilgi verin',
+          'Olağandışı ölçüde bir yükünüz varsa önceden haber verin',
+        ],
+      },
+      {
+        heading: 'Bagaj ve saat: en çok takılınan iki konu',
+        paragraphs: [
+          'Havalimanı yolculuğunda iki şey işi bozar: bagajın sığmaması ve saatin tutmaması. İkisini de baştan çözüyoruz.',
+          'Aracımız büyük bagajlıdır; bagaj için ek ücret almıyoruz. Olağandışı ölçüde bir yükünüz varsa önceden söylemeniz yeterli.',
+          'Saat konusunda da esnek çalışıyoruz: sabahın ilk uçağına yetişmek için gece 04:00’te yola çıkmak gerekiyorsa çıkarız, gece inen bir uçuşta terminalde bekleriz. Erken veya geç saat için ek tarife uygulamıyoruz.',
         ],
       },
       {
@@ -97,8 +107,9 @@ export const services: Service[] = [
     icon: 'hospital',
     wa: 'hospital',
     highlights: [
-      'Randevu saatinize göre planlama',
+      'Randevu saatinize göre planlama — erken saatler dahil',
       'Kapıdan kapıya — merdiven ve kayıt desteği',
+      'Büyük bagajlı araç',
       'Yaşlı ve hasta yolcuda sabırlı refakat',
       'Bekleme veya dönüş için aynı araç',
     ],
@@ -138,10 +149,6 @@ export const services: Service[] = [
         a: 'Evet, isterseniz araç bekler. Kısa süreli beklemelerde ücretsiz, uzun beklemelerde ise telefonda konuştuğumuz uygun bir bekleme ücreti uygularız. Dilerseniz işiniz bittiğinde tekrar arayın, aynı araç sizi alır.',
       },
       {
-        q: 'Tekerlekli sandalye ile yolculuk yapabilir miyim?',
-        a: 'Katlanabilir tekerlekli sandalyeyi bagaja alıyor, yolcunun araca binmesine yardımcı oluyoruz. Sandalyeden kalkamayan yolcular için tekerlekli sandalyeye uygun (rampalı) araç gerekir; bu durumda sizi doğru yere yönlendirelim, arayın konuşalım.',
-      },
-      {
         q: 'Diyaliz için haftada üç gün düzenli gidiş-dönüş yapar mısınız?',
         a: 'Evet. Düzenli tedavi programlarında haftalık sabit saat belirliyor ve bu yolculuklar için indirimli bir anlaşma fiyatı uyguluyoruz. Arayıp programınızı paylaşın.',
       },
@@ -167,7 +174,8 @@ export const services: Service[] = [
     wa: 'village',
     highlights: [
       'Ayancık’ın 60’tan fazla köyüne hizmet',
-      'Minibüs saatini beklemek yok',
+      'Büyük bagajlı araç',
+      'Minibüs saatini beklemek yok, saat size göre',
       'Pazar günü ve resmî tatillerde de çalışıyoruz',
       'Alışveriş poşetlerini kapınıza kadar taşıyoruz',
     ],
@@ -236,7 +244,8 @@ export const services: Service[] = [
     highlights: [
       'Yarım gün ve tam gün tur seçenekleri',
       '“Bırak-al”: sabah bırakalım, akşam alalım',
-      'Şemsiye, soğuk kutu, sörf malzemesi için geniş bagaj',
+      'Büyük bagajlı araç',
+      'Tek toplam fiyat — gün sonunda sürpriz yok',
       'Kalabalık grup için ikinci araç ayarlayabiliriz',
     ],
     body: [
@@ -303,8 +312,9 @@ export const services: Service[] = [
     wa: 'intercity',
     highlights: [
       'Kapıdan kapıya — aktarma ve otogar yok',
-      'Baştan sabit fiyat',
-      'Gece yolculuğu mümkün',
+      'Baştan sabit fiyat, gidiş-dönüşte daha hesaplı',
+      'Büyük bagaj — otobüs bagaj sınırı yok',
+      'Gece yolculuğu mümkün, ek ücret yok',
       'Tek kişi veya aile — fiyat araç başına',
     ],
     body: [
@@ -374,7 +384,8 @@ export const services: Service[] = [
     highlights: [
       'Paylaşımlı yolculukta kişi başı ucuz',
       'Dönem boyu sabit anlaşmalı fiyat',
-      'Sabah ilk derse ve akşam geç çıkışa uygun',
+      'Büyük bagajlı araç',
+      'Sabah ilk derse, akşam geç çıkışa ve gece otobüsüne uygun',
       'Ailesi arayıp teyit alabilir',
     ],
     body: [
@@ -439,8 +450,9 @@ export const services: Service[] = [
     wa: 'general',
     highlights: [
       'İlçe merkezinde kısa sürede kapınızda',
-      'Resmî taksimetre tarifesi',
-      'Bagaj ve poşet için ek ücret yok',
+      'Otogar karşılama — gece varan otobüsler dahil',
+      'Resmî taksimetre tarifesi, gündüz-gece aynı',
+      'Büyük bagaj — ek ücret yok',
       'Gece, bayram, pazar — hep açığız',
     ],
     body: [
@@ -461,7 +473,7 @@ export const services: Service[] = [
       {
         heading: 'Fiyatlandırma',
         paragraphs: [
-          'Şehir içi kısa yolculuklarda resmî taksimetre tarifesi geçerlidir; gündüz ve gece aynı tarifedir. Bagaj, poşet veya bebek arabası için ek ücret almıyoruz. Taksimetre açıktır, istediğiniz an bakabilirsiniz.',
+          'Şehir içi kısa yolculuklarda resmî taksimetre tarifesi geçerlidir; gündüz ve gece aynı tarifedir. Aracımız büyük bagajlıdır ve bagaj için ek ücret almıyoruz. Taksimetre açıktır, istediğiniz an bakabilirsiniz.',
           'Uzun mesafe ve havalimanı transferlerinde ise taksimetre yerine baştan konuşulan sabit fiyat uygularız — böylece ne ödeyeceğinizi bilerek yola çıkarsınız.',
         ],
       },

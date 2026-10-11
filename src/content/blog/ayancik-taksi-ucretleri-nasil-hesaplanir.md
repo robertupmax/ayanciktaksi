@@ -1,7 +1,7 @@
 ---
 title: "Taksi Ücreti Nasıl Hesaplanır? Taksimetre, Sabit Fiyat ve Bilmeniz Gerekenler"
-metaTitle: "Ayancık Taksi Ücreti Nasıl Hesaplanır | Taksimetre ve Sabit Fiyat"
-description: "Taksi ücretinin nasıl hesaplandığı: taksimetre tarifesi, açılış ücreti, sabit fiyat ne zaman uygulanır, bekleme ücreti, gidiş-dönüş avantajı ve yolcu hakları."
+metaTitle: "Ayancık Taksi Ücreti ve Fiyatları | Nasıl Hesaplanır?"
+description: "Ayancık taksi ücreti nasıl hesaplanır: taksimetre tarifesi, sabit fiyat ne zaman uygulanır, bekleme ücreti, gidiş-dönüş avantajı ve yolcu hakları."
 date: 2026-03-20
 updated: 2026-09-25
 tag: "Bilgi"
@@ -14,7 +14,7 @@ faq:
   - q: "Gece tarifesi var mı?"
     a: "Türkiye'de tek tarife uygulaması yaygındır; gündüz ve gece aynı tarife geçerlidir. Ayancık Taksi olarak gece yolculukları için ek ücret uygulamıyoruz."
   - q: "Bagaj için ek ücret alınır mı?"
-    a: "Hayır. Valiz, alışveriş poşeti, bebek arabası ve katlanır tekerlekli sandalye için ek ücret alınmaz."
+    a: "Hayır, bagaj için ek ücret alınmaz. Aracımız büyük bagajlıdır; olağandışı ölçüde bir yük varsa önceden haber vermeniz yeterli."
   - q: "Sabit fiyat verildikten sonra fiyat değişebilir mi?"
     a: "Hayır. Yolculuktan önce verilen sabit fiyat yol üzerinde değişmez; köprü ve otoyol ücretleri de bu fiyata dahildir. Güzergah yolcunun isteğiyle değişirse yeni fiyat birlikte konuşulur."
 ---

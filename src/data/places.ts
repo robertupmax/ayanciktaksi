@@ -109,7 +109,7 @@ export const places: Place[] = [
     ],
     tips: [
       'Koy korunaklı olduğu için dalgalı havalarda bile sakin kalabiliyor.',
-      'Piknik alanları var; şemsiye ve soğuk kutu için bagajımız geniş.',
+      'Piknik alanları var; aracımız büyük bagajlıdır.',
       'Aynı güne Sinop Kalesi ve Tarihi Sinop Cezaevi de eklenebilir.',
     ],
   },

@@ -47,14 +47,13 @@ const segments = [
 const steps = [
   { n: '1', t: 'Arayın veya yazın', d: 'Telefonla arayın ya da WhatsApp’tan konumunuzu gönderin. Adres tarif etmekle uğraşmanıza gerek yok.' },
   { n: '2', t: 'Fiyatı baştan öğrenin', d: 'Şehir dışı ve havalimanı yolculuklarında fiyatı yola çıkmadan söyler, WhatsApp’tan yazılı teyit ederiz.' },
-  { n: '3', t: 'Kapınızdan yola çıkın', d: 'Aracı kapınıza çekeriz. Bagaj, poşet, bebek arabası ve katlanır tekerlekli sandalye için ek ücret yok.' },
+  { n: '3', t: 'Kapınızdan yola çıkın', d: 'Aracı kapınıza çekeriz. Aracımız büyük bagajlıdır ve bagaj için ek ücret almıyoruz.' },
 ];
 ---
 <Base
   title="Ayancık Taksi 0531 830 20 17 | 7/24 Taksi — Sinop Ayancık"
   description="Sinop Ayancık’ta 7/24 taksi. Havalimanı transferi, hastane ve köy yolculukları, plaj turları, şehirler arası taksi. Hemen arayın."
   path="/"
-  alternates={[{ lang: 'tr', path: '/' }, { lang: 'en', path: '/en/' }, { lang: 'de', path: '/de/' }]}
   schema={schema}
 >
   <!-- ========== HERO ========== -->
@@ -64,14 +63,15 @@ const steps = [
         <p class="hero__badges">
           <span class="hero__badge"><Icon name="clock" /> Gece gündüz, 7 gün 24 saat</span>
           <span class="hero__badge"><Icon name="pin" /> Ayancık ve 60+ köy</span>
+          <span class="hero__badge"><Icon name="bag" /> Büyük bagajlı araç</span>
           <span class="hero__badge"><Icon name="shield" /> Ticari taşımacılık belgeli</span>
         </p>
 
         <h1>Ayancık’ta taksi: bir telefon kadar yakın</h1>
         <p class="hero__sub">
           Sinop’un Ayancık ilçesinde ve çevre köylerinde 7/24 ticari taksi hizmeti.
-          Havalimanı transferi, hastane yolculukları, plaj turları ve şehirler arası
-          yolculuklarda sabit fiyat — yola çıkmadan ne ödeyeceğinizi bilirsiniz.
+          Büyük bagajlı araç, esnek çalışma saatleri ve şehir dışı yolculuklarda
+          sabit fiyat — yola çıkmadan ne ödeyeceğinizi bilirsiniz.
         </p>
 
         <a class="hero__phone" href={site.phone.href} aria-label={`Telefonla ara: ${site.phone.display}`}>
@@ -81,7 +81,7 @@ const steps = [
           <CallButtons size="lg" waMessage={waMessages.location} showNumber={false} />
         </div>
         <p class="fs-sm" style="margin-top:1rem;color:#8f9bab">
-          WhatsApp’tan canlı konum göndermek en hızlı yol. İngilizce ve Almanca yazabilirsiniz.
+          WhatsApp’tan canlı konum göndermek en hızlı yol — adres tarif etmenize gerek kalmaz.
         </p>
       </div>
 
@@ -92,8 +92,9 @@ const steps = [
           <div><dt>Ayancık → Sinop</dt><dd>55 km · ~1 sa</dd></div>
           <div><dt>Ayancık → Havalimanı</dt><dd>60 km · ~1 sa 5 dk</dd></div>
           <div><dt>Hizmet alanı</dt><dd>Ayancık + {villages.length} köy</dd></div>
+          <div><dt>Bagaj</dt><dd>Büyük bagaj · ek ücret yok</dd></div>
           <div><dt>Ödeme</dt><dd>Nakit · Kredi kartı</dd></div>
-          <div><dt>Diller</dt><dd>Türkçe · English · Deutsch</dd></div>
+          <div><dt>Rezervasyon</dt><dd>Telefon · WhatsApp</dd></div>
         </dl>
       </aside>
     </div>
@@ -153,7 +154,7 @@ const steps = [
         <table>
           <caption>Mesafeler karayolu üzerinden yaklaşık değerlerdir. Kesin fiyat için arayın.</caption>
           <thead>
-            <tr><th scope="col">Güzergah</th><th scope="col" class="num">Mesafe</th><th scope="col" class="num">Süre</th><th scope="col"></th></tr>
+            <tr><th scope="col">Güzergah</th><th scope="col" class="num">Mesafe</th><th scope="col" class="num">Süre</th><th scope="col"><span class="sr-only">Güzergah ayrıntısı</span></th></tr>
           </thead>
           <tbody>
             {popularRoutes.map((r) => (
@@ -191,26 +192,33 @@ const steps = [
   <!-- ========== NEDEN BİZ ========== -->
   <section class="section section--ink">
     <div class="wrap">
-      <div class="grid grid--2" style="align-items:center">
-        <div>
-          <p class="eyebrow" style="color:var(--taxi)">Neden bizi arıyorlar</p>
-          <h2>Dürüst fiyat, tanıdık sürücü, açık telefon</h2>
-          <p class="lead">
-            Ayancık küçük bir ilçe. Burada işini kötü yapan esnafın adı yarın duyulur.
-            Biz de bu yüzden basit bir ilke ile çalışıyoruz: ne söylediyse onu yapmak.
-          </p>
-          <div style="margin-top:1.6rem"><CallButtons size="lg" showNumber /></div>
-        </div>
-        <ul class="ticks" style="font-size:1.02rem">
-          <li><strong>Baştan fiyat.</strong> Şehir dışı yolculuklarda fiyatı yola çıkmadan söyleriz, yolda değişmez.</li>
-          <li><strong>Gelemeyeceksek söyleriz.</strong> Yol kapalıysa veya başka yolculuktaysak sizi boşuna bekletmeyiz.</li>
-          <li><strong>Gece ücreti yok.</strong> Saat kaç olursa olsun aynı tarife.</li>
-          <li><strong>Bagaj ücretsiz.</strong> Valiz, poşet, bebek arabası, katlanır tekerlekli sandalye.</li>
-          <li><strong>Çocuk koltuğu hazır.</strong> Önceden haber verin, ek ücret almıyoruz.</li>
-          <li><strong>Nakit ve kredi kartı.</strong> İkisi de geçerli.</li>
-          <li><strong>Üç dil.</strong> Türkçe konuşuyoruz; İngilizce ve Almanca yazışıyoruz.</li>
-        </ul>
+      <p class="eyebrow" style="color:var(--taxi)">Neden bizi arıyorlar</p>
+      <h2>Bagajınız sığar, saatiniz uyar, fiyatınız bellidir</h2>
+      <p class="lead" style="margin-bottom:2.2rem">
+        Ayancık küçük bir ilçe. Burada işini kötü yapan esnafın adı yarın duyulur.
+        Biz de basit bir ilke ile çalışıyoruz: ne söylediysek onu yapmak.
+      </p>
+
+      <div class="grid grid--2-fixed">
+        {site.usp.map((u) => (
+          <div class="card" style="background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.13)">
+            <span class="icon-badge"><Icon name={u.icon} /></span>
+            <h3 style="color:#fff">{u.title}</h3>
+            <p style="color:#a9b4c2">{u.text}</p>
+          </div>
+        ))}
       </div>
+
+      <ul class="ticks" style="font-size:1.02rem;margin-top:2.2rem">
+        <li><strong>Baştan fiyat.</strong> Şehir dışı yolculuklarda fiyatı yola çıkmadan söyleriz, yolda değişmez.</li>
+        <li><strong>Gelemeyeceksek söyleriz.</strong> Yol kapalıysa veya başka yolculuktaysak sizi boşuna bekletmeyiz.</li>
+        <li><strong>Gece ücreti yok.</strong> Saat kaç olursa olsun aynı tarife.</li>
+        <li><strong>Büyük bagaj.</strong> Bagaj için ek ücret çıkmaz.</li>
+        <li><strong>Çocuk koltuğu hazır.</strong> Önceden haber verin, ek ücret almıyoruz.</li>
+        <li><strong>Yurt dışından da ulaşılır.</strong> Gurbetteki misafirlerimiz WhatsApp’tan yazıp transferini önceden planlıyor.</li>
+      </ul>
+
+      <div style="margin-top:2rem"><CallButtons size="lg" showNumber /></div>
     </div>
   </section>
 

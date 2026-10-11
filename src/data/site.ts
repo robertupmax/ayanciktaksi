@@ -78,16 +78,46 @@ export const site = {
 
   /* ---------- Filo / güven ---------- */
   fleet: {
-    vehicles: 'Klimalı, bakımlı ticari taksi',
+    vehicles: 'Klimalı, bakımlı, geniş bagajlı ticari taksi',
     capacity: 4,
-    luggage: 'Geniş bagaj — valiz, bebek arabası, alışveriş',
+    luggage: 'Büyük bagaj',
     features: [
+      'Büyük bagajlı araç',
+      'Esnek saat: sabah erken ve gece geç',
       'Ticari taşımacılık belgeli sürücü',
       'Çocuk/bebek koltuğu (önceden haber verin)',
       'Nakit ve kredi kartı',
       'Sigortalı araç',
     ],
   },
+
+  /* ---------- Öne çıkan satış noktaları (anasayfa ve hizmet sayfalarında) ---------- */
+  usp: [
+    {
+      icon: 'bag',
+      title: 'Büyük bagajlı araç',
+      text:
+        'Havalimanı, otogar ve köy yolculuklarında en çok takılınan nokta bagaj. Aracımız büyük bagajlıdır ve bagaj için ek ücret almıyoruz. Olağandışı ölçüde bir yükünüz varsa önceden söylemeniz yeterli.',
+    },
+    {
+      icon: 'clock',
+      title: 'Esnek çalışma saatleri',
+      text:
+        'Sabahın ilk saatinde havalimanına, gece yarısı varan otobüse göre çalışıyoruz. Erken ve geç saatlerde de aynı numara açık; gece için ek tarife uygulamıyoruz.',
+    },
+    {
+      icon: 'card',
+      title: 'Uygun ve belli fiyat',
+      text:
+        'Şehir içinde resmî taksimetre tarifesi, şehir dışında yola çıkmadan konuşulan sabit fiyat. Gidiş-dönüş alındığında belirgin şekilde daha hesaplı; gece ücreti, bagaj ücreti ve çocuk koltuğu ücreti yok.',
+    },
+    {
+      icon: 'shield',
+      title: 'Tanıdık ve güvenilir',
+      text:
+        'Ayancık’ta yaşayan, ilçede tanınan, ticari taşımacılık belgeli bir sürücüyle yolculuk yapıyorsunuz. Araç sigortalı, klimalı ve düzenli bakımlı.',
+    },
+  ],
 } as const;
 
 /* ---------- Hazır WhatsApp mesajları ---------- */
@@ -105,8 +135,6 @@ export const waMessages = {
   cargo: 'Merhaba, paket/evrak gönderimi için bilgi almak istiyorum. Nereden-nereye: ',
   reservation:
     'Merhaba, rezervasyon yapmak istiyorum.\nTarih:\nSaat:\nAlış adresi:\nVarış yeri:\nKişi sayısı:',
-  en: 'Hello, I would like to book a taxi in Ayancık / Sinop. Date & time: ',
-  de: 'Hallo, ich möchte ein Taxi in Ayancık / Sinop buchen. Datum & Uhrzeit: ',
 } as const;
 
 export type SiteConfig = typeof site;

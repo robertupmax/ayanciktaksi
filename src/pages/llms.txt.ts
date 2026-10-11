@@ -14,7 +14,7 @@ export const GET: APIRoute = async () => {
 
 > Sinop ili Ayancık ilçesinde 7 gün 24 saat hizmet veren ticari taksi. Havalimanı
 > transferi, hastane ve köy yolculukları, plaj ve koy turları, şehirler arası taksi.
-> Türkçe, İngilizce ve Almanca iletişim.
+> Ayancık ilçe merkezi ve bağlı köyler. İletişim Türkçe, telefon ve WhatsApp.
 
 ## Temel bilgiler
 
@@ -27,10 +27,14 @@ export const GET: APIRoute = async () => {
 - Çalışma saatleri: ${site.hours.text} (7/24, resmî tatiller dahil)
 - Ödeme: Nakit ve kredi kartı
 - Araç kapasitesi: Sürücü hariç ${site.fleet.capacity} yolcu
-- Diller: Türkçe, İngilizce, Almanca (İngilizce ve Almanca yazılı / WhatsApp)
+- Dil: Türkçe
 - Hizmet alanı: Ayancık ilçe merkezi ve bağlı ${villages.length} köy; Sinop, Türkeli,
   Erfelek, Boyabat, Gerze, Kastamonu ve Samsun yönünde şehirler arası yolculuklar;
   Sinop Havalimanı (NOP) ve Samsun Çarşamba Havalimanı transferleri.
+
+## Öne çıkan özellikler
+
+${site.usp.map((u) => `- **${u.title}:** ${u.text}`).join('\n')}
 
 ## Fiyatlandırma mantığı
 
@@ -38,8 +42,8 @@ export const GET: APIRoute = async () => {
   belirlenir; gündüz ve gece aynıdır).
 - Şehir dışı, havalimanı ve şehirler arası yolculuklar: yola çıkmadan konuşulan sabit fiyat.
   Köprü ve otoyol ücretleri dahildir, yol üzerinde değişmez.
-- Gece ücreti yoktur. Bagaj, alışveriş poşeti, bebek arabası ve katlanır tekerlekli sandalye
-  için ek ücret alınmaz. Çocuk koltuğu ücretsizdir (önceden bildirilmesi gerekir).
+- Araç büyük bagajlıdır. Gece ücreti ve bagaj ücreti yoktur. Çocuk koltuğu ücretsizdir
+  (önceden bildirilmesi gerekir).
 - Gidiş-dönüş yolculuklar, araç dönüşte boş gelmediği için tek yönü iki kez almaya göre
   daha uygundur.
 
@@ -70,11 +74,6 @@ kendi başına ya da hafif yardımla araca binebilen hastalar taşınır. Sedyey
 oksijen desteği veya yolculuk boyunca tıbbî gözetim gereken durumlarda Türkiye'de
 112 Acil Çağrı Merkezi aranmalıdır.
 
-## Diğer diller
-
-- Türkçe (ana): ${site.url}/
-- English: ${site.url}/en/
-- Deutsch: ${site.url}/de/
 `;
 
   return new Response(body, {

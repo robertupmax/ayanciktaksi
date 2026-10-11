@@ -10,6 +10,7 @@ export const faqGroups = [
   'Havalimanı ve uzun mesafe',
   'Köyler ve çevre',
   'Yolcu ve araç',
+  'Bagaj ve araç özellikleri',
 ] as const;
 
 export const faq: FaqItem[] = [
@@ -36,8 +37,8 @@ export const faq: FaqItem[] = [
   },
   {
     group: 'Taksi çağırma',
-    q: 'Türkçe bilmiyorum, iletişim kurabilir miyim?',
-    a: 'WhatsApp üzerinden İngilizce veya Almanca yazabilirsiniz; mesajınızı anlayıp yanıtlıyoruz. Yazılı iletişim telefonla konuşmaktan daha kolay oluyor. Konumunuzu, tarihi ve saati paylaşmanız yeterli.',
+    q: 'Yurt dışından arayabilir miyim?',
+    a: 'Arayabilirsiniz; numaramız yurt dışından +90 531 830 20 17 şeklinde çevrilir. Daha pratiği WhatsApp: arama ücreti ödemeden yazışır, tarih, saat ve adresi paylaşır, fiyatı yazılı olarak teyit edersiniz. Yurt dışından gelen misafirlerimizin havalimanı karşılamasını genelde böyle planlıyoruz.',
   },
 
   /* --- Fiyat ve ödeme --- */
@@ -63,8 +64,8 @@ export const faq: FaqItem[] = [
   },
   {
     group: 'Fiyat ve ödeme',
-    q: 'Bagaj veya poşet için ek ücret alıyor musunuz?',
-    a: 'Hayır. Valiz, alışveriş poşeti, bebek arabası ve katlanır tekerlekli sandalye için ek ücret almıyoruz. Çok büyük veya hacimli yükler için önceden haber vermeniz yeterli.',
+    q: 'Bagaj için ek ücret alıyor musunuz?',
+    a: 'Hayır, bagaj için ek ücret almıyoruz. Aracımız büyük bagajlıdır; olağandışı ölçüde bir yük varsa önceden haber vermeniz yeterli.',
   },
   {
     group: 'Fiyat ve ödeme',
@@ -129,11 +130,6 @@ export const faq: FaqItem[] = [
   },
   {
     group: 'Yolcu ve araç',
-    q: 'Tekerlekli sandalye kullanıyorum, yolculuk yapabilir miyim?',
-    a: 'Katlanabilir tekerlekli sandalyeyi bagaja alıyor, araca binip inmenizde yardımcı oluyoruz. Sandalyeden kalkamayan yolcular için rampalı, tekerlekli sandalyeye uygun araç gerekir; bu durumda arayın, sizi doğru yere yönlendirelim.',
-  },
-  {
-    group: 'Yolcu ve araç',
     q: 'Hasta nakli yapıyor musunuz?',
     a: 'Oturabilen, kendi başına veya hafif yardımla araca binebilen hastaları hastaneye götürüp getiriyoruz. Ancak biz bir ticari taksiyiz; ambulans değiliz. Sedyeyle taşıma, oksijen desteği veya yol boyunca tıbbî gözetim gereken durumlarda 112 Acil Çağrı Merkezi’ni aramanız gerekir.',
   },
@@ -147,6 +143,48 @@ export const faq: FaqItem[] = [
     q: 'Sürücünüz belgeli mi?',
     a: 'Evet. Ticari taşımacılık için gereken belgelere sahip, ilçede tanınan bir sürücüyle yolculuk yapıyorsunuz. Araç sigortalı, klimalı ve düzenli bakımlıdır.',
   },
+
+  /* --- Bagaj ve araç özellikleri --- */
+  {
+    group: 'Bagaj ve araç özellikleri',
+    q: 'Bagajım çok, sığar mı?',
+    a: 'Sığar. Aracımız büyük bagajlıdır ve bagaj için ek ücret almıyoruz. Olağandışı ölçüde bir yükünüz varsa önceden söyleyin, alıp alamayacağımızı telefonda net olarak belirtelim.',
+  },
+  {
+    group: 'Bagaj ve araç özellikleri',
+    q: 'Hacimli bir yük taşımam gerekiyor, alır mısınız?',
+    a: 'Aracımız büyük bagajlıdır, bagaja sığan her şeyi taşıyoruz. Olağandışı ölçüde bir yük varsa önceden haber verin; kabaca ölçüsünü söyleyin, alıp alamayacağımızı telefonda net olarak belirtelim. Alamıyorsak boşuna gelip sizi oyalamayız.'
+  },
+  {
+    group: 'Bagaj ve araç özellikleri',
+    q: 'Sabah çok erken veya gece çok geç saatte hizmet var mı?',
+    a: 'Var. Sabahın ilk saatindeki havalimanı transferleri ve gece yarısı Ayancık Otogarı’na varan otobüslerin karşılanması düzenli yaptığımız işlerden. Erken ve geç saatler için ek ücret uygulamıyoruz; tek isteğimiz, araç planlaması yapabilmek adına mümkünse önceden haber vermeniz.',
+  },
+  {
+    group: 'Bagaj ve araç özellikleri',
+    q: 'Ayancık’ta en uygun fiyatlı taksi hangisi?',
+    a: 'Şehir içinde fiyat farkı olmaz: taksimetre tarifesi belediye ve meslek odası tarafından belirlenir ve ilçedeki bütün taksilerde aynıdır. Fark şehir dışı yolculuklarda ortaya çıkar; orada sabit fiyat veriyor, gidiş-dönüşte belirgin indirim uyguluyor, gece ve bagaj için ek ücret almıyoruz. Güzergahınızı söyleyerek arayın, net tutarı telefonda öğrenin — karşılaştırmanız bizi rahatsız etmez.',
+  },
+  {
+    group: 'Bagaj ve araç özellikleri',
+    q: 'Otogardan karşılama yapıyor musunuz?',
+    a: 'Evet. Ayancık Otogarı’na varan otobüsler çoğunlukla gece yarısı veya sabaha karşı geliyor ve o saatte başka ulaşım olmuyor. Varış saatinizi önceden bildirin; otobüsünüz geciktiğinde de beklemeniz gerekmez, aracı yeni saate göre planlarız.',
+  },
 ];
 
-export const homeFaq = faq.slice(0, 8);
+/* Anasayfada gösterilecek sorular — sırayla, soru metnine göre seçilir.
+   Yeni soru eklediğinizde indeks kaymaz. */
+const homeQuestions = [
+  'Ayancık’ta 7/24 taksi var mı?',
+  'Taksi ne kadar sürede gelir?',
+  'Ayancık taksi ücreti ne kadar?',
+  'Bagajım çok, sığar mı?',
+  'Sabah çok erken veya gece çok geç saatte hizmet var mı?',
+  'Ayancık’tan Sinop Havalimanı’na kaç km ve kaç saat?',
+  'Ayancık köylerine taksi geliyor mu?',
+  'Otogardan karşılama yapıyor musunuz?',
+];
+
+export const homeFaq: FaqItem[] = homeQuestions
+  .map((q) => faq.find((f) => f.q === q))
+  .filter((f): f is FaqItem => Boolean(f));
