@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { services } from '../../data/services';
+import { site } from '../../data/site';
+import { breadcrumbSchema, offerCatalogSchema } from '../../lib/schema';
+
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hizmetler', href: '/hizmetler/' }];
+---
+<Base
+  title="Hizmetlerimiz | Ayancık Taksi — Havalimanı, Hastane, Köy, Plaj"
+  description="Ayancık Taksi hizmetleri: Sinop Havalimanı transferi, hastane, köy taksisi, plaj turları, şehirler arası ve öğrenci taksisi. 7/24."
+  path="/hizmetler/"
+  schema={[
+    breadcrumbSchema(crumbs),
+    offerCatalogSchema(services.map((s) => ({ name: s.title, url: `${site.url}/hizmetler/${s.slug}/`, description: s.short }))),
+  ]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Hizmetlerimiz</h1>
+      <p class="lead">
+        Ayancık ve çevresinde sekiz ayrı yolculuk türü için çalışıyoruz. Hepsi aynı
+        numaradan, 7 gün 24 saat.
+      </p>
+      <div style="margin-top:1.4rem"><CallButtons /></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2">
+        {services.map((s) => (
+          <a class="card" href={`/hizmetler/${s.slug}/`}>
+            <span class="icon-badge"><Icon name={s.icon} /></span>
+            <h2 style="font-size:1.22rem">{s.title}</h2>
+            <p>{s.short}</p>
+            <ul class="ticks fs-sm" style="margin-top:.9rem">
+              {s.highlights.slice(0, 3).map((h) => <li>{h}</li>)}
+            </ul>
+            <span class="card__more">Ayrıntılı bilgi</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

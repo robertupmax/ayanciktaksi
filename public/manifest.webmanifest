@@ -1,0 +1,22 @@
+{
+  "name": "Ayancık Taksi — Güven Taksi",
+  "short_name": "Ayancık Taksi",
+  "description": "Sinop Ayancık'ta 7/24 ticari taksi. Havalimanı transferi, hastane, köy ve plaj yolculukları.",
+  "lang": "tr",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#12151a",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Hemen Ara", "url": "/iletisim/" },
+    { "name": "Havalimanı Transferi", "url": "/hizmetler/sinop-havalimani-transfer/" },
+    { "name": "Güzergahlar", "url": "/guzergahlar/" }
+  ]
+}

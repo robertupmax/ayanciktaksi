@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import CallButtons from '../components/CallButtons.astro';
+import { services } from '../data/services';
+---
+<Base
+  title="Sayfa bulunamadı | Ayancık Taksi"
+  description="Aradığınız sayfa bulunamadı. Ayancık Taksi anasayfasına dönebilir veya 7/24 bizi arayabilirsiniz."
+  noindex
+>
+  <section class="section center">
+    <div class="wrap narrow">
+      <p class="eyebrow">404</p>
+      <h1>Bu sayfayı bulamadık</h1>
+      <p class="lead" style="margin-inline:auto">
+        Aradığınız sayfa taşınmış veya hiç var olmamış olabilir. Ama taksiye hâlâ
+        ihtiyacınız varsa numaramız yerinde duruyor.
+      </p>
+      <div style="margin-top:1.8rem;display:flex;justify-content:center"><CallButtons size="lg" /></div>
+      <div class="grid grid--3" style="margin-top:3rem;text-align:left">
+        {services.slice(0, 6).map((s) => (
+          <a class="card" href={`/hizmetler/${s.slug}/`}><h3 style="font-size:1.02rem">{s.title}</h3><span class="card__more">Gör</span></a>
+        ))}
+      </div>
+      <p class="mt-3"><a href="/">← Anasayfaya dön</a></p>
+    </div>
+  </section>
+</Base>

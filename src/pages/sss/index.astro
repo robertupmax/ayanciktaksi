@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { faq, faqGroups } from '../../data/faq';
+import { breadcrumbSchema, faqSchema } from '../../lib/schema';
+
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Sık Sorulan Sorular', href: '/sss/' }];
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9ğüşıöç ]/gi, '').replace(/\s+/g, '-')
+  .replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c');
+---
+<Base
+  title="Sık Sorulan Sorular | Ayancık Taksi"
+  description="Ayancık Taksi hakkında en çok sorulan 25 soru ve net cevapları: taksi çağırma, ücretler, havalimanı transferi, köy yolculukları, araç ve yolcu bilgileri."
+  path="/sss/"
+  schema={[breadcrumbSchema(crumbs), faqSchema(faq)]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Sık sorulan sorular</h1>
+      <p class="lead">
+        Telefonda en çok sorulan {faq.length} soruyu ve cevaplarını buraya topladık. Aradığınızı
+        bulamazsanız aramaktan çekinmeyin.
+      </p>
+      <ul class="pills" style="margin-top:1.2rem">
+        {faqGroups.map((g) => <li><a class="pill" href={`#${slug(g)}`}>{g}</a></li>)}
+      </ul>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap narrow">
+      {faqGroups.map((g) => {
+        const items = faq.filter((f) => f.group === g);
+        return (
+          <section id={slug(g)} style="scroll-margin-top:90px;margin-bottom:3rem">
+            <h2>{g}</h2>
+            <div style="margin-top:1.2rem"><Faq items={items} /></div>
+          </section>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="section section--ink center">
+    <div class="wrap narrow">
+      <h2>Cevabı bulamadınız mı?</h2>
+      <p class="lead" style="margin-inline:auto">
+        Arayın, sorun. Fiyat sormaktan çekinmeyin — en çok sorulan soru zaten o.
+      </p>
+      <div style="margin-top:1.8rem;display:flex;justify-content:center"><CallButtons size="lg" /></div>
+    </div>
+  </section>
+</Base>

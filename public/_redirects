@@ -1,0 +1,7 @@
+# www -> apex Cloudflare tarafında yapılandırılır; aşağıdakiler eski/yanlış yolların kurtarılması içindir.
+/hizmetler/havalimani-transfer/   /hizmetler/sinop-havalimani-transfer/   301
+/airport-transfer/                /en/sinop-airport-transfer/             301
+/english/                         /en/                                     301
+/deutsch/                         /de/                                     301
+/iletisim.html                    /iletisim/                               301
+/index.html                       /                                        301

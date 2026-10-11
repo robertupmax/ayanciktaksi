@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getPosts, fmtDate } from '../../lib/posts';
+import { site } from '../../data/site';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const posts = await getPosts();
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Blog', href: '/blog/' }];
+const tags = [...new Set(posts.map((p) => p.data.tag))];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Ayancık Taksi — Yol ve Gezi Rehberleri',
+  url: `${site.url}/blog/`,
+  inLanguage: 'tr',
+  blogPost: posts.map((p) => ({
+    '@type': 'BlogPosting',
+    headline: p.data.title,
+    url: `${site.url}/blog/${p.id}/`,
+    datePublished: p.data.date.toISOString(),
+    description: p.data.description,
+  })),
+};
+---
+<Base
+  title="Ayancık ve Sinop Rehberleri | Ayancık Taksi Blog"
+  description="Ayancık ve Sinop için yol, gezi ve ulaşım rehberleri: havalimanı ulaşımı, gezilecek yerler, plajlar, köy ulaşımı, hastane yolculuğu planlama ve taksi ücretleri."
+  path="/blog/"
+  schema={[breadcrumbSchema(crumbs), schema]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Ayancık ve Sinop rehberleri</h1>
+      <p class="lead">
+        Yolları her gün kullanan birinin bakışıyla yazılmış {posts.length} rehber: mesafeler,
+        süreler, mevsim şartları ve pratik ipuçları.
+      </p>
+      <ul class="pills" style="margin-top:1.2rem">
+        {tags.map((t) => <li><span class="pill">{t}</span></li>)}
+      </ul>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2">
+        {posts.map((p) => (
+          <a class="card" href={`/blog/${p.id}/`}>
+            <p class="post-card__tag">{p.data.tag} · {fmtDate(p.data.date)}</p>
+            <h2 style="font-size:1.25rem">{p.data.title}</h2>
+            <p>{p.data.description}</p>
+            <span class="card__more">Yazıyı oku</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink center">
+    <div class="wrap narrow">
+      <h2>Sorunuz mu var?</h2>
+      <p class="lead" style="margin-inline:auto">Yazıda bulamadığınız bir şeyi sormak için arayın ya da WhatsApp’tan yazın.</p>
+      <div style="margin-top:1.8rem;display:flex;justify-content:center"><CallButtons size="lg" /></div>
+    </div>
+  </section>
+</Base>

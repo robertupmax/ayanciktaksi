@@ -1,0 +1,299 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Faq from '../components/Faq.astro';
+import CallButtons from '../components/CallButtons.astro';
+import { site, waMessages } from '../data/site';
+import { services } from '../data/services';
+import { popularRoutes, fmtDuration } from '../data/routes';
+import { places } from '../data/places';
+import { homeFaq } from '../data/faq';
+import { villages } from '../data/villages';
+import { faqSchema, offerCatalogSchema } from '../lib/schema';
+import { getPosts } from '../lib/posts';
+
+const posts = (await getPosts()).slice(0, 3);
+
+const schema = [
+  offerCatalogSchema(
+    services.map((s) => ({ name: s.title, url: `${site.url}/hizmetler/${s.slug}/`, description: s.short }))
+  ),
+  faqSchema(homeFaq),
+];
+
+const segments = [
+  {
+    icon: 'beach',
+    title: 'Yazın gelen misafirler',
+    text: 'Yurt içinden ve yurt dışından ilçeye gelen misafirler için havalimanı karşılama, köy evine bırakma, plaj ve koy turları. Aracınız olmasa da tatiliniz aksamaz.',
+  },
+  {
+    icon: 'student',
+    title: 'Kışın öğrenciler',
+    text: 'Ayancık Meslek Yüksekokulu ve lise öğrencileri için okul, yurt ve otogar yolculukları. Paylaşımlı yolculuk ve dönem boyu sabit anlaşmalı fiyat.',
+  },
+  {
+    icon: 'village',
+    title: 'Köylerimizin yaşlıları',
+    text: 'Hastane, banka, pazar ve alışveriş için köyden merkeze gelip gitme. Acele ettirmeyen, inip binmede yardım eden, poşetleri kapıya taşıyan hizmet.',
+  },
+  {
+    icon: 'hospital',
+    title: 'Sağlık yolculukları',
+    text: 'Ayancık Devlet Hastanesi, Sinop Atatürk Devlet Hastanesi ve Samsun’daki hastaneler. Randevu saatine göre planlama, bekleme veya dönüş için aynı araç.',
+  },
+];
+
+const steps = [
+  { n: '1', t: 'Arayın veya yazın', d: 'Telefonla arayın ya da WhatsApp’tan konumunuzu gönderin. Adres tarif etmekle uğraşmanıza gerek yok.' },
+  { n: '2', t: 'Fiyatı baştan öğrenin', d: 'Şehir dışı ve havalimanı yolculuklarında fiyatı yola çıkmadan söyler, WhatsApp’tan yazılı teyit ederiz.' },
+  { n: '3', t: 'Kapınızdan yola çıkın', d: 'Aracı kapınıza çekeriz. Bagaj, poşet, bebek arabası ve katlanır tekerlekli sandalye için ek ücret yok.' },
+];
+---
+<Base
+  title="Ayancık Taksi 0531 830 20 17 | 7/24 Taksi — Sinop Ayancık"
+  description="Sinop Ayancık’ta 7/24 taksi. Havalimanı transferi, hastane ve köy yolculukları, plaj turları, şehirler arası taksi. Hemen arayın."
+  path="/"
+  alternates={[{ lang: 'tr', path: '/' }, { lang: 'en', path: '/en/' }, { lang: 'de', path: '/de/' }]}
+  schema={schema}
+>
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="hero__badges">
+          <span class="hero__badge"><Icon name="clock" /> Gece gündüz, 7 gün 24 saat</span>
+          <span class="hero__badge"><Icon name="pin" /> Ayancık ve 60+ köy</span>
+          <span class="hero__badge"><Icon name="shield" /> Ticari taşımacılık belgeli</span>
+        </p>
+
+        <h1>Ayancık’ta taksi: bir telefon kadar yakın</h1>
+        <p class="hero__sub">
+          Sinop’un Ayancık ilçesinde ve çevre köylerinde 7/24 ticari taksi hizmeti.
+          Havalimanı transferi, hastane yolculukları, plaj turları ve şehirler arası
+          yolculuklarda sabit fiyat — yola çıkmadan ne ödeyeceğinizi bilirsiniz.
+        </p>
+
+        <a class="hero__phone" href={site.phone.href} aria-label={`Telefonla ara: ${site.phone.display}`}>
+          <Icon name="phone" /> {site.phone.display}
+        </a>
+        <div style="margin-top:1.3rem">
+          <CallButtons size="lg" waMessage={waMessages.location} showNumber={false} />
+        </div>
+        <p class="fs-sm" style="margin-top:1rem;color:#8f9bab">
+          WhatsApp’tan canlı konum göndermek en hızlı yol. İngilizce ve Almanca yazabilirsiniz.
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <h2>Kısa bilgi</h2>
+        <dl>
+          <div><dt>Çalışma saatleri</dt><dd>{site.hours.text}</dd></div>
+          <div><dt>Ayancık → Sinop</dt><dd>55 km · ~1 sa</dd></div>
+          <div><dt>Ayancık → Havalimanı</dt><dd>60 km · ~1 sa 5 dk</dd></div>
+          <div><dt>Hizmet alanı</dt><dd>Ayancık + {villages.length} köy</dd></div>
+          <div><dt>Ödeme</dt><dd>Nakit · Kredi kartı</dd></div>
+          <div><dt>Diller</dt><dd>Türkçe · English · Deutsch</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ========== HİZMETLER ========== -->
+  <section class="section" id="hizmetler">
+    <div class="wrap">
+      <p class="eyebrow">Hizmetlerimiz</p>
+      <h2>Ayancık’ta hangi yolculuk olursa olsun</h2>
+      <p class="lead" style="margin-bottom:2rem">
+        Kısa bir market dönüşünden İstanbul’a kadar uzanan yolculuklara; köy yollarından
+        havalimanı transferine kadar hepsini aynı numaradan planlıyoruz.
+      </p>
+
+      <div class="grid grid--3">
+        {services.map((s) => (
+          <a class="card" href={`/hizmetler/${s.slug}/`}>
+            <span class="icon-badge"><Icon name={s.icon} /></span>
+            <h3>{s.title}</h3>
+            <p>{s.short}</p>
+            <span class="card__more">Ayrıntılar</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NASIL ÇALIŞIR ========== -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <p class="eyebrow">Nasıl çalışıyor</p>
+      <h2>Üç adımda yolculuk</h2>
+      <div class="grid grid--3" style="margin-top:1.8rem">
+        {steps.map((s) => (
+          <div class="card">
+            <span class="icon-badge" style="font-weight:800;font-size:1.25rem">{s.n}</span>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GÜZERGAHLAR ========== -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Mesafe ve süre</p>
+      <h2>Ayancık’tan en çok gidilen yerler</h2>
+      <p class="lead" style="margin-bottom:1.8rem">
+        Aşağıdaki süreler normal hava ve trafik koşullarındaki yaklaşık değerlerdir.
+        Kış şartlarında ve yoğun yaz trafiğinde uzayabilir.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Mesafeler karayolu üzerinden yaklaşık değerlerdir. Kesin fiyat için arayın.</caption>
+          <thead>
+            <tr><th scope="col">Güzergah</th><th scope="col" class="num">Mesafe</th><th scope="col" class="num">Süre</th><th scope="col"></th></tr>
+          </thead>
+          <tbody>
+            {popularRoutes.map((r) => (
+              <tr>
+                <th scope="row" style="font-weight:640">{r.from} → {r.to}</th>
+                <td class="num tabnum">{r.km} km</td>
+                <td class="num tabnum nowrap">{fmtDuration(r.minutes)}</td>
+                <td><a href={`/guzergahlar/${r.slug}/`}>Ayrıntı</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1.3rem"><a class="btn btn--ghost" href="/guzergahlar/">Tüm güzergahları gör <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <!-- ========== KİMLERE HİZMET ========== -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <p class="eyebrow">Kimlerle yol arkadaşıyız</p>
+      <h2>Ayancık’ın dört mevsimi, dört farklı yolcu</h2>
+      <div class="grid grid--2" style="margin-top:1.8rem">
+        {segments.map((s) => (
+          <div class="card">
+            <span class="icon-badge"><Icon name={s.icon} /></span>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEDEN BİZ ========== -->
+  <section class="section section--ink">
+    <div class="wrap">
+      <div class="grid grid--2" style="align-items:center">
+        <div>
+          <p class="eyebrow" style="color:var(--taxi)">Neden bizi arıyorlar</p>
+          <h2>Dürüst fiyat, tanıdık sürücü, açık telefon</h2>
+          <p class="lead">
+            Ayancık küçük bir ilçe. Burada işini kötü yapan esnafın adı yarın duyulur.
+            Biz de bu yüzden basit bir ilke ile çalışıyoruz: ne söylediyse onu yapmak.
+          </p>
+          <div style="margin-top:1.6rem"><CallButtons size="lg" showNumber /></div>
+        </div>
+        <ul class="ticks" style="font-size:1.02rem">
+          <li><strong>Baştan fiyat.</strong> Şehir dışı yolculuklarda fiyatı yola çıkmadan söyleriz, yolda değişmez.</li>
+          <li><strong>Gelemeyeceksek söyleriz.</strong> Yol kapalıysa veya başka yolculuktaysak sizi boşuna bekletmeyiz.</li>
+          <li><strong>Gece ücreti yok.</strong> Saat kaç olursa olsun aynı tarife.</li>
+          <li><strong>Bagaj ücretsiz.</strong> Valiz, poşet, bebek arabası, katlanır tekerlekli sandalye.</li>
+          <li><strong>Çocuk koltuğu hazır.</strong> Önceden haber verin, ek ücret almıyoruz.</li>
+          <li><strong>Nakit ve kredi kartı.</strong> İkisi de geçerli.</li>
+          <li><strong>Üç dil.</strong> Türkçe konuşuyoruz; İngilizce ve Almanca yazışıyoruz.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GEZİLECEK YERLER ========== -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Çevre gezileri</p>
+      <h2>Ayancık ve çevresinde gidilecek yerler</h2>
+      <p class="lead" style="margin-bottom:2rem">
+        Akgöl’den Tatlıca Şelaleleri’ne, Hamsilos Koyu’ndan İnaltı Mağarası’na —
+        yolları biliyoruz, hangi saatte nerenin sakin olduğunu da.
+      </p>
+      <div class="grid grid--3">
+        {places.slice(0, 6).map((p) => (
+          <a class="card" href={`/gezilecek-yerler/#${p.slug}`}>
+            <p class="post-card__tag">{p.category} · {p.kmFromAyancik} km</p>
+            <h3>{p.name}</h3>
+            <p>{p.summary}</p>
+            <span class="card__more">Oku</span>
+          </a>
+        ))}
+      </div>
+      <p style="margin-top:1.6rem"><a class="btn btn--ghost" href="/gezilecek-yerler/">Gezi rehberi <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <!-- ========== SSS ========== -->
+  <section class="section section--alt" id="sss">
+    <div class="wrap narrow">
+      <p class="eyebrow">Sık sorulan sorular</p>
+      <h2>Merak edilenler</h2>
+      <div style="margin-top:1.6rem"><Faq items={homeFaq} open={0} /></div>
+      <p style="margin-top:1.4rem"><a class="btn btn--ghost" href="/sss/">25 sorunun tamamı <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <!-- ========== BLOG ========== -->
+  {posts.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Rehberler</p>
+        <h2>Ayancık ve Sinop için yol rehberleri</h2>
+        <div class="grid grid--3" style="margin-top:1.8rem">
+          {posts.map((p) => (
+            <a class="card" href={`/blog/${p.id}/`}>
+              <p class="post-card__tag">{p.data.tag}</p>
+              <h3>{p.data.title}</h3>
+              <p>{p.data.description}</p>
+              <span class="card__more">Oku</span>
+            </a>
+          ))}
+        </div>
+        <p style="margin-top:1.6rem"><a class="btn btn--ghost" href="/blog/">Tüm yazılar <Icon name="arrow" /></a></p>
+      </div>
+    </section>
+  )}
+
+  <!-- ========== HİZMET BÖLGESİ ========== -->
+  <section class="section section--tight section--alt">
+    <div class="wrap">
+      <h2>Hizmet verdiğimiz köyler</h2>
+      <p class="lead" style="margin-bottom:1.4rem">
+        Ayancık’a bağlı {villages.length} köyün tamamına gidiyoruz. Köyünüzün adını söyleyerek
+        arayın; yol durumunu ve süreyi hemen söyleriz.
+      </p>
+      <ul class="pills">
+        {villages.map((v) => <li><span class="pill">{v}</span></li>)}
+      </ul>
+      <p style="margin-top:1.4rem"><a href="/hizmet-bolgesi/">Hizmet bölgesi ayrıntıları →</a></p>
+    </div>
+  </section>
+
+  <!-- ========== SON CTA ========== -->
+  <section class="section section--ink center">
+    <div class="wrap narrow">
+      <h2>Şimdi bir taksiye mi ihtiyacınız var?</h2>
+      <p class="lead" style="margin-inline:auto">
+        Arayın ya da WhatsApp’tan konumunuzu gönderin. Gece yarısı da aynı numara,
+        aynı fiyat, aynı sürücü.
+      </p>
+      <div style="margin-top:1.8rem;display:flex;justify-content:center">
+        <CallButtons size="lg" waMessage={waMessages.location} showNumber />
+      </div>
+    </div>
+  </section>
+</Base>

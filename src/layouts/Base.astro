@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CallBar from '../components/CallBar.astro';
+import { businessSchema, websiteSchema } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  lang?: 'tr' | 'en' | 'de';
+  alternates?: { lang: string; path: string }[];
+  schema?: unknown[];
+  noindex?: boolean;
+  ogType?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  waMessage?: string;
+  /** Her sayfada işletme + website şeması tekrarlanır (yerel SEO için istenen davranış) */
+  includeBusiness?: boolean;
+}
+const {
+  title, description, path, lang = 'tr', alternates = [], schema = [],
+  noindex, ogType, publishedTime, modifiedTime, waMessage, includeBusiness = true,
+} = Astro.props;
+
+const allSchema = includeBusiness
+  ? [businessSchema(), websiteSchema(lang), ...schema]
+  : schema;
+const skip = lang === 'tr' ? 'İçeriğe geç' : lang === 'de' ? 'Zum Inhalt' : 'Skip to content';
+---
+<!doctype html>
+<html lang={lang} prefix="og: https://ogp.me/ns#">
+  <head>
+    <Seo
+      title={title} description={description} path={path} lang={lang}
+      alternates={alternates} schema={allSchema} noindex={noindex}
+      ogType={ogType} publishedTime={publishedTime} modifiedTime={modifiedTime}
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{skip}</a>
+    <Header lang={lang} />
+    <main id="main"><slot /></main>
+    <Footer />
+    <CallBar lang={lang} waMessage={waMessage} />
+  </body>
+</html>

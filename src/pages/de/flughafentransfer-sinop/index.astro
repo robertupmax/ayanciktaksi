@@ -1,0 +1,145 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import Faq from '../../../components/Faq.astro';
+import CallButtons from '../../../components/CallButtons.astro';
+import { site } from '../../../data/site';
+import { faqSchema, serviceSchema, breadcrumbSchema } from '../../../lib/schema';
+
+const crumbs = [{ name: 'Start', href: '/de/' }, { name: 'Flughafentransfer Sinop', href: '/de/flughafentransfer-sinop/' }];
+const wa = 'Hallo, ich möchte einen Transfer zwischen Ayancık und dem Flughafen Sinop buchen. Flugnummer, Datum und Uhrzeit: ';
+const faq = [
+  { q: 'Wie weit ist der Flughafen Sinop von Ayancık?', a: 'Etwa 60 km auf der Straße und rund 1 Stunde 5 Minuten. Ayancık liegt 55 km vom Stadtzentrum von Sinop entfernt, der Flughafen unmittelbar daneben.' },
+  { q: 'Gibt es einen Bus vom Flughafen Sinop nach Ayancık?', a: 'Nein. Es gibt keine direkte öffentliche Verbindung. Sie müssten zuerst ins Zentrum von Sinop und dort einen Minibus finden — diese fahren nicht nach Flugzeiten und nachts überhaupt nicht.' },
+  { q: 'Wann sollte ich losfahren?', a: 'Starten Sie etwa 3 Stunden vor Abflug aus Ayancık: 1 Stunde 5 Minuten Fahrt, 1,5 Stunden am Terminal und 30 Minuten Puffer. Im Winter planen Sie 3,5 Stunden ein — die Küstenstraße ist kurvig, Nebel und Regen sind häufig.' },
+  { q: 'Was passiert, wenn mein Flug Verspätung hat?', a: 'Wir verfolgen die Ankünfte. Bei Verspätung planen wir die Abholung auf die neue Landezeit um und berechnen keine Wartezeit.' },
+  { q: 'Werden wir am Terminal abgeholt?', a: 'Ja. Senden Sie uns Flugnummer und Ankunftszeit; wir warten, wenn Sie mit dem Gepäck herauskommen.' },
+  { q: 'Fahren Sie auch zum Flughafen Samsun Çarşamba?', a: 'Ja. Etwa 250 km und 3,5 Stunden von Ayancık. Samsun hat deutlich bessere internationale Verbindungen; dieser Transfer muss vorab gebucht werden.' },
+  { q: 'Ist der Preis fest?', a: 'Ja. Wir vereinbaren vor der Fahrt einen Festpreis, der sich unterwegs nicht ändert. Brücken- und Autobahngebühren sind enthalten. Es gibt keinen Nachtzuschlag und keine Gepäckgebühr.' },
+  { q: 'Haben Sie Kindersitze?', a: 'Ja, kostenlos. Nennen Sie uns bei der Buchung das Alter des Kindes, damit der passende Sitz bereitsteht.' },
+];
+---
+<Base
+  lang="de"
+  title="Flughafentransfer Sinop ab Ayancık | Festpreis, 24/7 Taxi"
+  description="Taxitransfer zwischen Ayancık und dem Flughafen Sinop (NOP): ca. 60 km, 1 Std. 5 Min. Festpreis, Flugverfolgung, kostenloses Warten bei Verspätung, auch Nachtflüge."
+  path="/de/flughafentransfer-sinop/"
+  alternates={[{ lang: 'tr', path: '/hizmetler/sinop-havalimani-transfer/' }, { lang: 'en', path: '/en/sinop-airport-transfer/' }, { lang: 'de', path: '/de/flughafentransfer-sinop/' }]}
+  waMessage={wa}
+  schema={[
+    breadcrumbSchema(crumbs),
+    serviceSchema({ name: 'Flughafentransfer Sinop ab Ayancık', description: 'Festpreis-Taxitransfer zwischen Ayancık und dem Flughafen Sinop (NOP), 60 km, rund 1 Stunde 5 Minuten, 24/7 mit Flugverfolgung.', url: `${site.url}/de/flughafentransfer-sinop/` }),
+    faqSchema(faq),
+  ]}
+>
+  <div class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" style="padding-left:0"><ol><li><a href="/de/">Start</a></li><li><span aria-current="page">Flughafentransfer Sinop</span></li></ol></nav>
+      <span class="icon-badge"><Icon name="plane" /></span>
+      <h1>Ayancık ⇄ Flughafen Sinop: Taxitransfer</h1>
+      <p class="lead">
+        Rund 60 km und 1 Stunde 5 Minuten. Festpreis vor der Fahrt, Flugverfolgung bei
+        Ankünften und kein Zuschlag, wenn Ihr Flug Verspätung hat.
+      </p>
+      <div style="margin-top:1.4rem"><CallButtons lang="de" size="lg" waMessage={wa} /></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--4" style="margin-bottom:2.4rem">
+        <div class="card center"><h2 style="font-size:1.6rem;margin-bottom:.1rem">60 km</h2><p class="fs-sm">Straßenentfernung</p></div>
+        <div class="card center"><h2 style="font-size:1.6rem;margin-bottom:.1rem">~1 Std. 5</h2><p class="fs-sm">Fahrzeit</p></div>
+        <div class="card center"><h2 style="font-size:1.6rem;margin-bottom:.1rem">NOP</h2><p class="fs-sm">Flughafencode Sinop</p></div>
+        <div class="card center"><h2 style="font-size:1.6rem;margin-bottom:.1rem">24/7</h2><p class="fs-sm">Auch Nachtflüge</p></div>
+      </div>
+
+      <div class="grid grid--2" style="align-items:start;gap:clamp(1.6rem,4vw,3.4rem)">
+        <div class="prose">
+          <h2>Warum ein vorab gebuchter Transfer</h2>
+          <p>
+            Zwischen dem Flughafen Sinop und Ayancık gibt es keine öffentliche Verbindung.
+            Ohne Transfer müssten Sie zuerst ins Zentrum von Sinop und dort einen Minibus
+            finden — und die fahren nicht nach Flugzeiten, sind mit Gepäck unbequem und
+            nachts gar nicht unterwegs.
+          </p>
+          <p>
+            Der zweite Grund ist die Straße selbst. Alle 60 km führen über eine kurvige
+            Küstenstraße, nicht über eine Autobahn. Im Winter kommen Nebel, Regen und
+            Eis in den höheren Abschnitten hinzu, im Sommer der Urlaubsverkehr.
+          </p>
+
+          <h2>Abfahrtszeit berechnen</h2>
+          <p>Rechnen Sie von Ihrem Flug zurück:</p>
+          <table>
+            <thead><tr><th>Schritt</th><th class="num">Zeit</th></tr></thead>
+            <tbody>
+              <tr><td>Abflug</td><td class="num">Referenz</td></tr>
+              <tr><td>Am Terminal sein</td><td class="num">1 Std. 30 vorher</td></tr>
+              <tr><td>Fahrt ab Ayancık</td><td class="num">1 Std. 05</td></tr>
+              <tr><td>Puffer (Verkehr, Wetter)</td><td class="num">30 Min.</td></tr>
+              <tr><td><strong>Abfahrt aus Ayancık</strong></td><td class="num"><strong>ca. 3 Std. 05 vorher</strong></td></tr>
+            </tbody>
+          </table>
+          <p>
+            Für einen Abflug um 10:40 würden wir also gegen 07:35 aus Ayancık losfahren.
+            Zwischen Dezember und März rechnen wir weitere 30 Minuten dazu.
+          </p>
+
+          <h2>Ankünfte</h2>
+          <p>
+            Senden Sie uns Flugnummer und Ankunftszeit. Wir verfolgen den Flug; bei
+            Verspätung verschieben wir einfach die Abholung — ohne Wartegebühr. Das
+            Fahrzeug steht vor dem Terminal, wenn Sie mit dem Gepäck herauskommen.
+          </p>
+
+          <h2>Alternative Flughäfen</h2>
+          <ul class="ticks">
+            <li><strong>Flughafen Samsun Çarşamba</strong> — etwa 250 km, 3,5 Stunden. Deutlich bessere internationale Verbindungen; die meisten Gäste aus dem Ausland fliegen dorthin.</li>
+            <li><strong>Flughafen Kastamonu</strong> — etwa 170 km über die Çangal-Straße. Wenige Flüge, aber gelegentlich nützlich.</li>
+          </ul>
+          <p>Beide sind lange Strecken und müssen vorab gebucht werden.</p>
+
+          <div class="callout">
+            <p class="mb-0">
+              <strong>Buchung.</strong> Senden Sie Flugnummer, Datum und Uhrzeit, Abhol- oder
+              Zieladresse und die Personenzahl. Wir bestätigen den Festpreis schriftlich per
+              WhatsApp, damit Sie ihn vor der Reise haben. Sie können auf Deutsch schreiben.
+            </p>
+          </div>
+        </div>
+
+        <aside class="stack" style="position:sticky;top:90px">
+          <div class="card">
+            <h2 style="font-size:1.1rem">Transfer buchen</h2>
+            <p style="margin-bottom:1rem">
+              <a href={site.phone.href} style="font-size:1.35rem;font-weight:800;text-decoration:none">{site.phone.displayIntl}</a><br />
+              <span class="fs-sm muted">Täglich 24 Stunden</span>
+            </p>
+            <CallButtons lang="de" showNumber={false} waMessage={wa} />
+          </div>
+          <div class="card">
+            <h2 style="font-size:1.1rem">Inklusive</h2>
+            <ul class="ticks fs-sm mb-0">
+              <li>Festpreis, vorab vereinbart</li>
+              <li>Brücken- und Autobahngebühren</li>
+              <li>Flugverfolgung bei Ankünften</li>
+              <li>Kostenloses Warten bei Verspätung</li>
+              <li>Kindersitz auf Anfrage</li>
+              <li>Gepäck ohne Zuschlag</li>
+              <li>Kein Nachtzuschlag</li>
+              <li>Bargeld oder Kreditkarte</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap narrow">
+      <h2>Häufige Fragen</h2>
+      <div style="margin-top:1.4rem"><Faq items={faq} open={0} /></div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../data/site';
+import { breadcrumbSchema } from '../../lib/schema';
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Gizlilik Politikası', href: '/gizlilik/' }];
+---
+<Base
+  title="Gizlilik Politikası | Ayancık Taksi"
+  description="Ayancık Taksi gizlilik politikası ve kişisel verilerin korunmasına ilişkin bilgilendirme."
+  path="/gizlilik/"
+  schema={[breadcrumbSchema(crumbs)]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head"><div class="wrap"><h1>Gizlilik politikası</h1></div></div>
+  <section class="section">
+    <div class="wrap narrow prose">
+      <h2>Topladığımız veriler</h2>
+      <p>
+        Bu web sitesi iletişim formu içermez ve ziyaretçilerden doğrudan kişisel veri
+        toplamaz. Site tamamen statik olarak yayınlanmaktadır; çerez (cookie) kullanılmaz
+        ve ziyaretçi takibi yapılmaz.
+      </p>
+      <p>
+        Siteyi barındıran altyapı sağlayıcısı, teknik gereklilikler ve güvenlik amacıyla
+        anonim erişim kayıtları (IP adresi, tarayıcı türü, erişim zamanı) tutabilir. Bu
+        kayıtlara tarafımızca kişi bazında erişilmez.
+      </p>
+
+      <h2>Telefon ve WhatsApp üzerinden iletilen bilgiler</h2>
+      <p>
+        Bizi aradığınızda veya WhatsApp üzerinden yazdığınızda paylaştığınız bilgiler
+        (ad, telefon numarası, adres, yolculuk tarihi, uçuş bilgisi) yalnızca talep ettiğiniz
+        taksi hizmetinin yerine getirilmesi amacıyla kullanılır. Bu bilgiler üçüncü
+        kişilerle paylaşılmaz, pazarlama amacıyla kullanılmaz ve hizmet tamamlandıktan sonra
+        saklanması gerekmeyen veriler silinir.
+      </p>
+      <p>
+        WhatsApp üzerinden yapılan yazışmalar, WhatsApp’ın kendi gizlilik politikası ve
+        altyapısı kapsamındadır.
+      </p>
+
+      <h2>Harita ve dış bağlantılar</h2>
+      <p>
+        İletişim sayfasında Google Haritalar’a ait bir gömülü harita bulunur. Bu haritayı
+        görüntülediğinizde Google, kendi politikaları kapsamında veri toplayabilir. Harita
+        yalnızca sayfayı görüntülediğinizde ve gecikmeli (lazy) olarak yüklenir.
+      </p>
+
+      <h2>Haklarınız</h2>
+      <p>
+        6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında, tarafımızca işlenen
+        kişisel verilerinize ilişkin bilgi talep etme, düzeltilmesini veya silinmesini
+        isteme hakkına sahipsiniz. Bu talepler için <a href={site.phone.href}>{site.phone.display}</a>
+        numarasından bize ulaşabilirsiniz.
+      </p>
+
+      <h2>Değişiklikler</h2>
+      <p>
+        Bu politika gerektiğinde güncellenebilir. Güncel sürüm her zaman bu sayfada yayınlanır.
+      </p>
+      <p class="muted fs-sm">Son güncelleme: Ekim 2026</p>
+    </div>
+  </section>
+</Base>

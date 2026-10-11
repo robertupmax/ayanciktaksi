@@ -1,0 +1,19 @@
+---
+import { site, waMessages } from '../data/site';
+import Icon from './Icon.astro';
+interface Props {
+  waMessage?: string; lang?: 'tr' | 'en' | 'de'; size?: 'md' | 'lg'; showNumber?: boolean;
+}
+const { waMessage, lang = 'tr', size = 'md', showNumber = true } = Astro.props;
+const msg = waMessage ?? (lang === 'en' ? waMessages.en : lang === 'de' ? waMessages.de : waMessages.general);
+const lg = size === 'lg' ? ' btn--lg' : '';
+const t = {
+  tr: { call: showNumber ? site.phone.display : 'Hemen Ara', wa: 'WhatsApp’tan Yaz' },
+  en: { call: showNumber ? site.phone.displayIntl : 'Call Now', wa: 'Message on WhatsApp' },
+  de: { call: showNumber ? site.phone.displayIntl : 'Anrufen', wa: 'WhatsApp schreiben' },
+}[lang];
+---
+<div class="btn-row">
+  <a class={`btn btn--call${lg}`} href={site.phone.href}><Icon name="phone" /> {t.call}</a>
+  <a class={`btn btn--wa${lg}`} href={site.whatsapp.href(msg)} target="_blank" rel="noopener"><Icon name="whatsapp" /> {t.wa}</a>
+</div>

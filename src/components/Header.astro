@@ -1,0 +1,86 @@
+---
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+
+interface Props { lang?: 'tr' | 'en' | 'de' }
+const { lang = 'tr' } = Astro.props;
+const here = Astro.url.pathname;
+
+const navs = {
+  tr: [
+    { href: '/hizmetler/', label: 'Hizmetler' },
+    { href: '/guzergahlar/', label: 'Güzergahlar' },
+    { href: '/gezilecek-yerler/', label: 'Gezi Rehberi' },
+    { href: '/blog/', label: 'Blog' },
+    { href: '/sss/', label: 'S.S.S.' },
+    { href: '/hakkimizda/', label: 'Hakkımızda' },
+    { href: '/iletisim/', label: 'İletişim' },
+  ],
+  en: [
+    { href: '/en/', label: 'Home' },
+    { href: '/en/sinop-airport-transfer/', label: 'Airport Transfer' },
+    { href: '/en/#services', label: 'Services' },
+    { href: '/en/#faq', label: 'FAQ' },
+  ],
+  de: [
+    { href: '/de/', label: 'Start' },
+    { href: '/de/flughafentransfer-sinop/', label: 'Flughafentransfer' },
+    { href: '/de/#leistungen', label: 'Leistungen' },
+    { href: '/de/#faq', label: 'FAQ' },
+  ],
+};
+const nav = navs[lang];
+---
+<header class="site-header" data-open="false" id="siteHeader">
+  <div class="wrap site-header__in">
+    <a class="logo" href={lang === 'tr' ? '/' : `/${lang}/`} aria-label={`${site.brand} — ${lang === 'tr' ? 'anasayfa' : 'home'}`}>
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" rx="11" fill="#12151a" />
+        <path d="M9 30h30v5a2 2 0 0 1-2 2h-2.2a3.4 3.4 0 0 1-6.6 0h-8.4a3.4 3.4 0 0 1-6.6 0H11a2 2 0 0 1-2-2v-5z" fill="#ffb800"/>
+        <path d="M11.5 29.5 15 21a3 3 0 0 1 2.8-2h12.4a3 3 0 0 1 2.8 2l3.5 8.5h-25z" fill="#fff"/>
+        <rect x="18" y="9" width="12" height="5.5" rx="1.6" fill="#ffb800"/>
+        <path d="M18 11.8h12M22 9v5.5M26 9v5.5" stroke="#12151a" stroke-width="1.1"/>
+      </svg>
+      <span>{site.brand}<small>{lang === 'tr' ? 'Ayancık · Sinop · 7/24' : 'Ayancık · Sinop · 24/7'}</small></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNav" id="navToggle">
+      <Icon name="menu" /> <span>Menü</span>
+    </button>
+
+    <nav class="nav" id="primaryNav" aria-label={lang === 'tr' ? 'Ana menü' : 'Main menu'}>
+      {nav.map((n) => (
+        <a href={n.href} aria-current={here === n.href ? 'page' : undefined}>{n.label}</a>
+      ))}
+      <span class="langs">
+        <a href="/" aria-current={lang === 'tr' ? 'true' : undefined} hreflang="tr" title="Türkçe">TR</a>
+        <a href="/en/" aria-current={lang === 'en' ? 'true' : undefined} hreflang="en" title="English">EN</a>
+        <a href="/de/" aria-current={lang === 'de' ? 'true' : undefined} hreflang="de" title="Deutsch">DE</a>
+      </span>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn btn--call" href={site.phone.href} data-call="header" aria-label={`Telefonla ara: ${site.phone.display}`}>
+        <Icon name="phone" />
+        <span class="header-cta__full">{site.phone.display}</span>
+        <span class="header-cta__short">{lang === 'de' ? 'Anrufen' : lang === 'en' ? 'Call' : 'Ara'}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const h = document.getElementById('siteHeader');
+    const b = document.getElementById('navToggle');
+    if (!h || !b) return;
+    b.addEventListener('click', () => {
+      const open = h.getAttribute('data-open') === 'true';
+      h.setAttribute('data-open', String(!open));
+      b.setAttribute('aria-expanded', String(!open));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { h.setAttribute('data-open', 'false'); b.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
+</script>

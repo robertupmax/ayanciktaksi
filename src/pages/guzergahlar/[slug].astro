@@ -1,0 +1,100 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { routes, fmtDuration } from '../../data/routes';
+import { site } from '../../data/site';
+import { breadcrumbSchema, tripSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return routes.map((r) => ({ params: { slug: r.slug }, props: { route: r } }));
+}
+const { route: r } = Astro.props;
+const url = `${site.url}/guzergahlar/${r.slug}/`;
+const others = routes.filter((o) => o.slug !== r.slug).slice(0, 6);
+const crumbs = [
+  { name: 'Anasayfa', href: '/' },
+  { name: 'Güzergahlar', href: '/guzergahlar/' },
+  { name: `${r.from} – ${r.to}`, href: `/guzergahlar/${r.slug}/` },
+];
+const wa = `Merhaba, ${r.from} – ${r.to} yolculuğu için fiyat ve müsaitlik bilgisi almak istiyorum. Tarih/saat: `;
+---
+<Base
+  title={r.metaTitle}
+  description={r.metaDescription}
+  path={`/guzergahlar/${r.slug}/`}
+  waMessage={wa}
+  schema={[
+    breadcrumbSchema(crumbs),
+    tripSchema({ ...r, url, description: r.metaDescription }),
+  ]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>{r.title}</h1>
+      <p class="lead">{r.intro}</p>
+      <div style="margin-top:1.4rem"><CallButtons size="lg" waMessage={wa} /></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--4" style="margin-bottom:2.4rem">
+        <div class="card center"><span class="icon-badge" style="margin-inline:auto"><Icon name="road" /></span><h2 style="font-size:1.6rem;margin-bottom:.1rem" class="tabnum">{r.km} km</h2><p class="fs-sm">Yaklaşık mesafe</p></div>
+        <div class="card center"><span class="icon-badge" style="margin-inline:auto"><Icon name="clock" /></span><h2 style="font-size:1.6rem;margin-bottom:.1rem">{fmtDuration(r.minutes)}</h2><p class="fs-sm">Yaklaşık süre</p></div>
+        <div class="card center"><span class="icon-badge" style="margin-inline:auto"><Icon name="card" /></span><h2 style="font-size:1.6rem;margin-bottom:.1rem">Sabit</h2><p class="fs-sm">Baştan konuşulan fiyat</p></div>
+        <div class="card center"><span class="icon-badge" style="margin-inline:auto"><Icon name="clock" /></span><h2 style="font-size:1.6rem;margin-bottom:.1rem">7/24</h2><p class="fs-sm">Gece dahil hizmet</p></div>
+      </div>
+
+      <div class="grid grid--2" style="align-items:start;gap:clamp(1.6rem,4vw,3.4rem)">
+        <div class="prose">
+          <h2>Bu güzergah hakkında bilmeniz gerekenler</h2>
+          <ul class="ticks">{r.notes.map((n) => <li>{n}</li>)}</ul>
+
+          <h2>Fiyat nasıl belirleniyor?</h2>
+          <p>
+            Bu mesafede taksimetre yerine <strong>sabit fiyat</strong> uygulanır. Fiyatı yola
+            çıkmadan söyler, WhatsApp üzerinden yazılı olarak teyit ederiz; yol üzerinde
+            değişmez. Köprü ve otoyol ücretleri fiyata dahildir.
+          </p>
+          <p>
+            <strong>Gidiş-dönüş</strong> aldığınızda araç dönüşte boş gelmek zorunda kalmadığı
+            için toplam tutar, tek yönü iki kez almaya göre belirgin şekilde daha avantajlı olur.
+          </p>
+
+          <h2>Rezervasyon</h2>
+          <p>
+            {r.km > 150
+              ? 'Bu mesafedeki yolculuklar için en az bir gün önceden rezervasyon alıyoruz. Güzergah, tarih, saat ve kişi sayısını iletmeniz yeterli.'
+              : 'Aynı gün talepleri karşılayabiliyoruz, ancak uygun saati garanti etmek için önceden haber vermenizi öneriyoruz.'}
+          </p>
+        </div>
+
+        <aside class="stack" style="position:sticky;top:90px">
+          <div class="card">
+            <h2 style="font-size:1.1rem">{r.from} – {r.to} için arayın</h2>
+            <p style="margin-bottom:1rem">
+              <a href={site.phone.href} style="font-size:1.45rem;font-weight:800;text-decoration:none">{site.phone.display}</a><br />
+              <span class="fs-sm muted">{site.hours.text}</span>
+            </p>
+            <CallButtons waMessage={wa} showNumber={false} />
+          </div>
+          <div class="card">
+            <h2 style="font-size:1.1rem">Diğer güzergahlar</h2>
+            <ul class="fs-sm" style="list-style:none;padding:0;margin:0">
+              {others.map((o) => (
+                <li style="padding:.4rem 0;border-bottom:1px solid var(--line)">
+                  <a href={`/guzergahlar/${o.slug}/`} style="text-decoration:none">{o.to}</a>
+                  <span class="muted tabnum" style="float:right">{o.km} km</span>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-2 mb-0 fs-sm"><a href="/guzergahlar/">Tümünü gör →</a></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Base>

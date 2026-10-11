@@ -1,0 +1,113 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { site, waMessages } from '../../data/site';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'İletişim', href: '/iletisim/' }];
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Ayancık Taksi — İletişim',
+  url: `${site.url}/iletisim/`,
+  mainEntity: { '@id': `${site.url}/#taxiservice` },
+};
+---
+<Base
+  title="İletişim | Ayancık Taksi 0531 830 20 17"
+  description="Ayancık Taksi iletişim: 0531 830 20 17 — 7/24 telefon ve WhatsApp. Rezervasyon için tarih, saat, adres ve kişi sayısını iletmeniz yeterli."
+  path="/iletisim/"
+  waMessage={waMessages.reservation}
+  schema={[breadcrumbSchema(crumbs), contactSchema]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>İletişim</h1>
+      <p class="lead">
+        Tek numara, 7 gün 24 saat. Telefonla arayın ya da aynı numaraya WhatsApp’tan yazın.
+      </p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2" style="gap:clamp(1.6rem,4vw,3rem);align-items:start">
+        <div class="stack">
+          <div class="card">
+            <span class="icon-badge"><Icon name="phone" /></span>
+            <h2 style="font-size:1.15rem">Telefon</h2>
+            <p style="margin-bottom:.8rem">
+              <a href={site.phone.href} style="font-size:1.9rem;font-weight:820;text-decoration:none;letter-spacing:-.02em">{site.phone.display}</a><br />
+              <span class="fs-sm muted">Yurt dışından: {site.phone.displayIntl}</span>
+            </p>
+            <p class="fs-sm muted mb-0">{site.hours.text} — gece ve resmî tatiller dahil.</p>
+          </div>
+
+          <div class="card">
+            <span class="icon-badge"><Icon name="whatsapp" /></span>
+            <h2 style="font-size:1.15rem">WhatsApp</h2>
+            <p>
+              En hızlı yol: <strong>canlı konum gönderin.</strong> Adres tarif etmekle
+              uğraşmanıza gerek kalmaz. İngilizce ve Almanca da yazabilirsiniz.
+            </p>
+            <div class="btn-row">
+              <a class="btn btn--wa" href={site.whatsapp.href(waMessages.location)} target="_blank" rel="noopener">
+                <Icon name="whatsapp" /> Konum gönder
+              </a>
+              <a class="btn btn--ghost" href={site.whatsapp.href(waMessages.reservation)} target="_blank" rel="noopener">
+                Rezervasyon yap
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="icon-badge"><Icon name="pin" /></span>
+            <h2 style="font-size:1.15rem">Konum</h2>
+            <p>
+              {site.address.full}<br />
+              <span class="fs-sm muted">Google Haritalar kaydı: {site.gbpName}</span>
+            </p>
+            <p class="mb-0"><a class="btn btn--ghost" href={site.mapsUrl} target="_blank" rel="noopener">Haritada aç <Icon name="arrow" /></a></p>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="card">
+            <h2 style="font-size:1.15rem">Rezervasyon için bize şunları iletin</h2>
+            <ol style="margin-bottom:1.2rem">
+              <li><strong>Tarih ve saat</strong> — uçuşsa uçuş numarası ve saati</li>
+              <li><strong>Alış adresi</strong> — köy adı veya mevki yeterli</li>
+              <li><strong>Varış yeri</strong></li>
+              <li><strong>Kişi sayısı</strong> ve çocuk varsa yaşı</li>
+              <li><strong>Özel durum</strong> — fazla bagaj, tekerlekli sandalye, evcil hayvan</li>
+            </ol>
+            <p class="fs-sm muted">
+              Bu bilgilerle fiyatı hemen söyler, WhatsApp üzerinden yazılı teyit ederiz.
+            </p>
+            <CallButtons waMessage={waMessages.reservation} />
+          </div>
+
+          <div class="card" style="padding:0;overflow:hidden">
+            <iframe
+              src={site.mapsEmbed}
+              title="Ayancık, Sinop haritası"
+              width="100%" height="320" style="border:0;display:block"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="callout" style="margin:0">
+            <p class="mb-0">
+              <strong>Acil tıbbî durumda 112’yi arayın.</strong> Biz ticari taksiyiz, ambulans
+              değiliz. Sedyeyle taşıma, oksijen desteği veya yol boyunca tıbbî gözetim gereken
+              durumlarda doğrudan 112 Acil Çağrı Merkezi’ni aramanız gerekir.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

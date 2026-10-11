@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { places } from '../../data/places';
+import { site, waMessages } from '../../data/site';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Gezilecek Yerler', href: '/gezilecek-yerler/' }];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Ayancık ve çevresinde gezilecek yerler',
+  numberOfItems: places.length,
+  itemListElement: places.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'TouristAttraction',
+      name: p.name,
+      description: p.summary,
+      url: `${site.url}/gezilecek-yerler/#${p.slug}`,
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Sinop' },
+    },
+  })),
+};
+---
+<Base
+  title="Ayancık ve Çevresinde Gezilecek Yerler | Akgöl, Şelaleler, Koylar"
+  description="Ayancık gezilecek yerler: Akgöl, Çangal Ormanları, İnaltı Mağarası, Tatlıca Şelaleleri ve Hamsilos Koyu. Mesafeler ve pratik ipuçları."
+  path="/gezilecek-yerler/"
+  waMessage={waMessages.tour}
+  schema={[breadcrumbSchema(crumbs), schema]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Ayancık ve çevresinde gezilecek yerler</h1>
+      <p class="lead">
+        Ormandan denize, mağaradan şelaleye. Hepsine günübirlik gidilebilir — yolları
+        biliyoruz, hangi saatte nerenin sakin olduğunu da.
+      </p>
+      <div style="margin-top:1.4rem"><CallButtons waMessage={waMessages.tour} /></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <ul class="pills" style="margin-bottom:2.4rem">
+        {places.map((p) => <li><a class="pill" href={`#${p.slug}`}>{p.name} · {p.kmFromAyancik} km</a></li>)}
+      </ul>
+
+      <div class="stack" style="--stack-gap:3rem">
+        {places.map((p) => (
+          <article id={p.slug} class="card" style="scroll-margin-top:90px;margin-bottom:1.6rem">
+            <p class="post-card__tag">{p.category} · Ayancık’tan {p.kmFromAyancik} km</p>
+            <h2 style="font-size:1.4rem">{p.name}</h2>
+            <p style="color:var(--ink-3);font-size:1.05rem">{p.summary}</p>
+            {p.detail.map((d) => <p>{d}</p>)}
+            <h3 style="font-size:1rem;margin-top:.8rem">Pratik notlar</h3>
+            <ul class="ticks fs-sm" style="margin-bottom:0">{p.tips.map((t) => <li>{t}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink center">
+    <div class="wrap narrow">
+      <h2>Günübirlik tur planlayalım</h2>
+      <p class="lead" style="margin-inline:auto">
+        Nereleri görmek istediğinizi söyleyin; hangisinin aynı güne sığacağını ve hangi
+        saatte nerenin sakin olacağını birlikte netleştirelim. Araç gün boyu sizinle
+        kalabilir ya da belirlediğiniz saatte sizi alır.
+      </p>
+      <div style="margin-top:1.8rem;display:flex;justify-content:center">
+        <CallButtons size="lg" waMessage={waMessages.tour} />
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,80 @@
+---
+import { site } from '../data/site';
+import { services } from '../data/services';
+import { popularRoutes } from '../data/routes';
+const year = new Date().getFullYear();
+const social = Object.entries(site.social).filter(([, v]) => v);
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>{site.brand}</h3>
+        <p class="footer-brand">
+          {site.legalName} — Sinop Ayancık’ta 7/24 ticari taksi. Havalimanı transferi,
+          hastane ve köy yolculukları, plaj turları ve şehirler arası taksi.
+        </p>
+        <p style="margin-top:1rem">
+          <a href={site.phone.href} style="font-size:1.3rem;font-weight:800;color:#fff;text-decoration:none">
+            {site.phone.display}
+          </a><br />
+          <span class="fs-sm">{site.hours.text}</span>
+        </p>
+      </div>
+
+      <div>
+        <h3>Hizmetler</h3>
+        <ul>
+          {services.map((s) => <li><a href={`/hizmetler/${s.slug}/`}>{s.title}</a></li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h3>Güzergahlar</h3>
+        <ul>
+          {popularRoutes.map((r) => <li><a href={`/guzergahlar/${r.slug}/`}>{r.from} – {r.to}</a></li>)}
+          <li><a href="/guzergahlar/">Tüm güzergahlar</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Kurumsal</h3>
+        <ul>
+          <li><a href="/hakkimizda/">Hakkımızda</a></li>
+          <li><a href="/blog/">Blog ve rehberler</a></li>
+          <li><a href="/sss/">Sık sorulan sorular</a></li>
+          <li><a href="/hizmet-bolgesi/">Hizmet bölgesi ve köyler</a></li>
+          <li><a href="/iletisim/">İletişim</a></li>
+          <li><a href="/gizlilik/">Gizlilik politikası</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Diller</h3>
+        <ul>
+          <li><a href="/" hreflang="tr">Türkçe</a></li>
+          <li><a href="/en/" hreflang="en">English — Taxi in Ayancık</a></li>
+          <li><a href="/de/" hreflang="de">Deutsch — Taxi in Ayancık</a></li>
+        </ul>
+        <h3 style="margin-top:1.4rem">Adres</h3>
+        <p class="fs-sm">
+          {site.address.full}<br />
+          <a href={site.mapsUrl} target="_blank" rel="noopener">Google Haritalar’da aç</a>
+        </p>
+        {social.length > 0 && (
+          <p style="margin-top:1rem">
+            {social.map(([k, v]) => <a href={v} target="_blank" rel="noopener" style="margin-right:.8rem">{k}</a>)}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {year} {site.brand} ({site.legalName}). Tüm hakları saklıdır.</span>
+      <span>
+        Acil tıbbî yardım için <strong style="color:#c3ccd8">112</strong> —
+        biz ticari taksiyiz, ambulans değiliz.
+      </span>
+    </div>
+  </div>
+</footer>

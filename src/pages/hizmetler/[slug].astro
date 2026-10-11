@@ -1,0 +1,129 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Faq from '../../components/Faq.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { services } from '../../data/services';
+import { site, waMessages } from '../../data/site';
+import { breadcrumbSchema, faqSchema, serviceSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+const { service: s } = Astro.props;
+const url = `${site.url}/hizmetler/${s.slug}/`;
+const others = services.filter((o) => o.slug !== s.slug).slice(0, 4);
+const crumbs = [
+  { name: 'Anasayfa', href: '/' },
+  { name: 'Hizmetler', href: '/hizmetler/' },
+  { name: s.title, href: `/hizmetler/${s.slug}/` },
+];
+---
+<Base
+  title={s.metaTitle}
+  description={s.metaDescription}
+  path={`/hizmetler/${s.slug}/`}
+  waMessage={waMessages[s.wa]}
+  schema={[
+    breadcrumbSchema(crumbs),
+    serviceSchema({ name: s.title, description: s.metaDescription, url }),
+    faqSchema(s.faq),
+  ]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <div class="page-head">
+    <div class="wrap">
+      <span class="icon-badge"><Icon name={s.icon} /></span>
+      <h1>{s.h1}</h1>
+      <p class="lead">{s.short}</p>
+      <div style="margin-top:1.4rem"><CallButtons size="lg" waMessage={waMessages[s.wa]} /></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2" style="align-items:start;gap:clamp(1.6rem,4vw,3.4rem)">
+        <div class="prose">
+          {s.body.map((b) => (
+            <>
+              <h2>{b.heading}</h2>
+              {b.paragraphs.map((p) => <p>{p}</p>)}
+              {b.list && <ul class="ticks">{b.list.map((i) => <li>{i}</li>)}</ul>}
+            </>
+          ))}
+
+          <div class="callout">
+            <p>
+              <strong>Fiyat bilgisi:</strong> Şehir içi yolculuklarda resmî taksimetre tarifesi,
+              şehir dışı ve havalimanı transferlerinde ise yola çıkmadan konuşulan sabit fiyat
+              geçerlidir. Güzergahınızı söyleyerek arayın; net tutarı telefonda söyleyelim.
+            </p>
+          </div>
+        </div>
+
+        <aside class="stack" style="position:sticky;top:90px">
+          <div class="card">
+            <h2 style="font-size:1.1rem">Öne çıkanlar</h2>
+            <ul class="ticks" style="margin-bottom:0">
+              {s.highlights.map((h) => <li>{h}</li>)}
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 style="font-size:1.1rem">Hemen iletişim</h2>
+            <p style="margin-bottom:1rem">
+              <a href={site.phone.href} style="font-size:1.45rem;font-weight:800;text-decoration:none">{site.phone.display}</a><br />
+              <span class="fs-sm muted">{site.hours.text}</span>
+            </p>
+            <CallButtons waMessage={waMessages[s.wa]} showNumber={false} />
+          </div>
+
+          <div class="card">
+            <h2 style="font-size:1.1rem">Araç ve ödeme</h2>
+            <ul class="ticks fs-sm" style="margin-bottom:0">
+              {site.fleet.features.map((f) => <li>{f}</li>)}
+              <li>{site.fleet.luggage}</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap narrow">
+      <h2>{s.title} — sık sorulan sorular</h2>
+      <div style="margin-top:1.4rem"><Faq items={s.faq} open={0} /></div>
+      <p style="margin-top:1.3rem"><a href="/sss/">Tüm sorular ve cevaplar →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Diğer hizmetlerimiz</h2>
+      <div class="grid grid--4" style="margin-top:1.5rem">
+        {others.map((o) => (
+          <a class="card" href={`/hizmetler/${o.slug}/`}>
+            <span class="icon-badge"><Icon name={o.icon} /></span>
+            <h3 style="font-size:1.05rem">{o.navTitle}</h3>
+            <span class="card__more">Gör</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink center">
+    <div class="wrap narrow">
+      <h2>Yolculuğunuzu planlayalım</h2>
+      <p class="lead" style="margin-inline:auto">
+        Arayın ya da WhatsApp’tan yazın. Tarih, saat ve adresi iletin — fiyatı yazılı teyit ederiz.
+      </p>
+      <div style="margin-top:1.8rem;display:flex;justify-content:center">
+        <CallButtons size="lg" waMessage={waMessages[s.wa]} />
+      </div>
+    </div>
+  </section>
+</Base>

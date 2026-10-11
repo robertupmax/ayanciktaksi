@@ -1,0 +1,113 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { site } from '../../data/site';
+import { villages } from '../../data/villages';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hakkımızda', href: '/hakkimizda/' }];
+const values = [
+  { icon: 'card', t: 'Baştan fiyat', d: 'Şehir dışı yolculuklarda fiyatı yola çıkmadan söyleriz ve WhatsApp’tan yazılı teyit ederiz. Yolda değişmez.' },
+  { icon: 'clock', t: 'Gerçekçi süre', d: 'Yoğunsak veya yol kapalıysa “geliyorum” deyip sizi bekletmeyiz. Durumu açıkça söyleriz.' },
+  { icon: 'shield', t: 'Belgeli ve sigortalı', d: 'Ticari taşımacılık için gereken belgelere sahip sürücü, sigortalı ve bakımlı araç.' },
+  { icon: 'baby', t: 'Herkese uygun', d: 'Yaşlı yolcuda acele yok, çocukta koltuk hazır, bagajda ek ücret yok.' },
+];
+---
+<Base
+  title="Hakkımızda | Ayancık Taksi — Güven Taksi"
+  description="Ayancık Taksi (Güven Taksi) hakkında: Sinop Ayancık’ta 7/24 ticari taksi hizmeti, hizmet alanımız, çalışma ilkelerimiz ve iletişim bilgilerimiz."
+  path="/hakkimizda/"
+  schema={[breadcrumbSchema(crumbs)]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Hakkımızda</h1>
+      <p class="lead">
+        {site.brand} ({site.legalName}) — Sinop’un Ayancık ilçesinde 7 gün 24 saat
+        hizmet veren ticari taksi.
+      </p>
+      <div style="margin-top:1.4rem"><CallButtons /></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2" style="align-items:start;gap:clamp(1.6rem,4vw,3.4rem)">
+        <div class="prose">
+          <h2>Kimiz?</h2>
+          <p>
+            Ayancık’ta yaşayan, bu ilçede büyümüş bir taksi şoförüyüz. Yıllardır aynı yolları
+            kullanıyoruz: sahil yolundan Sinop’a, Çangal yolundan köylere, orman yolundan
+            Akgöl’e. Hangi yolun kışın kapandığını, hangi köyün hangi mevkide olduğunu,
+            hangi saatte hangi koyun sakin olduğunu biliyoruz.
+          </p>
+          <p>
+            Durakta çalışan diğer meslektaşlarımız var ve onlarla iyi ilişkilerimiz var —
+            kalabalık gruplarda birbirimize yardım ediyoruz. Ama bu web sitesi ve
+            <strong> {site.phone.display}</strong> numarası bize ait; buradan gelen her
+            çağrıya bizzat biz bakıyoruz.
+          </p>
+
+          <h2>Nasıl çalışıyoruz?</h2>
+          <p>
+            Ayancık küçük bir yer. Nüfusu 23 bin civarında ve herkes birbirini tanıyor.
+            Böyle bir yerde işini kötü yapan esnafın adı ertesi gün duyulur. Bu yüzden
+            karmaşık bir politikamız yok — sadece söylediğimizi yapıyoruz.
+          </p>
+          <p>
+            Yolcularımızın büyük bölümü dört gruptan oluşuyor: yazın ilçeye gelen misafirler,
+            kışın okula ve yurda giden öğrenciler, köylerden hastane ve pazar için merkeze
+            inen yaşlı komşularımız, ve Sinop’a sevkli giden hastalar. Dördünün de ihtiyacı
+            farklı; bu yüzden hepsi için ayrı bir çalışma biçimi geliştirdik.
+          </p>
+
+          <h2>Hizmet alanımız</h2>
+          <p>
+            Ayancık ilçe merkezi ve ilçeye bağlı {villages.length} köyün tamamı. Buna ek olarak
+            Sinop, Türkeli, Erfelek, Boyabat, Gerze, Kastamonu ve Samsun yönünde şehirler arası
+            yolculuklar; Sinop Havalimanı ve Samsun Çarşamba Havalimanı transferleri.
+          </p>
+
+          <h2>Yapmadığımız şey</h2>
+          <p>
+            Biz bir ticari taksiyiz, <strong>ambulans değiliz</strong>. Oturabilen ve kendi
+            başına ya da hafif yardımla araca binebilen hastaları hastaneye götürüp getiriyoruz.
+            Ancak sedyeyle taşıma, oksijen desteği veya yolculuk boyunca tıbbî gözetim gereken
+            durumlarda <strong>112 Acil Çağrı Merkezi</strong>’ni aramanız gerekir. Böyle bir
+            durumda bizi aramakla geçirilen dakikalar değerlidir.
+          </p>
+        </div>
+
+        <aside class="stack" style="position:sticky;top:90px">
+          <div class="card">
+            <h2 style="font-size:1.1rem">İletişim</h2>
+            <p style="margin-bottom:1rem">
+              <a href={site.phone.href} style="font-size:1.45rem;font-weight:800;text-decoration:none">{site.phone.display}</a><br />
+              <span class="fs-sm muted">{site.hours.text}</span>
+            </p>
+            <dl style="margin:0 0 1rem;font-size:.94rem">
+              <dt class="muted">Adres</dt><dd style="margin:0 0 .7rem">{site.address.full}</dd>
+              <dt class="muted">Google Haritalar kaydı</dt><dd style="margin:0 0 .7rem">{site.gbpName}</dd>
+              <dt class="muted">Diller</dt><dd style="margin:0">Türkçe · English · Deutsch</dd>
+            </dl>
+            <CallButtons showNumber={false} />
+          </div>
+        </aside>
+      </div>
+
+      <h2 style="margin-top:3rem">Çalışma ilkelerimiz</h2>
+      <div class="grid grid--4" style="margin-top:1.5rem">
+        {values.map((v) => (
+          <div class="card">
+            <span class="icon-badge"><Icon name={v.icon} /></span>
+            <h3 style="font-size:1.05rem">{v.t}</h3>
+            <p class="fs-sm">{v.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,77 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { routes, fmtDuration } from '../../data/routes';
+import { breadcrumbSchema } from '../../lib/schema';
+import { site } from '../../data/site';
+
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Güzergahlar', href: '/guzergahlar/' }];
+const sorted = [...routes].sort((a, b) => a.km - b.km);
+const listSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Ayancık Taksi güzergahları',
+  numberOfItems: routes.length,
+  itemListElement: sorted.map((r, i) => ({
+    '@type': 'ListItem', position: i + 1, name: r.title, url: `${site.url}/guzergahlar/${r.slug}/`,
+  })),
+};
+---
+<Base
+  title="Güzergahlar ve Mesafeler | Ayancık Taksi"
+  description="Ayancık’tan Sinop, Sinop Havalimanı, Türkeli, Erfelek, Boyabat, Kastamonu, Samsun, Ankara ve İstanbul’a mesafeler, süreler ve taksi transfer bilgileri."
+  path="/guzergahlar/"
+  schema={[breadcrumbSchema(crumbs), listSchema]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Güzergahlar ve mesafeler</h1>
+      <p class="lead">
+        Ayancık’tan en çok gidilen {routes.length} güzergah. Mesafeler karayolu üzerinden
+        yaklaşık değerler; süreler normal hava ve trafik koşulları içindir.
+      </p>
+      <div style="margin-top:1.4rem"><CallButtons /></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="table-wrap">
+        <table>
+          <caption>Kış şartlarında ve yoğun yaz trafiğinde süreler uzayabilir. Kesin fiyat için arayın.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Güzergah</th>
+              <th scope="col" class="num">Mesafe</th>
+              <th scope="col" class="num">Süre</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((r) => (
+              <tr>
+                <th scope="row" style="font-weight:640">
+                  <a href={`/guzergahlar/${r.slug}/`}>{r.from} → {r.to}</a>
+                </th>
+                <td class="num tabnum">{r.km} km</td>
+                <td class="num tabnum nowrap">{fmtDuration(r.minutes)}</td>
+                <td class="nowrap"><a href={`/guzergahlar/${r.slug}/`}>Ayrıntı →</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout mt-3">
+        <p>
+          <strong>Nasıl fiyatlanıyor?</strong> Şehir içi kısa yolculuklarda resmî taksimetre
+          tarifesi; şehir dışı ve havalimanı transferlerinde yola çıkmadan konuşulan sabit fiyat.
+          Köprü ve otoyol ücretleri sabit fiyata dahildir. Gidiş-dönüş alındığında araç dönüşte
+          boş gelmediği için belirgin şekilde daha avantajlı olur.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

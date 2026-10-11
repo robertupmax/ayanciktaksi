@@ -1,0 +1,24 @@
+{
+  "name": "ayanciktaksi",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ayancik Taksi - Guven Taksi | Sinop Ayancik 7/24 ticari taksi web sitesi",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^7.3.8",
+    "sharp": "^0.34.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "playwright": "^1.64.0",
+    "typescript": "^6.0.3"
+  }
+}

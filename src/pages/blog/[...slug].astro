@@ -1,0 +1,123 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { render } from 'astro:content';
+import { getPosts, fmtDate } from '../../lib/posts';
+import { site } from '../../data/site';
+import { services } from '../../data/services';
+import { routes } from '../../data/routes';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((p, i) => ({
+    params: { slug: p.id },
+    props: { post: p, prev: posts[i - 1] ?? null, next: posts[i + 1] ?? null },
+  }));
+}
+const { post, prev, next } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const url = `${site.url}/blog/${post.id}/`;
+const crumbs = [
+  { name: 'Anasayfa', href: '/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: d.title, href: `/blog/${post.id}/` },
+];
+const relatedServices = services.filter((s) => d.related.includes(s.slug));
+const relatedRoutes = routes.filter((r) => d.related.includes(r.slug));
+const schema: unknown[] = [
+  breadcrumbSchema(crumbs),
+  articleSchema({
+    title: d.title, description: d.description, url,
+    date: d.date.toISOString(), updated: d.updated?.toISOString(), tag: d.tag,
+  }),
+];
+if (d.faq.length) schema.push(faqSchema(d.faq));
+---
+<Base
+  title={d.metaTitle ?? d.title}
+  description={d.description}
+  path={`/blog/${post.id}/`}
+  ogType="article"
+  publishedTime={d.date.toISOString()}
+  modifiedTime={(d.updated ?? d.date).toISOString()}
+  schema={schema}
+>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <article class="section">
+    <div class="wrap">
+      <div class="grid grid--2" style="align-items:start;gap:clamp(1.6rem,4vw,3.4rem)">
+        <div>
+          <p class="post-card__tag">{d.tag}</p>
+          <h1>{d.title}</h1>
+          <p class="post-meta">
+            <time datetime={d.date.toISOString()}>{fmtDate(d.date)} tarihinde yayınlandı</time>
+            {d.updated && <time datetime={d.updated.toISOString()}>Güncelleme: {fmtDate(d.updated)}</time>}
+          </p>
+          <p class="lead" style="margin-bottom:2rem">{d.description}</p>
+
+          <div class="prose"><Content /></div>
+
+          {d.faq.length > 0 && (
+            <section style="margin-top:3rem">
+              <h2>Sık sorulan sorular</h2>
+              <div style="margin-top:1.2rem"><Faq items={d.faq} /></div>
+            </section>
+          )}
+
+          <div class="callout" style="margin-top:2.6rem">
+            <p style="margin-bottom:1rem">
+              <strong>Bu konuda yardıma mı ihtiyacınız var?</strong> Ayancık Taksi olarak 7/24
+              hizmet veriyoruz. Güzergahınızı söyleyerek arayın; fiyatı telefonda söyleriz.
+            </p>
+            <CallButtons />
+          </div>
+
+          <nav style="margin-top:2.6rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between" aria-label="Diğer yazılar">
+            {next && <a href={`/blog/${next.id}/`}>← {next.data.title}</a>}
+            {prev && <a href={`/blog/${prev.id}/`} style="margin-left:auto;text-align:right">{prev.data.title} →</a>}
+          </nav>
+        </div>
+
+        <aside class="stack" style="position:sticky;top:90px">
+          <div class="card">
+            <h2 style="font-size:1.1rem">7/24 taksi</h2>
+            <p style="margin-bottom:1rem">
+              <a href={site.phone.href} style="font-size:1.45rem;font-weight:800;text-decoration:none">{site.phone.display}</a><br />
+              <span class="fs-sm muted">{site.hours.text}</span>
+            </p>
+            <CallButtons showNumber={false} />
+          </div>
+
+          {(relatedServices.length > 0 || relatedRoutes.length > 0) && (
+            <div class="card">
+              <h2 style="font-size:1.1rem">İlgili sayfalar</h2>
+              <ul class="fs-sm" style="list-style:none;padding:0;margin:0">
+                {relatedServices.map((s) => (
+                  <li style="padding:.45rem 0;border-bottom:1px solid var(--line)">
+                    <a href={`/hizmetler/${s.slug}/`} style="text-decoration:none">{s.title}</a>
+                  </li>
+                ))}
+                {relatedRoutes.map((r) => (
+                  <li style="padding:.45rem 0;border-bottom:1px solid var(--line)">
+                    <a href={`/guzergahlar/${r.slug}/`} style="text-decoration:none">{r.from} – {r.to}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div class="card">
+            <h2 style="font-size:1.1rem">Tüm rehberler</h2>
+            <p class="fs-sm">Ayancık ve Sinop için yol, gezi ve ulaşım rehberlerimizin tamamı.</p>
+            <p class="mb-0"><a href="/blog/">Blog ana sayfası →</a></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</Base>

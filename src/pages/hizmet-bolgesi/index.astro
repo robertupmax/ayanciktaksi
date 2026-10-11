@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallButtons from '../../components/CallButtons.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { villages, neighbourhoods } from '../../data/villages';
+import { routes, fmtDuration } from '../../data/routes';
+import { waMessages } from '../../data/site';
+import { breadcrumbSchema, serviceAreaListSchema } from '../../lib/schema';
+
+const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hizmet Bölgesi', href: '/hizmet-bolgesi/' }];
+---
+<Base
+  title="Hizmet Bölgesi ve Köyler | Ayancık Taksi"
+  description={`Ayancık Taksi hizmet bölgesi: Ayancık ilçe merkezi, ${villages.length} köy, Sinop, Türkeli, Erfelek, Boyabat, Gerze, Kastamonu ve Samsun yönü. Köy adını söyleyerek arayın.`}
+  path="/hizmet-bolgesi/"
+  waMessage={waMessages.village}
+  schema={[breadcrumbSchema(crumbs), serviceAreaListSchema()]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Hizmet bölgemiz</h1>
+      <p class="lead">
+        Ayancık ilçe merkezi, ilçeye bağlı {villages.length} köy ve çevre ilçeler.
+        Köyünüzün adını söyleyerek arayın; yol durumunu ve süreyi hemen söyleriz.
+      </p>
+      <div style="margin-top:1.4rem"><CallButtons waMessage={waMessages.village} /></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Ayancık’a bağlı köyler ({villages.length})</h2>
+      <p class="lead" style="margin-bottom:1.4rem">
+        Ayancık’ın yüzölçümü 862 km² ve kır nüfusu yaklaşık 10,6 bin kişi. Bu köylerin
+        tamamına hizmet veriyoruz — hastane, banka, pazar, alışveriş ve köy evine misafir
+        karşılama dahil.
+      </p>
+      <ul class="pills">{villages.map((v) => <li><span class="pill">{v}</span></li>)}</ul>
+
+      <h2 style="margin-top:3rem">İlçe merkezi ve sık gidilen noktalar</h2>
+      <ul class="pills">{neighbourhoods.map((n) => <li><span class="pill">{n}</span></li>)}</ul>
+
+      <h2 style="margin-top:3rem">Çevre ilçe ve iller</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Mesafeler Ayancık merkezden karayolu üzerinden yaklaşık değerlerdir.</caption>
+          <thead><tr><th scope="col">Yer</th><th scope="col" class="num">Mesafe</th><th scope="col" class="num">Süre</th><th scope="col"></th></tr></thead>
+          <tbody>
+            {[...routes].sort((a,b)=>a.km-b.km).map((r) => (
+              <tr>
+                <th scope="row" style="font-weight:640">{r.to}</th>
+                <td class="num tabnum">{r.km} km</td>
+                <td class="num tabnum nowrap">{fmtDuration(r.minutes)}</td>
+                <td class="nowrap"><a href={`/guzergahlar/${r.slug}/`}>Ayrıntı →</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout mt-3">
+        <p class="mb-0">
+          <strong>Kış şartları:</strong> Ayancık’ın yüksek kesimleri kış sezonu boyunca
+          genellikle karla kaplı geçer. Kar lastiği ve zincirle çalışıyoruz; çıkılabilen her
+          yola çıkıyoruz. Karla kapanmış ve araç geçişine uygun olmayan yollarda ise riske
+          girmiyoruz ve bunu telefonda hemen söylüyoruz — sizi boşuna bekletmemek için.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
