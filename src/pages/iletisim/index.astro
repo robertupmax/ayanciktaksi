@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import CallButtons from '../../components/CallButtons.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/Icon.astro';
-import { site, waMessages } from '../../data/site';
+import { site } from '../../data/site';
 import { breadcrumbSchema } from '../../lib/schema';
 
 const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'İletişim', href: '/iletisim/' }];
@@ -17,9 +17,8 @@ const contactSchema = {
 ---
 <Base
   title="İletişim | Ayancık Taksi 0531 830 20 17"
-  description="Ayancık Taksi iletişim: 0531 830 20 17 — 7/24 telefon ve WhatsApp. Rezervasyon için tarih, saat, adres ve kişi sayısını iletmeniz yeterli."
+  description="Ayancık Taksi iletişim: 0531 830 20 17 — 7/24 telefonla ulaşın. Rezervasyon için tarih, saat, adres ve kişi sayısını iletmeniz yeterli."
   path="/iletisim/"
-  waMessage={waMessages.reservation}
   schema={[breadcrumbSchema(crumbs), contactSchema]}
 >
   <Breadcrumbs crumbs={crumbs} />
@@ -27,7 +26,7 @@ const contactSchema = {
     <div class="wrap">
       <h1>İletişim</h1>
       <p class="lead">
-        Tek numara, 7 gün 24 saat. Telefonla arayın ya da aynı numaraya WhatsApp’tan yazın.
+        Tek numara, 7 gün 24 saat. Arayın, en kısa sürede yanınızdayız.
       </p>
     </div>
   </div>
@@ -47,20 +46,17 @@ const contactSchema = {
           </div>
 
           <div class="card">
-            <span class="icon-badge"><Icon name="whatsapp" /></span>
-            <h2 style="font-size:1.15rem">WhatsApp</h2>
+            <span class="icon-badge"><Icon name="clock" /></span>
+            <h2 style="font-size:1.15rem">Ne zaman arayabilirsiniz</h2>
             <p>
-              En hızlı yol: <strong>canlı konum gönderin.</strong> Adres tarif etmekle
-              uğraşmanıza gerek kalmaz. Yurt dışından yazıyorsanız da arama ücreti ödemezsiniz.
+              Gece yarısı, sabahın köründe, hafta sonu ve resmî tatillerde dahil
+              <strong>her saat aynı numara.</strong> Telefonu açamazsak kısa süre içinde
+              biz geri ararız; meşgulse bir süre sonra tekrar deneyin.
             </p>
-            <div class="btn-row">
-              <a class="btn btn--wa" href={site.whatsapp.href(waMessages.location)} target="_blank" rel="noopener">
-                <Icon name="whatsapp" /> Konum gönder
-              </a>
-              <a class="btn btn--ghost" href={site.whatsapp.href(waMessages.reservation)} target="_blank" rel="noopener">
-                Rezervasyon yap
-              </a>
-            </div>
+            <p class="mb-0 fs-sm muted">
+              Sabah erken bir uçuş ya da hastane randevunuz varsa bir gün önceden
+              arayıp saat ayırtmanız en sağlıklısı.
+            </p>
           </div>
 
           <div class="card">
@@ -68,6 +64,7 @@ const contactSchema = {
             <h2 style="font-size:1.15rem">Konum</h2>
             <p>
               {site.address.full}<br />
+              <span class="fs-sm muted">Şoför: {site.driver.name}{site.driver.plate ? ` · Plaka: ${site.driver.plate}` : ''}</span><br />
               <span class="fs-sm muted">Google Haritalar kaydı: {site.gbpName}</span>
             </p>
             <p class="mb-0"><a class="btn btn--ghost" href={site.mapsUrl} target="_blank" rel="noopener">Haritada aç <Icon name="arrow" /></a></p>
@@ -85,9 +82,9 @@ const contactSchema = {
               <li><strong>Özel durum</strong> — olağandışı ölçüde bir yük, evcil hayvan</li>
             </ol>
             <p class="fs-sm muted">
-              Bu bilgilerle fiyatı hemen söyler, WhatsApp üzerinden yazılı teyit ederiz.
+              Bu bilgilerle fiyatı telefonda hemen söyler, saatinizi ayırırız.
             </p>
-            <CallButtons waMessage={waMessages.reservation} />
+            <CallButtons />
           </div>
 
           <div class="card" style="padding:0;overflow:hidden">

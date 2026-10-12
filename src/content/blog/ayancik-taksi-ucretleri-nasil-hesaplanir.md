@@ -59,7 +59,7 @@ Sabit fiyatın yolcu açısından avantajı net: **ne ödeyeceğinizi bilerek yo
 | Köprü ve otoyol ücretleri | Fiyata dahil edilir |
 | Bekleme süresi | Uzun beklemeler ayrıca konuşulur |
 
-**Mesafeye dahil olmayan şeyler:** bagaj, yolcu sayısı (araç kapasitesi dahilinde), çocuk koltuğu, gece saati.
+**Mesafeye dahil olmayan şeyler:** bagaj, yolcu sayısı (araç kapasitesi dahilinde), gece saati.
 
 ## Gidiş-dönüş neden daha hesaplı?
 
@@ -96,10 +96,10 @@ Hangisinin sizin için uygun olduğuna telefonda birlikte karar vermek en iyisi.
 ## Yolcu olarak haklarınız
 
 - **Taksimetrenin açık olmasını ve görünür olmasını isteyebilirsiniz.** Şehir içinde taksimetre açılmadan yolculuk başlamaz.
-- **Şehir dışı yolculukta fiyatı yola çıkmadan öğrenme hakkınız var.** Bu fiyatı WhatsApp'tan yazılı olarak teyit etmek iyi bir alışkanlık — ikinizde de aynı bilgi olur.
+- **Şehir dışı yolculukta fiyatı yola çıkmadan öğrenme hakkınız var.** Telefonda sorup rakamı yola çıkmadan netleştirmek iyi bir alışkanlık — varışta sürprizle karşılaşmazsınız.
 - **Bagaj için ek ücret istenmesi** beklenen bir uygulama değildir.
 - **Güzergah seçimi** konusunda bilgi isteyebilirsiniz. Daha uzun bir yol tercih ediliyorsa nedeni açıklanmalıdır.
-- **Ödeme yöntemini** önceden sorabilirsiniz. Biz nakit ve kredi kartı kabul ediyoruz.
+- **Ödeme nakit olarak alınır.** Fiyatı yola çıkmadan konuştuğumuz için ne kadar nakit bulundurmanız gerektiğini önceden bilirsiniz.
 
 ## Bizim yaklaşımımız
 
@@ -107,6 +107,6 @@ Ayancık küçük bir ilçe. Burada bir yolcuyu bir kez kandıran esnafın adı 
 
 1. **Şehir içinde taksimetre.** Resmî tarife, gündüz-gece aynı.
 2. **Şehir dışında sabit fiyat.** Yola çıkmadan söylenir, yolda değişmez.
-3. **Gizli ücret yok.** Bagaj yok, gece ücreti yok, çocuk koltuğu ücreti yok.
+3. **Gizli ücret yok.** Bagaj ücreti yok, gece ücreti yok.
 
 Net tutarı öğrenmek için güzergahınızı, tarihi ve kaç kişi olduğunuzu söyleyerek aramanız yeterli. Telefonda fiyat vermekten çekinmiyoruz — zaten en çok sorulan soru bu.

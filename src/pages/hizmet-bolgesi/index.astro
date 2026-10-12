@@ -4,7 +4,6 @@ import CallButtons from '../../components/CallButtons.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { villages, neighbourhoods } from '../../data/villages';
 import { routes, fmtDuration } from '../../data/routes';
-import { waMessages } from '../../data/site';
 import { breadcrumbSchema, serviceAreaListSchema } from '../../lib/schema';
 
 const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hizmet Bölgesi', href: '/hizmet-bolgesi/' }];
@@ -13,7 +12,6 @@ const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hizmet Bölgesi', href
   title="Hizmet Bölgesi ve Köyler | Ayancık Taksi"
   description={`Ayancık Taksi hizmet bölgesi: Ayancık ilçe merkezi, ${villages.length} köy, Sinop, Türkeli, Erfelek, Boyabat, Gerze, Kastamonu ve Samsun yönü. Köy adını söyleyerek arayın.`}
   path="/hizmet-bolgesi/"
-  waMessage={waMessages.village}
   schema={[breadcrumbSchema(crumbs), serviceAreaListSchema()]}
 >
   <Breadcrumbs crumbs={crumbs} />
@@ -24,7 +22,7 @@ const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hizmet Bölgesi', href
         Ayancık ilçe merkezi, ilçeye bağlı {villages.length} köy ve çevre ilçeler.
         Köyünüzün adını söyleyerek arayın; yol durumunu ve süreyi hemen söyleriz.
       </p>
-      <div style="margin-top:1.4rem"><CallButtons waMessage={waMessages.village} /></div>
+      <div style="margin-top:1.4rem"><CallButtons /></div>
     </div>
   </div>
 

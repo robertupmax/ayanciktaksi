@@ -2,14 +2,16 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import Faq from '../components/Faq.astro';
+import Photo from '../components/Photo.astro';
 import CallButtons from '../components/CallButtons.astro';
-import { site, waMessages } from '../data/site';
+import { site } from '../data/site';
 import { services } from '../data/services';
 import { popularRoutes, fmtDuration } from '../data/routes';
 import { places } from '../data/places';
 import { homeFaq } from '../data/faq';
 import { villages } from '../data/villages';
 import { faqSchema, offerCatalogSchema } from '../lib/schema';
+import { photos, placePhotos } from '../data/photos';
 import { getPosts } from '../lib/posts';
 
 const posts = (await getPosts()).slice(0, 3);
@@ -25,7 +27,7 @@ const segments = [
   {
     icon: 'beach',
     title: 'Yazın gelen misafirler',
-    text: 'Yurt içinden ve yurt dışından ilçeye gelen misafirler için havalimanı karşılama, köy evine bırakma, plaj ve koy turları. Aracınız olmasa da tatiliniz aksamaz.',
+    text: 'Yurt içinden ve yurt dışından gelen misafirler için havalimanı karşılama, köy evine bırakma ve plaja gidiş-dönüş. Aracınız olmasa da tatiliniz aksamaz.',
   },
   {
     icon: 'student',
@@ -34,19 +36,19 @@ const segments = [
   },
   {
     icon: 'village',
-    title: 'Köylerimizin yaşlıları',
-    text: 'Hastane, banka, pazar ve alışveriş için köyden merkeze gelip gitme. Acele ettirmeyen, inip binmede yardım eden, poşetleri kapıya taşıyan hizmet.',
+    title: 'Köylerden merkeze',
+    text: 'Hastane, banka, pazar ve alışveriş için köyden merkeze gelip gitme. Minibüs saatini beklemek yok; genç yaşlı herkes bir telefonla kapısından biniyor.',
   },
   {
     icon: 'hospital',
-    title: 'Sağlık yolculukları',
+    title: 'Hastane yolculukları',
     text: 'Ayancık Devlet Hastanesi, Sinop Atatürk Devlet Hastanesi ve Samsun’daki hastaneler. Randevu saatine göre planlama, bekleme veya dönüş için aynı araç.',
   },
 ];
 
 const steps = [
-  { n: '1', t: 'Arayın veya yazın', d: 'Telefonla arayın ya da WhatsApp’tan konumunuzu gönderin. Adres tarif etmekle uğraşmanıza gerek yok.' },
-  { n: '2', t: 'Fiyatı baştan öğrenin', d: 'Şehir dışı ve havalimanı yolculuklarında fiyatı yola çıkmadan söyler, WhatsApp’tan yazılı teyit ederiz.' },
+  { n: '1', t: 'Telefonla arayın', d: 'Nerede olduğunuzu kısaca söyleyin. İlçeyi iyi bildiğimiz için mevki ya da yakındaki bir dükkân adı çoğu zaman yeterli.' },
+  { n: '2', t: 'Fiyatı baştan öğrenin', d: 'Şehir dışı ve havalimanı yolculuklarında fiyatı yola çıkmadan söyleriz. Telefonda ne konuştuysak o.' },
   { n: '3', t: 'Kapınızdan yola çıkın', d: 'Aracı kapınıza çekeriz. Aracımız büyük bagajlıdır ve bagaj için ek ücret almıyoruz.' },
 ];
 ---
@@ -61,41 +63,34 @@ const steps = [
     <div class="wrap hero__grid">
       <div>
         <p class="hero__badges">
-          <span class="hero__badge"><Icon name="clock" /> Gece gündüz, 7 gün 24 saat</span>
-          <span class="hero__badge"><Icon name="pin" /> Ayancık ve 60+ köy</span>
+          <span class="hero__badge"><Icon name="clock" /> 7 gün 24 saat</span>
           <span class="hero__badge"><Icon name="bag" /> Büyük bagajlı araç</span>
-          <span class="hero__badge"><Icon name="shield" /> Ticari taşımacılık belgeli</span>
         </p>
 
-        <h1>Ayancık’ta taksi: bir telefon kadar yakın</h1>
+        <h1>Ayancık Taksi</h1>
         <p class="hero__sub">
-          Sinop’un Ayancık ilçesinde ve çevre köylerinde 7/24 ticari taksi hizmeti.
-          Büyük bagajlı araç, esnek çalışma saatleri ve şehir dışı yolculuklarda
-          sabit fiyat — yola çıkmadan ne ödeyeceğinizi bilirsiniz.
+          Ayancık ve çevre köylerde 7/24 taksi. Şoför {site.driver.name}.
         </p>
 
         <a class="hero__phone" href={site.phone.href} aria-label={`Telefonla ara: ${site.phone.display}`}>
           <Icon name="phone" /> {site.phone.display}
         </a>
         <div style="margin-top:1.3rem">
-          <CallButtons size="lg" waMessage={waMessages.location} showNumber={false} />
+          <CallButtons size="lg" showNumber={false} />
         </div>
-        <p class="fs-sm" style="margin-top:1rem;color:#8f9bab">
-          WhatsApp’tan canlı konum göndermek en hızlı yol — adres tarif etmenize gerek kalmaz.
-        </p>
       </div>
 
-      <aside class="hero-card">
+      <aside class="stack">
+        <Photo name={photos.hero} class="photo--hero" width={720} ratio="4/3" eager />
+        <div class="hero-card">
         <h2>Kısa bilgi</h2>
         <dl>
           <div><dt>Çalışma saatleri</dt><dd>{site.hours.text}</dd></div>
-          <div><dt>Ayancık → Sinop</dt><dd>55 km · ~1 sa</dd></div>
           <div><dt>Ayancık → Havalimanı</dt><dd>60 km · ~1 sa 5 dk</dd></div>
           <div><dt>Hizmet alanı</dt><dd>Ayancık + {villages.length} köy</dd></div>
-          <div><dt>Bagaj</dt><dd>Büyük bagaj · ek ücret yok</dd></div>
-          <div><dt>Ödeme</dt><dd>Nakit · Kredi kartı</dd></div>
-          <div><dt>Rezervasyon</dt><dd>Telefon · WhatsApp</dd></div>
+          <div><dt>Ödeme</dt><dd>Nakit</dd></div>
         </dl>
+        </div>
       </aside>
     </div>
   </section>
@@ -106,8 +101,7 @@ const steps = [
       <p class="eyebrow">Hizmetlerimiz</p>
       <h2>Ayancık’ta hangi yolculuk olursa olsun</h2>
       <p class="lead" style="margin-bottom:2rem">
-        Kısa bir market dönüşünden İstanbul’a kadar uzanan yolculuklara; köy yollarından
-        havalimanı transferine kadar hepsini aynı numaradan planlıyoruz.
+        Kısa mesafeden şehirler arasına, hepsi aynı numaradan.
       </p>
 
       <div class="grid grid--3">
@@ -215,7 +209,7 @@ const steps = [
         <li><strong>Gece ücreti yok.</strong> Saat kaç olursa olsun aynı tarife.</li>
         <li><strong>Büyük bagaj.</strong> Bagaj için ek ücret çıkmaz.</li>
         <li><strong>Çocuk koltuğu hazır.</strong> Önceden haber verin, ek ücret almıyoruz.</li>
-        <li><strong>Yurt dışından da ulaşılır.</strong> Gurbetteki misafirlerimiz WhatsApp’tan yazıp transferini önceden planlıyor.</li>
+        <li><strong>Yurt dışından da ulaşılır.</strong> Gurbetteki misafirlerimiz +90 531 830 20 17 numarasını arayıp transferini önceden planlıyor.</li>
       </ul>
 
       <div style="margin-top:2rem"><CallButtons size="lg" showNumber /></div>
@@ -234,7 +228,8 @@ const steps = [
       <div class="grid grid--3">
         {places.slice(0, 6).map((p) => (
           <a class="card" href={`/gezilecek-yerler/#${p.slug}`}>
-            <p class="post-card__tag">{p.category} · {p.kmFromAyancik} km</p>
+            <Photo name={placePhotos[p.slug]} width={520} ratio="16/9" rounded={false} />
+            <p class="post-card__tag">{p.category}{p.kmFromAyancik ? ` · ${p.kmFromAyancik} km` : ''}</p>
             <h3>{p.name}</h3>
             <p>{p.summary}</p>
             <span class="card__more">Oku</span>
@@ -296,11 +291,11 @@ const steps = [
     <div class="wrap narrow">
       <h2>Şimdi bir taksiye mi ihtiyacınız var?</h2>
       <p class="lead" style="margin-inline:auto">
-        Arayın ya da WhatsApp’tan konumunuzu gönderin. Gece yarısı da aynı numara,
+        Tek numarayı arayın, yeter. Gece yarısı da aynı numara,
         aynı fiyat, aynı sürücü.
       </p>
       <div style="margin-top:1.8rem;display:flex;justify-content:center">
-        <CallButtons size="lg" waMessage={waMessages.location} showNumber />
+        <CallButtons size="lg" showNumber />
       </div>
     </div>
   </section>

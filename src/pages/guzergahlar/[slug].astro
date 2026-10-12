@@ -18,13 +18,11 @@ const crumbs = [
   { name: 'Güzergahlar', href: '/guzergahlar/' },
   { name: `${r.from} – ${r.to}`, href: `/guzergahlar/${r.slug}/` },
 ];
-const wa = `Merhaba, ${r.from} – ${r.to} yolculuğu için fiyat ve müsaitlik bilgisi almak istiyorum. Tarih/saat: `;
 ---
 <Base
   title={r.metaTitle}
   description={r.metaDescription}
   path={`/guzergahlar/${r.slug}/`}
-  waMessage={wa}
   schema={[
     breadcrumbSchema(crumbs),
     tripSchema({ ...r, url, description: r.metaDescription }),
@@ -35,7 +33,7 @@ const wa = `Merhaba, ${r.from} – ${r.to} yolculuğu için fiyat ve müsaitlik 
     <div class="wrap">
       <h1>{r.title}</h1>
       <p class="lead">{r.intro}</p>
-      <div style="margin-top:1.4rem"><CallButtons size="lg" waMessage={wa} /></div>
+      <div style="margin-top:1.4rem"><CallButtons size="lg" /></div>
     </div>
   </div>
 
@@ -56,7 +54,7 @@ const wa = `Merhaba, ${r.from} – ${r.to} yolculuğu için fiyat ve müsaitlik 
           <h2>Fiyat nasıl belirleniyor?</h2>
           <p>
             Bu mesafede taksimetre yerine <strong>sabit fiyat</strong> uygulanır. Fiyatı yola
-            çıkmadan söyler, WhatsApp üzerinden yazılı olarak teyit ederiz; yol üzerinde
+            çıkmadan söyler, telefonda birlikte netleştiririz; yol üzerinde
             değişmez. Köprü ve otoyol ücretleri fiyata dahildir.
           </p>
           <p>
@@ -79,7 +77,7 @@ const wa = `Merhaba, ${r.from} – ${r.to} yolculuğu için fiyat ve müsaitlik 
               <a href={site.phone.href} style="font-size:1.45rem;font-weight:800;text-decoration:none">{site.phone.display}</a><br />
               <span class="fs-sm muted">{site.hours.text}</span>
             </p>
-            <CallButtons waMessage={wa} showNumber={false} />
+            <CallButtons showNumber={false} />
           </div>
           <div class="card">
             <h2 style="font-size:1.1rem">Diğer güzergahlar</h2>

@@ -15,15 +15,20 @@ export function businessSchema() {
     '@type': ['TaxiService', 'LocalBusiness'],
     '@id': ORG_ID,
     name: `${site.brand} — ${site.legalName}`,
-    alternateName: [site.legalName, 'Ayancık Taksi Durağı', 'Güven Taksi Ayancık'],
+    alternateName: [
+      site.legalName,
+      'Ayancık Taksi Durağı',
+      'Güven Taksi Ayancık',
+      `${site.driver.name} Taksi`,
+      `Taksici ${site.driver.name}`,
+    ],
     description:
-      'Sinop Ayancık’ta 7/24 ticari taksi hizmeti. Büyük bagajlı araç, esnek çalışma saatleri. Sinop Havalimanı transferi, hastane ve köy yolculukları, plaj ve koy turları, şehirler arası taksi.',
+      'Sinop Ayancık’ta 7/24 ticari taksi hizmeti. Büyük bagajlı araç, esnek çalışma saatleri. Sinop Havalimanı transferi, hastane ulaşımı, köy yolculukları, plaj ulaşımı ve şehirler arası taksi.',
     url: site.url,
     telephone: site.phone.displayIntl,
-    email: site.email,
     priceRange: '₺₺',
     currenciesAccepted: 'TRY',
-    paymentAccepted: 'Nakit, Kredi Kartı',
+    paymentAccepted: 'Nakit',
     foundingDate: String(site.foundingYear),
     image: `${site.url}/og.png`,
     logo: `${site.url}/logo.png`,
@@ -36,6 +41,16 @@ export function businessSchema() {
       addressCountry: 'TR',
     },
     geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
+    employee: {
+      '@type': 'Person',
+      name: site.driver.name,
+      jobTitle: site.driver.title,
+      worksFor: { '@id': ORG_ID },
+    },
+    founder: { '@type': 'Person', name: site.driver.name },
+    ...(site.driver.plate
+      ? { vehicleIdentificationNumber: site.driver.plate, identifier: site.driver.plate }
+      : {}),
     hasMap: site.mapsUrl,
     openingHoursSpecification: [
       {
@@ -63,8 +78,6 @@ export function businessSchema() {
     potentialAction: [
       { '@type': 'ReserveAction',
         target: { '@type': 'EntryPoint', urlTemplate: site.phone.href, actionPlatform: ['http://schema.org/MobileWebPlatform'] } },
-      { '@type': 'CommunicateAction',
-        target: { '@type': 'EntryPoint', urlTemplate: site.whatsapp.href() } },
     ],
   };
 }

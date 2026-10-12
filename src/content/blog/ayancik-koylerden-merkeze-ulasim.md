@@ -66,7 +66,7 @@ Ve en önemlisi: **gelemeyeceksek telefonda hemen söylüyoruz.** "Geliyorum" de
 
 Bazı işler için köyden çıkmanız gerekmiyor. Yıllardır yaptığımız bir hizmet:
 
-**Alışveriş getirme.** Market, pazar veya eczane alışverişinizi WhatsApp'tan liste halinde gönderirsiniz; alışverişi yapıp **fişiyle birlikte** kapınıza teslim ederiz. Tutarı teslimde tahsil ediyoruz.
+**Alışveriş getirme.** Market, pazar veya eczane alışverişinizi telefonda tek tek sayarsınız; alışverişi yapıp **fişiyle birlikte** kapınıza teslim ederiz. Tutarı teslimde tahsil ediyoruz.
 
 **İlaç getirme.** Reçeteniz hazırsa eczaneden alıp getiriyoruz.
 

@@ -4,15 +4,16 @@ import Icon from './Icon.astro';
 
 const here = Astro.url.pathname;
 
+/* Sade menü. Gezi Rehberi, Blog ve Hakkımızda altbilgide duruyor;
+   üst bandın asıl işi şoför adı, plaka ve telefonu öne çıkarmak. */
 const nav = [
-    { href: '/hizmetler/', label: 'Hizmetler' },
-    { href: '/guzergahlar/', label: 'Güzergahlar' },
-    { href: '/gezilecek-yerler/', label: 'Gezi Rehberi' },
-    { href: '/blog/', label: 'Blog' },
-    { href: '/sss/', label: 'S.S.S.' },
-    { href: '/hakkimizda/', label: 'Hakkımızda' },
-    { href: '/iletisim/', label: 'İletişim' },
+  { href: '/hizmetler/', label: 'Hizmetler' },
+  { href: '/guzergahlar/', label: 'Güzergahlar' },
+  { href: '/sss/', label: 'S.S.S.' },
+  { href: '/iletisim/', label: 'İletişim' },
 ];
+
+const sub = [site.driver.name, site.driver.plate].filter(Boolean).join(' · ');
 ---
 <header class="site-header" data-open="false" id="siteHeader">
   <div class="wrap site-header__in">
@@ -24,7 +25,7 @@ const nav = [
         <rect x="18" y="9" width="12" height="5.5" rx="1.6" fill="#ffb800"/>
         <path d="M18 11.8h12M22 9v5.5M26 9v5.5" stroke="#12151a" stroke-width="1.1"/>
       </svg>
-      <span>{site.brand}<small>Ayancık · Sinop · 7/24</small></span>
+      <span>{site.brand}<small>{sub}</small></span>
     </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNav" id="navToggle">

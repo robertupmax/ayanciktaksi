@@ -1,14 +1,12 @@
 /* =========================================================================
    AYANCIK TAKSİ — MERKEZİ AYAR DOSYASI
-   Sitedeki telefon, WhatsApp, adres, çalışma saati gibi tüm bilgiler
+   Sitedeki telefon, adres, çalışma saati gibi tüm bilgiler
    BURADAN yönetilir. Başka bir dosyayı değiştirmeniz gerekmez.
    ========================================================================= */
 
 /** Telefon numarası — SADECE RAKAM, ülke kodu dahil. Örn: 905318302017 */
 const PHONE_DIGITS = '905318302017';
 
-/** WhatsApp numarası. Genelde telefon ile aynıdır. */
-const WHATSAPP_DIGITS = '905318302017';
 
 export const site = {
   /* ---------- Kimlik ---------- */
@@ -21,6 +19,17 @@ export const site = {
   tagline: 'Ayancık ve çevresinde 7/24 taksi',
   foundingYear: 2008,
 
+  /* ---------- Şoför ----------
+     Plakayı yazdığınızda başlıkta, iletişim sayfasında ve
+     yapılandırılmış veride otomatik görünür. Boş bırakılırsa gizlenir. */
+  driver: {
+    name: 'Hüseyin Çokluk',
+    title: 'Şoför',
+    plate: '57 T 2017',
+    bio:
+      'Taşımacılık sektöründe uzun yıllardır çalışan, Ayancık’ta yaşayan ve ilçede tanınan bir şoför.',
+  },
+
   /* ---------- İletişim ---------- */
   phone: {
     digits: PHONE_DIGITS,
@@ -29,15 +38,6 @@ export const site = {
     displayIntl: '+90 531 830 20 17',
     href: `tel:+${PHONE_DIGITS}`,
   },
-  whatsapp: {
-    digits: WHATSAPP_DIGITS,
-    display: '0531 830 20 17',
-    /** Hazır mesajlı WhatsApp linki üretir */
-    href: (message?: string) =>
-      `https://wa.me/${WHATSAPP_DIGITS}${message ? `?text=${encodeURIComponent(message)}` : ''}`,
-  },
-  email: 'info@ayanciktaksi.com',
-
   /* ---------- Konum ---------- */
   address: {
     street: 'Yalı Mahallesi',
@@ -85,8 +85,7 @@ export const site = {
       'Büyük bagajlı araç',
       'Esnek saat: sabah erken ve gece geç',
       'Ticari taşımacılık belgeli sürücü',
-      'Çocuk/bebek koltuğu (önceden haber verin)',
-      'Nakit ve kredi kartı',
+      'Nakit ödeme',
       'Sigortalı araç',
     ],
   },
@@ -109,7 +108,7 @@ export const site = {
       icon: 'card',
       title: 'Uygun ve belli fiyat',
       text:
-        'Şehir içinde resmî taksimetre tarifesi, şehir dışında yola çıkmadan konuşulan sabit fiyat. Gidiş-dönüş alındığında belirgin şekilde daha hesaplı; gece ücreti, bagaj ücreti ve çocuk koltuğu ücreti yok.',
+        'Şehir içinde resmî taksimetre tarifesi, şehir dışında yola çıkmadan konuşulan sabit fiyat. Gidiş-dönüş alındığında belirgin şekilde daha hesaplı; gece ücreti ve bagaj ücreti yok.',
     },
     {
       icon: 'shield',
@@ -118,23 +117,6 @@ export const site = {
         'Ayancık’ta yaşayan, ilçede tanınan, ticari taşımacılık belgeli bir sürücüyle yolculuk yapıyorsunuz. Araç sigortalı, klimalı ve düzenli bakımlı.',
     },
   ],
-} as const;
-
-/* ---------- Hazır WhatsApp mesajları ---------- */
-export const waMessages = {
-  general: 'Merhaba, Ayancık Taksi için taksi çağırmak istiyorum.',
-  location: 'Merhaba, konumumu gönderiyorum. Taksi rica ediyorum.',
-  airport:
-    'Merhaba, Sinop Havalimanı transferi için fiyat ve müsaitlik bilgisi almak istiyorum. Tarih/saat: ',
-  hospital:
-    'Merhaba, hastane transferi için taksi rica ediyorum. Tarih/saat ve adres: ',
-  village: 'Merhaba, köy yolculuğu için taksi rica ediyorum. Köy ve saat: ',
-  tour: 'Merhaba, günübirlik tur / plaj turu için bilgi almak istiyorum. Tarih ve kişi sayısı: ',
-  intercity: 'Merhaba, şehirler arası yolculuk için fiyat almak istiyorum. Güzergah ve tarih: ',
-  student: 'Merhaba, öğrenci yolculuğu için taksi rica ediyorum. Adres ve saat: ',
-  cargo: 'Merhaba, paket/evrak gönderimi için bilgi almak istiyorum. Nereden-nereye: ',
-  reservation:
-    'Merhaba, rezervasyon yapmak istiyorum.\nTarih:\nSaat:\nAlış adresi:\nVarış yeri:\nKişi sayısı:',
 } as const;
 
 export type SiteConfig = typeof site;

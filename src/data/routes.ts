@@ -77,16 +77,16 @@ export const routes: Route[] = [
     from: 'Ayancık',
     to: 'Erfelek Tatlıca Şelaleleri',
     title: 'Ayancık – Erfelek Tatlıca Şelaleleri Taksi',
-    metaTitle: 'Ayancık Erfelek Tatlıca Şelaleleri Taksi | Günübirlik Tur',
+    metaTitle: 'Ayancık Erfelek Tatlıca Şelaleleri Taksi | Gidiş-Dönüş',
     metaDescription:
-      'Ayancık’tan Erfelek Tatlıca Şelaleleri’ne taksi: yaklaşık 50 km. Günübirlik tur, bekleme veya bırak-al seçeneğiyle. Yazın en serin durak.',
+      'Ayancık’tan Erfelek Tatlıca Şelaleleri’ne taksi: yaklaşık 50 km. Bırak-al usulü gidiş-dönüş, sabit fiyat. Yazın en serin durak.',
     km: 50,
     minutes: 55,
     intro:
       'Sinop’un en bilinen doğa durağı Tatlıca Şelaleleri, Ayancık’tan yaklaşık 50 kilometre. Ahşap patika boyunca onlarca şelale var; yazın bunaltıcı sıcakta en serin yer.',
     notes: [
       'Yürüyüş patikası için rahat ayakkabı getirin, taşlar ıslak ve kaygan olur.',
-      'Günübirlik turda aracı bekletmek yerine saat belirleyip dönüşte çağırabilirsiniz.',
+      'Aracı bekletmiyoruz: sizi bırakırız, dönmek istediğinizde arayıp çağırırsınız.',
       'Erfelek ilçe merkezi Ayancık’tan 46 km uzaklıkta.',
     ],
     popular: true,
@@ -98,7 +98,7 @@ export const routes: Route[] = [
     title: 'Ayancık – Akgöl ve Çangal Ormanları Taksi',
     metaTitle: 'Ayancık Akgöl Taksi | Çangal Ormanları ve İnaltı Mağarası Turu',
     metaDescription:
-      'Ayancık’tan Akgöl, Çangal Ormanları ve İnaltı Mağarası’na taksi turu. Orman yolu rehberliği, piknik ve fotoğraf molası. Günübirlik tur.',
+      'Ayancık’tan Akgöl, Çangal Ormanları ve İnaltı Mağarası’na taksi. Orman yolu, gidiş-dönüş sabit fiyat, bırak-al usulü.',
     km: 30,
     minutes: 50,
     intro:

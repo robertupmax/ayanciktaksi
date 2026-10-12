@@ -14,7 +14,7 @@ faq:
   - q: "Ayancık'ta araç kiralama var mı?"
     a: "İlçede seçenek çok sınırlı. Sinop merkezde daha fazla firma var. Kısa süreli ziyaretlerde araç kiralamak yerine ihtiyaç duyulan günlerde taksi kullanmak çoğu zaman daha hesaplı oluyor."
   - q: "Yurt dışından nasıl iletişim kurarım?"
-    a: "En pratik yol WhatsApp: arama ücreti ödemeden yazışır, konum, tarih ve saat paylaşırsınız. Telefonla arayacaksanız numara yurt dışından +90 531 830 20 17 şeklinde çevrilir."
+    a: "Numaramızı arayın: yurt dışından +90 531 830 20 17 şeklinde çevrilir. Uçuş tarihinizi, saatinizi ve kişi sayınızı söylemeniz yeterli; saatinizi önceden ayırırız."
 ---
 
 Ayancık'a her yaz, yurt dışında yaşayan hemşehrilerimiz geliyor — çoğunlukla Almanya, Hollanda, Fransa ve Avusturya'dan. Bazıları her yıl aynı rutinle, bazıları ise yıllar sonra ilk kez.
@@ -77,10 +77,10 @@ Her defasında yeniden fiyat konuşmak, numara aramak veya yol tarif etmek gerek
 
 ## İletişim
 
-**En pratik yol WhatsApp.** Yurt dışındayken arama ücreti ödemeden yazışırsınız ve yer adları, saatler gibi şeyler yazılı olunca karışmaz. Numaramız yurt dışından **+90 531 830 20 17** şeklinde çevrilir.
+**Numaramızı yurt dışından da arayabilirsiniz.** Yurt dışı formatında **+90 531 830 20 17** şeklinde çevrilir. Gece olması sorun değil, telefon 24 saat açık. Uçuş tarihi belli olur olmaz aramanız yeterli; yoğun yaz aylarında saatinizi önceden ayırmış oluruz.
 
 Paylaşmanız gereken bilgi basit:
-- Konum (WhatsApp canlı konum en pratik)
+- Alış yeri (havalimanı, otogar, köy adı ya da mevki)
 - Tarih ve saat
 - Kaç kişi
 - Varış adresi veya "havalimanı"

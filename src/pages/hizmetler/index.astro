@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import CallButtons from '../../components/CallButtons.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Photo from '../../components/Photo.astro';
+import { servicePhotos } from '../../data/photos';
 import { services } from '../../data/services';
 import { site } from '../../data/site';
 import { breadcrumbSchema, offerCatalogSchema } from '../../lib/schema';
@@ -35,6 +37,7 @@ const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hizmetler', href: '/hi
       <div class="grid grid--2">
         {services.map((s) => (
           <a class="card" href={`/hizmetler/${s.slug}/`}>
+            <Photo name={servicePhotos[s.slug]} width={620} ratio="16/9" rounded={false} />
             <span class="icon-badge"><Icon name={s.icon} /></span>
             <h2 style="font-size:1.22rem">{s.title}</h2>
             <p>{s.short}</p>

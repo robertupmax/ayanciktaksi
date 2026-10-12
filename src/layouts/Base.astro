@@ -15,13 +15,12 @@ interface Props {
   ogType?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
-  waMessage?: string;
   /** Her sayfada işletme + website şeması tekrarlanır (yerel SEO için istenen davranış) */
   includeBusiness?: boolean;
 }
 const {
   title, description, path, schema = [],
-  noindex, ogType, publishedTime, modifiedTime, waMessage, includeBusiness = true,
+  noindex, ogType, publishedTime, modifiedTime, includeBusiness = true,
 } = Astro.props;
 
 const allSchema = includeBusiness
@@ -43,6 +42,6 @@ const allSchema = includeBusiness
     <Header />
     <main id="main"><slot /></main>
     <Footer />
-    <CallBar waMessage={waMessage} />
+    <CallBar />
   </body>
 </html>

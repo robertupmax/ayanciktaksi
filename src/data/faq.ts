@@ -18,12 +18,12 @@ export const faq: FaqItem[] = [
   {
     group: 'Taksi çağırma',
     q: 'Ayancık’ta 7/24 taksi var mı?',
-    a: 'Evet. Ayancık Taksi (Güven Taksi) günün her saati, hafta sonu ve resmî tatiller dahil çalışır. 0531 830 20 17 numarasını arayabilir veya aynı numaraya WhatsApp’tan yazabilirsiniz. Gece saatleri için ek ücret uygulanmaz.',
+    a: 'Evet. Ayancık Taksi (Güven Taksi) günün her saati, hafta sonu ve resmî tatiller dahil çalışır. 0531 830 20 17 numarasını gecenin hangi saati olursa olsun arayabilirsiniz. Gece saatleri için ek ücret uygulanmaz.',
   },
   {
     group: 'Taksi çağırma',
     q: 'Ayancık’ta taksi nasıl çağırılır?',
-    a: '0531 830 20 17 numarasını arayın ya da WhatsApp’tan konumunuzu gönderin. Adres tarif etmek yerine WhatsApp’tan canlı konum göndermek en hızlı yöntemdir; nerede olduğunuzu görür ve doğrudan yanınıza geliriz.',
+    a: '0531 830 20 17 numarasını arayın ve bulunduğunuz yeri tarif edin. Ayancık merkez ve çevresini iyi bildiğimiz için mevki adı, bir dükkân ya da cami ismi söylemeniz çoğu zaman yeterli oluyor; adresi tam bilmeseniz de buluruz.',
   },
   {
     group: 'Taksi çağırma',
@@ -33,12 +33,12 @@ export const faq: FaqItem[] = [
   {
     group: 'Taksi çağırma',
     q: 'Önceden rezervasyon yapabilir miyim?',
-    a: 'Evet, rezervasyon alıyoruz. Havalimanı transferleri, hastane randevuları ve uzun mesafe yolculuklar için rezervasyon öneriyoruz. Tarih, saat, alış adresi, varış yeri ve kişi sayısını WhatsApp’tan yazın; aynı mesajda yazılı olarak teyit ederiz.',
+    a: 'Evet, rezervasyon alıyoruz. Havalimanı transferleri, hastane randevuları ve uzun mesafe yolculuklar için rezervasyon öneriyoruz. Arayıp tarih, saat, alış adresi, varış yeri ve kişi sayısını söylemeniz yeterli; saatinizi ayırır, fiyatı telefonda netleştiririz.',
   },
   {
     group: 'Taksi çağırma',
     q: 'Yurt dışından arayabilir miyim?',
-    a: 'Arayabilirsiniz; numaramız yurt dışından +90 531 830 20 17 şeklinde çevrilir. Daha pratiği WhatsApp: arama ücreti ödemeden yazışır, tarih, saat ve adresi paylaşır, fiyatı yazılı olarak teyit edersiniz. Yurt dışından gelen misafirlerimizin havalimanı karşılamasını genelde böyle planlıyoruz.',
+    a: 'Arayabilirsiniz; numaramız yurt dışından +90 531 830 20 17 şeklinde çevrilir. Yurt dışından gelen misafirlerimiz havalimanı karşılamasını genelde birkaç gün önceden arayarak planlıyor: uçuş tarihi, saati ve kişi sayısını söylemeniz yeterli, saatinizi ayırıyoruz.',
   },
 
   /* --- Fiyat ve ödeme --- */
@@ -54,8 +54,8 @@ export const faq: FaqItem[] = [
   },
   {
     group: 'Fiyat ve ödeme',
-    q: 'Kredi kartı ile ödeyebilir miyim?',
-    a: 'Evet, nakit ve kredi kartı kabul ediyoruz. Uzun mesafe yolculuklarda ödeme şeklini baştan konuşmak iyi olur.',
+    q: 'Ödeme nasıl yapılıyor?',
+    a: 'Ödemeler nakit olarak alınıyor. Şehir dışı ve uzun mesafe yolculuklarda tutarı yola çıkmadan konuştuğumuz için ne kadar nakit bulundurmanız gerektiğini önceden bilirsiniz.',
   },
   {
     group: 'Fiyat ve ödeme',
@@ -109,12 +109,12 @@ export const faq: FaqItem[] = [
   {
     group: 'Köyler ve çevre',
     q: 'Ben gelmesem, alışverişimi köye getirir misiniz?',
-    a: 'Getiririz. Market, pazar veya eczane alışverişinizi WhatsApp’tan liste halinde gönderin; alışverişi yapıp fişiyle birlikte kapınıza teslim ederiz. Tutarı teslimde tahsil ediyoruz.',
+    a: 'Getiririz. Market, pazar veya eczane alışverişinizi telefonda sayın; alışverişi yapıp fişiyle birlikte kapınıza teslim ederiz. Tutarı teslimde tahsil ediyoruz.',
   },
   {
     group: 'Köyler ve çevre',
-    q: 'Plaj ve koylara günübirlik tur yapıyor musunuz?',
-    a: 'Evet. Ayancık sahili ve Kuğu Yalısı’nın yanında Hamsilos Koyu, Akliman, Türkeli yönündeki tenha sahiller, Erfelek Tatlıca Şelaleleri ve Akgöl için yarım gün veya tam gün tur düzenliyoruz. İsterseniz bırakıp gidelim ve dönüşte tekrar çağırın; isterseniz araç gün boyu sizinle kalsın.',
+    q: 'Plajlara gidiş-dönüş yapıyor musunuz?',
+    a: 'Evet. Çamurca Plajı, Aliköy Plajı, Ayancık Köyü limanı, merkez sahili ve Türkeli yönündeki tenha sahillere gidiyoruz. Çalışma şeklimiz “bırak-al”: sabah sizi bırakırız, dönmek istediğinizde arar aynı aracı çağırırsınız. Araç beklemediği için bekleme ücreti de çıkmaz. Turistik tur düzenlemiyoruz, yalnızca ulaşım sağlıyoruz.',
   },
 
   /* --- Yolcu ve araç --- */
@@ -122,11 +122,6 @@ export const faq: FaqItem[] = [
     group: 'Yolcu ve araç',
     q: 'Kaç kişi binebilir?',
     a: 'Araçta sürücü hariç 4 yolcu yeri bulunur. Daha kalabalık gruplar için güvendiğimiz meslektaşlarımızla ikinci araç ayarlıyor, birlikte hareket ediyoruz. Kişi sayısını arama sırasında söylemeniz yeterli.',
-  },
-  {
-    group: 'Yolcu ve araç',
-    q: 'Çocuk veya bebek koltuğu var mı?',
-    a: 'Var. Çocuğunuzun yaşını önceden bildirirseniz uygun koltuğu hazırlıyoruz ve bunun için ek ücret almıyoruz.',
   },
   {
     group: 'Yolcu ve araç',

@@ -1,7 +1,7 @@
 # Ayancık Taksi — ayanciktaksi.com
 
 Sinop Ayancık'ta hizmet veren **Güven Taksi** için Astro ile yapılmış statik web sitesi.
-44 sayfa, üç dil (TR/EN/DE), tam yapılandırılmış veri (JSON-LD), sıfır JavaScript bağımlılığı.
+40 sayfa, Türkçe, tam yapılandırılmış veri (JSON-LD), sıfır JavaScript bağımlılığı.
 
 ---
 
@@ -114,14 +114,13 @@ public/             robots.txt, manifest, _headers, _redirects, favicon, og.png
 
 - **Yapılandırılmış veri:** her sayfada `TaxiService` + `LocalBusiness` + `WebSite`;
   sayfa türüne göre `Service`, `FAQPage`, `BlogPosting`, `Trip`, `BreadcrumbList`,
-  `ItemList`, `TouristAttraction`, `ContactPage`. Toplam 190 JSON-LD bloğu.
+  `ItemList`, `TouristAttraction`, `ContactPage`.
 - **`/llms.txt`** — yapay zekâ asistanlarının (ChatGPT, Claude, Perplexity, Gemini)
   işletme bilgisini doğru alıntılaması için makine-okunur özet. `src/pages/llms.txt.ts`
   tarafından verilerden otomatik üretilir, elle güncellemeye gerek yoktur.
 - **`robots.txt`** — yapay zekâ tarayıcıları açıkça izinli (GPTBot, ClaudeBot,
   PerplexityBot, Google-Extended, Applebot-Extended vb.).
-- **Site haritası** — `@astrojs/sitemap` ile `sitemap-index.xml`, hreflang dahil.
-- **hreflang** — TR/EN/DE sayfaları karşılıklı bağlı, `x-default` tanımlı.
+- **Site haritası** — `@astrojs/sitemap` ile `sitemap-index.xml`.
 - Her sayfada benzersiz title ve description; tek `<h1>`; `geo.*` meta etiketleri.
 
 Off-page (dizin kayıtları, Google İşletme Profili, yorum stratejisi) için

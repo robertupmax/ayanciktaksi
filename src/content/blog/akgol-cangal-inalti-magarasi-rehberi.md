@@ -5,7 +5,7 @@ description: "Ayancık'ın doğa üçlüsü: Akgöl, Çangal Ormanları ve İnal
 date: 2026-06-14
 updated: 2026-10-01
 tag: "Gezi"
-related: ["ayancik-akgol-cangal-taksi", "plaj-koy-turu"]
+related: ["ayancik-akgol-cangal-taksi", "plaj-ulasimi"]
 faq:
   - q: "Akgöl Ayancık'tan kaç km?"
     a: "Yaklaşık 30 kilometre. Ancak yol orman yolu olduğu için süre mesafeden uzun: yaklaşık 50 dakika sürer."
@@ -93,4 +93,4 @@ Bu üç durağın hiçbirine toplu taşıma yok. Köylere giden minibüsler var 
 
 Kendi aracınızla çıkacaksanız: yol tarifi karmaşık, levhalar yetersiz ve telefon çekmeyen noktalar var. İlk kez gidiyorsanız yerel bir sürücüyle gitmek hem güvenli hem de hangi saatte nerede durulacağını bilen biriyle gitmek anlamına geliyor.
 
-Günübirlik tur için araç gün boyu sizinle kalabilir ya da belirlediğiniz saatte sizi alabilir. Nereleri görmek istediğinizi söylerseniz hangisinin aynı güne sığacağını birlikte netleştirelim.
+Turistik tur düzenlemiyoruz; yaptığımız iş ulaşım. Sizi bırakırız, dönmek istediğinizde arar aynı aracı çağırırsınız — gidiş-dönüş fiyatı baştan bellidir. Nereye gitmek istediğinizi söylerseniz yol durumunu ve süreyi önceden söyleyelim.

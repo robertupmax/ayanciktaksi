@@ -3,21 +3,23 @@ import Base from '../../layouts/Base.astro';
 import CallButtons from '../../components/CallButtons.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/Icon.astro';
+import Photo from '../../components/Photo.astro';
+import { photos } from '../../data/photos';
 import { site } from '../../data/site';
 import { villages } from '../../data/villages';
 import { breadcrumbSchema } from '../../lib/schema';
 
 const crumbs = [{ name: 'Anasayfa', href: '/' }, { name: 'Hakkımızda', href: '/hakkimizda/' }];
 const values = [
-  { icon: 'card', t: 'Baştan fiyat', d: 'Şehir dışı yolculuklarda fiyatı yola çıkmadan söyleriz ve WhatsApp’tan yazılı teyit ederiz. Yolda değişmez.' },
+  { icon: 'card', t: 'Baştan fiyat', d: 'Şehir dışı yolculuklarda fiyatı yola çıkmadan söyler, telefonda anlaşırız. Yolda değişmez.' },
   { icon: 'clock', t: 'Gerçekçi süre', d: 'Yoğunsak veya yol kapalıysa “geliyorum” deyip sizi bekletmeyiz. Durumu açıkça söyleriz.' },
   { icon: 'shield', t: 'Belgeli ve sigortalı', d: 'Ticari taşımacılık için gereken belgelere sahip sürücü, sigortalı ve bakımlı araç.' },
   { icon: 'baby', t: 'Herkese uygun', d: 'Yaşlı yolcuda acele yok, çocukta koltuk hazır, bagajda ek ücret yok.' },
 ];
 ---
 <Base
-  title="Hakkımızda | Ayancık Taksi — Güven Taksi"
-  description="Ayancık Taksi (Güven Taksi) hakkında: Sinop Ayancık’ta 7/24 ticari taksi hizmeti, hizmet alanımız, çalışma ilkelerimiz ve iletişim bilgilerimiz."
+  title="Hakkımızda | Ayancık Taksi — Şoför Hüseyin Çokluk"
+  description="Ayancık Taksi — Şoför Hüseyin Çokluk. Sinop Ayancık’ta 7/24 ticari taksi; hizmet alanı, çalışma ilkeleri ve iletişim bilgileri."
   path="/hakkimizda/"
   schema={[breadcrumbSchema(crumbs)]}
 >
@@ -27,7 +29,7 @@ const values = [
       <h1>Hakkımızda</h1>
       <p class="lead">
         {site.brand} ({site.legalName}) — Sinop’un Ayancık ilçesinde 7 gün 24 saat
-        hizmet veren ticari taksi.
+        hizmet veren ticari taksi. Direksiyonda {site.driver.name}.
       </p>
       <div style="margin-top:1.4rem"><CallButtons /></div>
     </div>
@@ -37,18 +39,20 @@ const values = [
     <div class="wrap">
       <div class="grid grid--2" style="align-items:start;gap:clamp(1.6rem,4vw,3.4rem)">
         <div class="prose">
-          <h2>Kimiz?</h2>
+          <h2>Kim kullanıyor bu taksiyi?</h2>
           <p>
-            Ayancık’ta yaşayan, bu ilçede büyümüş bir taksi şoförüyüz. Yıllardır aynı yolları
-            kullanıyoruz: sahil yolundan Sinop’a, Çangal yolundan köylere, orman yolundan
-            Akgöl’e. Hangi yolun kışın kapandığını, hangi köyün hangi mevkide olduğunu,
-            hangi saatte hangi koyun sakin olduğunu biliyoruz.
+            <strong>{site.driver.name}.</strong> Taşımacılık sektöründe uzun yıllardır
+            çalışan, Ayancık’ta yaşayan ve ilçede tanınan bir şoför. Yıllardır aynı yolları
+            kullanıyor: sahil yolundan Sinop’a, Çangal yolundan köylere, orman yolundan
+            Akgöl’e. Hangi yolun kışın kapandığını, hangi köyün hangi mevkide olduğunu
+            biliyor.
           </p>
           <p>
             Durakta çalışan diğer meslektaşlarımız var ve onlarla iyi ilişkilerimiz var —
             kalabalık gruplarda birbirimize yardım ediyoruz. Ama bu web sitesi ve
             <strong> {site.phone.display}</strong> numarası bize ait; buradan gelen her
-            çağrıya bizzat biz bakıyoruz.
+            çağrıya bizzat {site.driver.name} bakıyor. Aradığınızda kiminle konuştuğunuzu,
+            araca bindiğinizde kimin kullandığını bilirsiniz.
           </p>
 
           <h2>Nasıl çalışıyoruz?</h2>
@@ -82,6 +86,7 @@ const values = [
         </div>
 
         <aside class="stack" style="position:sticky;top:90px">
+          <Photo name={photos.driver} width={720} ratio="4/3" />
           <div class="card">
             <h2 style="font-size:1.1rem">İletişim</h2>
             <p style="margin-bottom:1rem">
@@ -90,12 +95,19 @@ const values = [
             </p>
             <dl style="margin:0 0 1rem;font-size:.94rem">
               <dt class="muted">Adres</dt><dd style="margin:0 0 .7rem">{site.address.full}</dd>
+              <dt class="muted">Şoför</dt><dd style="margin:0 0 .7rem">{site.driver.name}</dd>
+              {site.driver.plate && <><dt class="muted">Plaka</dt><dd style="margin:0 0 .7rem">{site.driver.plate}</dd></>}
               <dt class="muted">Google Haritalar kaydı</dt><dd style="margin:0 0 .7rem">{site.gbpName}</dd>
               <dt class="muted">Çalışma saatleri</dt><dd style="margin:0">{site.hours.text}</dd>
             </dl>
             <CallButtons showNumber={false} />
           </div>
         </aside>
+      </div>
+
+      <div class="photo-grid" style="margin-top:2.4rem">
+        <Photo name={photos.aracIc} width={520} ratio="4/3" />
+        <Photo name={photos.bagaj} width={520} ratio="4/3" />
       </div>
 
       <h2 style="margin-top:3rem">Çalışma ilkelerimiz</h2>

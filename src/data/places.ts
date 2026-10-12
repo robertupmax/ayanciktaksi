@@ -3,7 +3,8 @@
 export type Place = {
   name: string;
   slug: string;
-  kmFromAyancik: number;
+  /** Bilinmiyorsa boş bırakın; sayfada mesafe gösterilmez. */
+  kmFromAyancik?: number;
   category: 'Doğa' | 'Plaj' | 'Tarih' | 'Mağara' | 'Göl';
   summary: string;
   detail: string[];
@@ -54,7 +55,7 @@ export const places: Place[] = [
       'Ayancık’ın İnaltı köyü yakınlarındaki, sarkıt ve dikitleriyle bilinen mağara. Akgöl turuyla aynı güne sığar.',
     detail: [
       'İnaltı Mağarası, adını aldığı İnaltı köyü çevresinde, Çangal orman alanı içinde yer alır. Mağaranın içi serin ve nemlidir; sarkıt, dikit ve travertenli yapılarıyla bilinir.',
-      'Mağara, Akgöl ile aynı yön üzerinde olduğu için ikisini tek bir günübirlik turda birleştirmek mümkün. Biz genellikle sabah Akgöl, öğleden sonra mağara şeklinde planlıyoruz.',
+      'Mağara, Akgöl ile aynı yön üzerinde olduğu için ikisini aynı güne sığdırmak mümkün. Genellikle sabah Akgöl, öğleden sonra mağara sırası tercih ediliyor.',
     ],
     tips: [
       'İçi serin — yazın bile ince bir üst alın.',
@@ -77,6 +78,54 @@ export const places: Place[] = [
       'En çok esen rüzgâr güney; en kuvvetli rüzgârlar kuzey ve kuzeybatıdan geliyor.',
       'Yılda ortalama 9 fırtınalı gün var — dalgalı havada denize girmeyin.',
       'Akşamüstü sahil yürüyüşü ve balık restoranları için en güzel saatler.',
+    ],
+  },
+  {
+    name: 'Çamurca Plajı',
+    slug: 'camurca-plaji',
+    category: 'Plaj',
+    summary:
+      'Ayancık çevresinde en çok tercih edilen plajlardan biri. Merkezin kalabalığından uzak, yazın yerel halkın düzenli gittiği bir nokta.',
+    detail: [
+      'Çamurca, ilçe merkezinin dışındaki sahil noktaları arasında en bilinenlerden. Yazın hafta sonları hareketli olsa da merkez sahiline göre daha sakin kalıyor.',
+      'Düzenli toplu taşıma yok; araçla ya da taksiyle gidiliyor. Dönüşte plajda bekleyen taksi bulunmadığı için dönüş saatini baştan ayarlamak gerekiyor.',
+    ],
+    tips: [
+      'Yanınıza su ve yiyecek alın; çevrede işletme sınırlı.',
+      'Kuzey ve kuzeybatı rüzgârında dalga yükselir, yola çıkmadan havayı sorun.',
+      'Dönüş saatinizi önceden söyleyin — plajda bekleyen taksi olmuyor.',
+    ],
+  },
+  {
+    name: 'Aliköy Plajı',
+    slug: 'alikoy-plaji',
+    category: 'Plaj',
+    summary:
+      'Aliköy çevresindeki sahil. Kalabalıktan uzaklaşmak isteyenlerin tercih ettiği plajlardan.',
+    detail: [
+      'Ayancık’a bağlı Aliköy çevresindeki sahil, ilçe halkının yazın düzenli gittiği noktalardan biri. Merkez sahiline göre belirgin şekilde daha tenha.',
+      'Yolu biliyoruz; köy yolundan sahile inişte tarif gerekmez, köyün adını söylemeniz yeterli.',
+    ],
+    tips: [
+      'Tenha olduğu için çevrede büfe ve işletme beklemeyin.',
+      'Çocukla gidecekseniz can yeleği getirin; Karadeniz’de dip akıntısı olabiliyor.',
+      'Gidiş-dönüşü birlikte ayarlayın, dönüşte araç bulmak zor.',
+    ],
+  },
+  {
+    name: 'Ayancık Köyü Limanı ve Sahili',
+    slug: 'ayancik-koyu-limani',
+    category: 'Plaj',
+    summary:
+      'Liman çevresindeki sahil şeridi. Denize girmenin yanında balıkçı tekneleri ve akşamüstü yürüyüşü için de gidiliyor.',
+    detail: [
+      'Ayancık bir liman yerleşimi ve liman çevresindeki sahil, hem denize girmek hem de akşamüstü oturmak için kullanılıyor.',
+      'Suni limanların yapılmasıyla ilçede balıkçılık gelişmiş; limanda tekneleri görmek ve taze balık bulmak mümkün.',
+    ],
+    tips: [
+      'Liman açık denize bakıyor; fırtınalı günlerde dalga yükselir.',
+      'Akşamüstü saatleri hem serin hem kalabalığı az.',
+      'Merkeze yakın, kısa mesafe yolculuk yeterli.',
     ],
   },
   {
@@ -105,7 +154,7 @@ export const places: Place[] = [
       'Sinop’un fiyort benzeri ünlü koyu ve yanındaki geniş kumsal. Tabiat parkı içinde, çam ormanıyla çevrili.',
     detail: [
       'Hamsilos Koyu, Sinop şehir merkezinin kuzeybatısında, çam ormanıyla çevrili derin ve korunaklı bir koy. Yanındaki Akliman ise geniş kumsalıyla aile yolculukları için uygun.',
-      'Ayancık’tan yaklaşık 60 kilometre; Sinop merkeze uğrayarak gidilir. Günübirlik turda sabah çıkıp akşam dönülebilir, isterseniz Sinop Kalesi ve tarihi cezaevi de aynı güne sığar.',
+      'Ayancık’tan yaklaşık 60 kilometre; Sinop merkeze uğrayarak gidilir. Sabah çıkıp akşam dönülebilir, isterseniz Sinop Kalesi ve tarihi cezaevi de aynı güne sığar.',
     ],
     tips: [
       'Koy korunaklı olduğu için dalgalı havalarda bile sakin kalabiliyor.',

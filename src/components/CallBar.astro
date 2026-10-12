@@ -1,15 +1,9 @@
 ---
-import { site, waMessages } from '../data/site';
+import { site } from '../data/site';
 import Icon from './Icon.astro';
-interface Props { waMessage?: string }
-const { waMessage } = Astro.props;
-const msg = waMessage ?? waMessages.location;
 ---
 <div class="callbar" role="group" aria-label="Hızlı iletişim">
   <a class="btn btn--call" href={site.phone.href} data-call="callbar">
-    <Icon name="phone" /> Hemen Ara
-  </a>
-  <a class="btn btn--wa" href={site.whatsapp.href(msg)} target="_blank" rel="noopener" data-call="callbar-wa">
-    <Icon name="whatsapp" /> Konum At
+    <Icon name="phone" /> {site.phone.display}
   </a>
 </div>

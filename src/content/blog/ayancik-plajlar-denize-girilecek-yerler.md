@@ -1,18 +1,18 @@
 ---
 title: "Ayancık ve Çevresinde Denize Girilecek Yerler"
 metaTitle: "Ayancık Plajları | Denize Girilecek En İyi Yerler — Sinop"
-description: "Ayancık sahili, Kuğu Yalısı, Türkeli yönündeki tenha koylar, Hamsilos ve Akliman. Deniz suyu sıcaklığı, rüzgâr ve dalga uyarıları, ulaşım ve aile için pratik notlar."
+description: "Çamurca, Aliköy, Ayancık Köyü limanı ve merkez sahili. Deniz suyu sıcaklığı, rüzgâr uyarıları, ulaşım ve aileler için pratik notlar."
 date: 2026-05-22
 updated: 2026-09-30
 tag: "Yaz"
-related: ["plaj-koy-turu", "ayancik-turkeli-taksi"]
+related: ["plaj-ulasimi", "ayancik-turkeli-taksi"]
 faq:
   - q: "Ayancık'ta deniz suyu sıcaklığı kaç derece?"
     a: "Haziran ve temmuz aylarında ortalama 23-24 °C. Ağustosta genellikle en ılık dönem yaşanır; eylülde de deniz hâlâ girilebilir sıcaklıkta kalır."
   - q: "Ayancık'ta denize girmek güvenli mi?"
     a: "Sakin havada evet. Ancak Ayancık limanı açık denize baktığı için fırtınalı günlerde dalga yükselir; ilçede yılda ortalama 9 fırtınalı gün yaşanıyor. Kuzey ve kuzeybatı rüzgârlarında denize girmeyin ve yerel uyarıları dikkate alın."
   - q: "Ayancık'ta en sakin plaj hangisi?"
-    a: "Merkez sahili ve Kuğu Yalısı en kolay ulaşılan noktalar ama hafta sonu kalabalık olur. Daha tenha bir deniz için Türkeli yönündeki sahiller veya Sinop tarafındaki korunaklı Hamsilos Koyu daha uygun."
+    a: "Merkez sahili en kolay ulaşılan nokta ama hafta sonu kalabalık olur. Daha tenha bir deniz için Çamurca ve Aliköy plajları ile Türkeli yönündeki sahiller, dalgalı havalarda ise korunaklı Hamsilos Koyu daha uygun."
   - q: "Hangi ay denize girmek için en iyi?"
     a: "Temmuz sonu ile eylül başı arası. Haziranda deniz henüz ısınmamış olabilir, ağustosta su en ılık, eylülde ise kalabalık azalırken deniz hâlâ sıcak kalır."
 ---
@@ -38,6 +38,22 @@ Yıllık ortalama hava sıcaklığı 14 °C; temmuz ortalaması 22,2 °C. Yani A
 İlçe merkezinde, yürüme mesafesinde. Ailelerin ve ilçe halkının günlük kullandığı yer. Avantajı: ulaşım sıfır problem, çevrede büfe ve çay bahçesi var. Dezavantajı: hafta sonları ve ağustosta kalabalık.
 
 Akşamüstü sahil yürüyüşü ve balık için ilçenin en keyifli noktası.
+
+### Çamurca Plajı
+
+Çevredeki en çok tercih edilen plajlardan biri. Merkezin kalabalığından uzak, yazın yerel halkın düzenli gittiği bir nokta. Düzenli toplu taşıma yok; araçla ya da taksiyle gidiliyor.
+
+Çevrede işletme sınırlı — suyunuzu ve yiyeceğinizi merkezden alın.
+
+### Aliköy Plajı
+
+Ayancık'a bağlı Aliköy çevresindeki sahil. Merkez sahiline göre belirgin şekilde daha tenha; kalabalıktan uzaklaşmak isteyenlerin tercihi.
+
+Tenha olmasının karşılığı: büfe, şemsiye kiralama, tuvalet gibi şeyler yok. Yanınıza ne alırsanız o kadar.
+
+### Ayancık Köyü limanı ve sahili
+
+Liman çevresindeki sahil şeridi. Denize girmenin yanında balıkçı teknelerini görmek ve akşamüstü yürüyüşü için de gidiliyor. Merkeze yakın olduğu için kısa bir yolculuk yeterli.
 
 ### Türkeli yönündeki sahiller
 

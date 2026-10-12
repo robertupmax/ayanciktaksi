@@ -4,8 +4,10 @@ import Icon from '../../components/Icon.astro';
 import Faq from '../../components/Faq.astro';
 import CallButtons from '../../components/CallButtons.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Photo from '../../components/Photo.astro';
+import { servicePhotos } from '../../data/photos';
 import { services } from '../../data/services';
-import { site, waMessages } from '../../data/site';
+import { site } from '../../data/site';
 import { breadcrumbSchema, faqSchema, serviceSchema } from '../../lib/schema';
 
 export function getStaticPaths() {
@@ -24,7 +26,6 @@ const crumbs = [
   title={s.metaTitle}
   description={s.metaDescription}
   path={`/hizmetler/${s.slug}/`}
-  waMessage={waMessages[s.wa]}
   schema={[
     breadcrumbSchema(crumbs),
     serviceSchema({ name: s.title, description: s.metaDescription, url }),
@@ -38,7 +39,7 @@ const crumbs = [
       <span class="icon-badge"><Icon name={s.icon} /></span>
       <h1>{s.h1}</h1>
       <p class="lead">{s.short}</p>
-      <div style="margin-top:1.4rem"><CallButtons size="lg" waMessage={waMessages[s.wa]} /></div>
+      <div style="margin-top:1.4rem"><CallButtons size="lg" /></div>
     </div>
   </div>
 
@@ -64,6 +65,7 @@ const crumbs = [
         </div>
 
         <aside class="stack" style="position:sticky;top:90px">
+          <Photo name={servicePhotos[s.slug]} width={720} ratio="4/3" />
           <div class="card">
             <h2 style="font-size:1.1rem">Öne çıkanlar</h2>
             <ul class="ticks" style="margin-bottom:0">
@@ -77,7 +79,7 @@ const crumbs = [
               <a href={site.phone.href} style="font-size:1.45rem;font-weight:800;text-decoration:none">{site.phone.display}</a><br />
               <span class="fs-sm muted">{site.hours.text}</span>
             </p>
-            <CallButtons waMessage={waMessages[s.wa]} showNumber={false} />
+            <CallButtons showNumber={false} />
           </div>
 
           <div class="card">
@@ -119,10 +121,10 @@ const crumbs = [
     <div class="wrap narrow">
       <h2>Yolculuğunuzu planlayalım</h2>
       <p class="lead" style="margin-inline:auto">
-        Arayın ya da WhatsApp’tan yazın. Tarih, saat ve adresi iletin — fiyatı yazılı teyit ederiz.
+        Arayın; tarih, saat ve adresi söyleyin — fiyatı yola çıkmadan netleştiririz.
       </p>
       <div style="margin-top:1.8rem;display:flex;justify-content:center">
-        <CallButtons size="lg" waMessage={waMessages[s.wa]} />
+        <CallButtons size="lg" />
       </div>
     </div>
   </section>

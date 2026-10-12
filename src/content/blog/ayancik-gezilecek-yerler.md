@@ -5,7 +5,7 @@ description: "Ayancık gezilecek yerler: Akgöl, Çangal Ormanları, İnaltı Ma
 date: 2026-03-07
 updated: 2026-09-28
 tag: "Gezi"
-related: ["plaj-koy-turu", "ayancik-akgol-cangal-taksi"]
+related: ["plaj-ulasimi", "ayancik-akgol-cangal-taksi"]
 faq:
   - q: "Ayancık'ta görülmesi gereken ilk yer neresi?"
     a: "Akgöl. Çangal Ormanları'nın içinde yer alan göl, ilçenin en bilinen doğal güzelliği olarak kabul edilir. Sabah erken saatlerde göl üzerinde oluşan sis en çok fotoğraflanan manzara."

@@ -13,19 +13,19 @@ export const GET: APIRoute = async () => {
   const body = `# ${site.brand} (${site.legalName})
 
 > Sinop ili Ayancık ilçesinde 7 gün 24 saat hizmet veren ticari taksi. Havalimanı
-> transferi, hastane ve köy yolculukları, plaj ve koy turları, şehirler arası taksi.
-> Ayancık ilçe merkezi ve bağlı köyler. İletişim Türkçe, telefon ve WhatsApp.
+> transferi, hastane ulaşımı, köy yolculukları, plaj ulaşımı ve şehirler arası taksi.
+> Ayancık ilçe merkezi ve bağlı köyler. İletişim Türkçe ve telefon ile.
 
 ## Temel bilgiler
 
 - İşletme adı: ${site.brand} (${site.legalName})
+- Şoför: ${site.driver.name}${site.driver.plate ? ` — plaka ${site.driver.plate}` : ''}
 - Telefon: ${site.phone.displayIntl} (${site.phone.display})
-- WhatsApp: ${site.phone.displayIntl} — aynı numara
 - Web: ${site.url}
 - Adres: ${site.address.full}
 - Konum: ${site.geo.lat}, ${site.geo.lng}
 - Çalışma saatleri: ${site.hours.text} (7/24, resmî tatiller dahil)
-- Ödeme: Nakit ve kredi kartı
+- Ödeme: Nakit
 - Araç kapasitesi: Sürücü hariç ${site.fleet.capacity} yolcu
 - Dil: Türkçe
 - Hizmet alanı: Ayancık ilçe merkezi ve bağlı ${villages.length} köy; Sinop, Türkeli,

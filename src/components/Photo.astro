@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import { getPhoto, type PhotoSlot } from '../lib/photos';
+
+interface Props {
+  name?: PhotoSlot;
+  /** Görselin oluşturulacağı genişlik (px) */
+  width?: number;
+  /** En-boy oranı, örn "16/9" veya "4/3" */
+  ratio?: string;
+  class?: string;
+  /** Sayfada ilk görünen görsel ise true — daha hızlı yüklenir */
+  eager?: boolean;
+  rounded?: boolean;
+}
+const { name, width = 960, ratio = '16/9', class: cls = '', eager = false, rounded = true } = Astro.props;
+const photo = getPhoto(name);
+---
+{photo && (
+  <figure class={`photo ${rounded ? 'photo--rounded' : ''} ${cls}`.trim()}>
+    <Image
+      src={photo.img}
+      alt={photo.alt}
+      width={width}
+      height={Math.round(width * (Number(ratio.split('/')[1]) / Number(ratio.split('/')[0])))}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding={eager ? 'sync' : 'async'}
+      fetchpriority={eager ? 'high' : 'auto'}
+      style={`aspect-ratio:${ratio}`}
+    />
+    {photo.caption && <figcaption>{photo.caption}</figcaption>}
+  </figure>
+)}

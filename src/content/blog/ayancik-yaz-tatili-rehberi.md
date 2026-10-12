@@ -5,7 +5,7 @@ description: "Ayancık'ta yaz tatili: hava ve deniz koşulları, günübirlik ge
 date: 2026-06-28
 updated: 2026-10-03
 tag: "Yaz"
-related: ["plaj-koy-turu", "sinop-havalimani-transfer"]
+related: ["plaj-ulasimi", "sinop-havalimani-transfer"]
 faq:
   - q: "Ayancık'ta yazın hava nasıl?"
     a: "Tipik Karadeniz iklimi: yazları kurak ve nemli. Temmuz ortalaması 22,2 °C, yıllık ortalama nem %72. Yakıcı sıcak nadir ama nem nedeniyle gölgede bile terletir."
@@ -73,10 +73,9 @@ Aracınız yoksa pratik seçenekler:
 
 ## Aileler için notlar
 
-- **Çocuk koltuğu** gerekiyorsa önceden söyleyin; yazın talep yoğun oluyor.
 - **Can yeleği** getirin. Karadeniz'de dip akıntısı olabiliyor.
 - **Eczane ve sağlık:** Ayancık Devlet Hastanesi ilçe merkezinde. Daha ileri bir durumda Sinop Atatürk Devlet Hastanesi 55 km.
-- **Nakit bulundurun.** Köylerde ve bazı tenha noktalarda kart geçmiyor.
+- **Nakit bulundurun.** Taksi ödemesi nakit alınıyor; köylerde ve tenha noktalarda zaten kart geçmiyor.
 
 ## Yurt dışından gelenler için
 
@@ -85,7 +84,7 @@ Ayancık'a yazın gelen misafirlerin önemli bölümü yurt dışında yaşayan 
 - **Araç kiralamak ilçede sınırlı.** Sinop merkezde seçenek daha fazla.
 - **Samsun Çarşamba Havalimanı** yurt dışı bağlantılarında Sinop'tan belirgin şekilde daha iyi — ama 3,5 saatlik transfer gerektiriyor.
 - **Tatil boyunca tek numara** mantığı işe yarıyor: havalimanı karşılama, köy evine bırakma, plaj turları ve dönüş transferini baştan birlikte planlamak hem daha rahat hem daha hesaplı.
-- **İletişim için WhatsApp** en pratiği: yurt dışındayken arama ücreti ödemeden yazışır, tarih ve saatleri yazılı olarak teyit edersiniz.
+- **Yoğun dönemde önceden arayın.** Temmuz–ağustosta, özellikle havalimanı transferlerinde saatler çabuk doluyor; birkaç gün önceden arayıp saat ayırtmak en sağlıklısı.
 
 ## Ne zaman gelmeli?
 

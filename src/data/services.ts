@@ -9,7 +9,6 @@ export type Service = {
   metaTitle: string;
   metaDescription: string;
   icon: string;
-  wa: 'general' | 'airport' | 'hospital' | 'village' | 'tour' | 'intercity' | 'student' | 'cargo';
   highlights: string[];
   body: { heading: string; paragraphs: string[]; list?: string[] }[];
   faq: { q: string; a: string }[];
@@ -28,7 +27,6 @@ export const services: Service[] = [
     metaDescription:
       'Ayancık’tan Sinop Havalimanı’na sabit fiyatlı taksi transferi. Uçuş takibi, kapıdan alış, gece uçuşları dahil 7/24. Hemen arayın.',
     icon: 'plane',
-    wa: 'airport',
     highlights: [
       'Büyük bagajlı araç',
       'Sabit fiyat — taksimetre sürprizi yok',
@@ -47,14 +45,13 @@ export const services: Service[] = [
       {
         heading: 'Nasıl çalışıyor?',
         paragraphs: [
-          'Bizi arayın veya WhatsApp’tan yazın; uçuş numaranızı, saatini ve alış adresinizi iletin. Sizin için saat hesabını biz yapar, kalkış saatini birlikte netleştiririz. Fiyatı önceden söyler, yazılı olarak teyit ederiz.',
+          'Bizi arayın; uçuş numaranızı, saatini ve alış adresinizi söyleyin. Sizin için saat hesabını biz yapar, kalkış saatini birlikte netleştiririz. Fiyatı yola çıkmadan önce söyleriz.',
           'Dönüş transferlerinde uçuşunuzu takip ederiz. Uçağınız rötar yaptıysa bekleme için ek ücret almayız; siz bagajınızı alıp çıktığınızda araç kapıda olur.',
         ],
         list: [
           'Giden yolcu: uçuş saatinden geriye doğru planlama',
           'Gelen yolcu: terminal çıkışında karşılama',
           'Büyük bagaj — ek ücret yok',
-          'Bebek/çocuk koltuğu talebi ücretsiz',
           'Olağandışı ölçüde bir yükünüz varsa önceden haber verin',
         ],
       },
@@ -96,16 +93,15 @@ export const services: Service[] = [
 
   {
     slug: 'hastane-transfer',
-    title: 'Hastane ve Sağlık Transferi',
-    navTitle: 'Hastane Transferi',
-    h1: 'Ayancık Hastane Taksi — Ayancık Devlet ve Sinop Atatürk Devlet Hastanesi',
+    title: 'Hastane Ulaşımı',
+    navTitle: 'Hastane',
+    h1: 'Ayancık Hastane Taksi — Hastaneye Gidiş ve Dönüş',
     short:
       'Randevunuza yetişin. Ayancık Devlet Hastanesi, Sinop Atatürk Devlet Hastanesi ve özel hastane transferleri; refakatçi desteğiyle.',
     metaTitle: 'Ayancık Hastane Taksi | Sinop Devlet Hastanesi Transfer 7/24',
     metaDescription:
       'Ayancık Devlet Hastanesi ve Sinop Atatürk Devlet Hastanesi için taksi. Randevu saatine göre planlama, yaşlı ve hasta yolcuya kapıdan kapıya refakat. 7/24.',
     icon: 'hospital',
-    wa: 'hospital',
     highlights: [
       'Randevu saatinize göre planlama — erken saatler dahil',
       'Kapıdan kapıya — merdiven ve kayıt desteği',
@@ -115,7 +111,7 @@ export const services: Service[] = [
     ],
     body: [
       {
-        heading: 'En çok kullanılan sağlık güzergahları',
+        heading: 'En çok kullanılan hastane güzergahları',
         paragraphs: [
           'Ayancık’ta en sık yaptığımız yolculuk, köylerden ilçe merkezine hastane, banka ve alışveriş için gelip gitme. İkinci sırada ise Ayancık’tan Sinop’a sevk edilen hastaları götürüp getirme var.',
           'Ayancık Devlet Hastanesi ilçe içindedir; köylerden gelişlerde mesafe 5 ile 35 kilometre arasında değişir. Sinop Atatürk Devlet Hastanesi ise sahil yolu üzerinden yaklaşık 55 kilometre, ortalama 1 saat uzaklıktadır.',
@@ -171,7 +167,6 @@ export const services: Service[] = [
     metaDescription:
       'Ayancık köylerinden ilçe merkezine taksi: hastane, banka, pazar ve alışveriş yolculukları. 60’tan fazla köye hizmet, kapıdan kapıya, 7/24.',
     icon: 'village',
-    wa: 'village',
     highlights: [
       'Ayancık’ın 60’tan fazla köyüne hizmet',
       'Büyük bagajlı araç',
@@ -223,76 +218,76 @@ export const services: Service[] = [
       },
       {
         q: 'Sadece alışverişimi getirseniz olur mu, ben gelmeyeyim?',
-        a: 'Olur. Market, eczane veya pazar alışverişinizi alıp köyünüze getirebiliyoruz. Listeyi WhatsApp’tan yazın, alışverişi yapıp fişle birlikte teslim ederiz.',
+        a: 'Olur. Market, eczane veya pazar alışverişinizi alıp köyünüze getirebiliyoruz. Listeyi telefonda söyleyin, alışverişi yapıp fişle birlikte teslim ederiz.',
       },
     ],
     featured: true,
   },
 
   {
-    slug: 'plaj-koy-turu',
-    title: 'Plaj ve Koy Turları',
-    navTitle: 'Plaj ve Koylar',
-    h1: 'Ayancık Plaj ve Koy Turu — Denize Taksiyle Gidin',
+    slug: 'plaj-ulasimi',
+    title: 'Plaj ve Sahil Ulaşımı',
+    navTitle: 'Plaj ve Sahiller',
+    h1: 'Ayancık Plaj Taksi — Denize Gidiş ve Dönüş',
     short:
-      'Ayancık sahili, Kuğu Yalısı ve çevredeki sakin koylar. Gün boyu araç kiralama veya bırak-al usulü.',
-    metaTitle: 'Ayancık Plaj Taksi | Koy ve Sahil Turu — Sinop',
+      'Çamurca, Aliköy, Ayancık Köyü limanı ve merkez sahili. Sabah bırakalım, dönmek istediğinizde alalım.',
+    metaTitle: 'Ayancık Plaj Taksi | Çamurca, Aliköy, Sahil Ulaşımı',
     metaDescription:
-      'Ayancık ve çevresindeki plajlara, koylara taksiyle gidin. Yarım gün veya tam gün tur, bırak-al hizmeti, aile ve grup yolculukları. 7/24.',
+      'Ayancık ve çevresindeki plajlara taksiyle gidiş-dönüş: Çamurca, Aliköy, Ayancık Köyü limanı ve merkez sahili. Bırak-al usulü, sabit fiyat, 7/24.',
     icon: 'beach',
-    wa: 'tour',
     highlights: [
-      'Yarım gün ve tam gün tur seçenekleri',
-      '“Bırak-al”: sabah bırakalım, akşam alalım',
+      '“Bırak-al”: sabah bırakalım, dönüşte çağırın',
+      'Gidiş-dönüş fiyatı baştan belli',
       'Büyük bagajlı araç',
-      'Tek toplam fiyat — gün sonunda sürpriz yok',
-      'Kalabalık grup için ikinci araç ayarlayabiliriz',
+      'Tenha plajlara da gidiyoruz',
     ],
     body: [
       {
-        heading: 'Nereye gidelim?',
+        heading: 'Hangi plajlara gidiyoruz?',
         paragraphs: [
-          'Ayancık, açık denize bakan bir liman ilçesi. Merkezdeki sahil ve Kuğu Yalısı yürüme mesafesindeyken, kalabalıktan uzak koylar için biraz yol gitmek gerekiyor. Yolu, hangi saatte hangi koyun sakin olduğunu ve denizin hangi rüzgârda dalgalı olacağını biliyoruz.',
-          'Sinop yönünde Hamsilos Koyu ve Akliman, Türkeli yönünde ise daha tenha sahiller var. Günübirlik gezide hangisinin size uygun olduğuna telefonda birlikte karar verelim — kaç kişi olduğunuzu ve çocuk olup olmadığını söylemeniz yeterli.',
+          'Ayancık, açık denize bakan bir liman ilçesi. Merkezdeki sahil yürüme mesafesinde, ama çevredeki tercih edilen plajlara araçsız ulaşmak zor — düzenli toplu taşıma yok.',
+          'Çevrede en çok gidilen noktalar Çamurca Plajı, Aliköy Plajı ve Ayancık Köyü limanı çevresindeki sahil. Yolu biliyoruz; hangi plajın o gün sakin olduğunu da söyleyebiliriz.',
         ],
         list: [
+          'Çamurca Plajı',
+          'Aliköy Plajı',
+          'Ayancık Köyü limanı ve sahili',
           'Ayancık merkez sahili ve Kuğu Yalısı',
           'Türkeli yönündeki tenha sahiller (yaklaşık 35 km)',
           'Hamsilos Koyu ve Akliman, Sinop (yaklaşık 60 km)',
-          'Erfelek Tatlıca Şelaleleri (yaklaşık 50 km) — serinlemek için',
-          'Akgöl ve Çangal ormanları — orman içinde piknik',
         ],
       },
       {
         heading: 'Bırak-al nasıl işliyor?',
         paragraphs: [
-          'Tüm gün araç tutmak istemiyorsanız en ekonomik yöntem bu: sabah sizi plaja bırakırız, akşam dönmek istediğinizde arar, aynı aracı çağırırsınız. İki yön fiyatı baştan konuşulur, arada taksimetre işlemez.',
-          'Alternatif olarak aracı gün boyu tutabilirsiniz. Birkaç koyu gezmek, arada yemeğe gitmek veya çocukla esnek hareket etmek isteyenler genelde bunu tercih ediyor.',
+          'En pratik ve en hesaplı yöntem bu: sabah sizi plaja bırakırız, dönmek istediğinizde arar, aynı aracı çağırırsınız. Gidiş ve dönüş fiyatı baştan konuşulur, arada taksimetre işlemez ve araç sizi beklemediği için boşa ödeme yapmazsınız.',
+          'Dönüş saatini baştan kabaca söylemeniz yeterli; saat değişirse arayın, ona göre planlarız.',
         ],
       },
       {
-        heading: 'Yazın Ayancık’a gelen misafirler için',
+        heading: 'Denize girmeden önce rüzgâra bakın',
         paragraphs: [
-          'Yaz aylarında ilçeye yurt içinden ve yurt dışından çok sayıda misafir geliyor. Çoğu zaman araç getirmiyor ya da tek araçla birkaç aile kalabalık oluyor. Havalimanından karşılama, köy evine bırakma, plaj turu ve dönüş transferini tek seferde planlayabiliyoruz; böylece tatiliniz boyunca aynı numarayı arıyorsunuz.',
+          'Ayancık limanı açık denize baktığı için kuzey ve kuzeybatı rüzgârlarında dalga hızla yükseliyor; ilçede yılda ortalama 9 fırtınalı gün yaşanıyor. Deniz suyu sıcaklığı haziran ve temmuzda ortalama 23–24 °C.',
+          'Sabah deniz beyaz köpüklüyse o gün için Erfelek Tatlıca Şelaleleri gibi bir alternatif daha mantıklı olabilir. Telefonda sorun, o günkü duruma göre söyleyelim.',
         ],
       },
     ],
     faq: [
       {
-        q: 'Tam gün araç kiralamak ne kadar?',
-        a: 'Gezeceğiniz yerlere ve toplam kilometreye göre değişiyor. Nereleri gezmek istediğinizi söyleyin, telefonda tek bir toplam fiyat verelim — gün sonunda sürpriz olmaz.',
+        q: 'Çamurca veya Aliköy plajına taksi gidiyor mu?',
+        a: 'Evet, çevredeki tercih edilen plajların hepsine gidiyoruz. Hangi plaja gideceğinizi ve kaç kişi olduğunuzu söyleyerek arayın; gidiş-dönüş fiyatını telefonda net olarak verelim.',
       },
       {
         q: 'Kaç kişi sığıyor?',
-        a: 'Araçta sürücü hariç 4 yolcu yeri var. Daha kalabalıksanız haber verin; güvendiğimiz meslektaşlarımızla ikinci araç ayarlıyor, konvoy halinde gidiyoruz.',
-      },
-      {
-        q: 'Çocuk koltuğu var mı?',
-        a: 'Var. Çocuğunuzun yaşını önceden söylerseniz uygun koltuğu hazır ederiz; ek ücret almıyoruz.',
+        a: 'Araçta sürücü hariç 4 yolcu yeri var. Daha kalabalıksanız haber verin; güvendiğimiz meslektaşlarımızla ikinci araç ayarlıyor, birlikte gidiyoruz.',
       },
       {
         q: 'Plajda beklemeniz gerekiyor mu?',
-        a: 'Gerekmiyor. İsterseniz bırakıp gidelim, dönüşte tekrar arayın. İsterseniz gün boyu aracı tutun. İkisinin fiyatı farklıdır, telefonda ikisini de söyleyelim siz karar verin.',
+        a: 'Gerekmiyor, beklemiyoruz. Sizi bırakırız, dönmek istediğinizde ararsınız ve aynı araç gelir. Böylece bekleme ücreti de ödemezsiniz.',
+      },
+      {
+        q: 'Dönüşte taksi bulabilir miyim?',
+        a: 'Plajlarda bekleyen taksi olmaz, bu yüzden dönüşü baştan konuşmak önemli. Bizi aradığınızda geliyoruz; yoğun yaz günlerinde dönüş saatinizi kabaca önceden söylerseniz işiniz garantiye alınmış olur.',
       },
     ],
     featured: true,
@@ -309,7 +304,6 @@ export const services: Service[] = [
     metaDescription:
       'Ayancık’tan şehirler arası taksi: Sinop, Samsun, Kastamonu, Boyabat, Ankara ve İstanbul. Kapıdan kapıya, sabit fiyat, 7/24 rezervasyon.',
     icon: 'road',
-    wa: 'intercity',
     highlights: [
       'Kapıdan kapıya — aktarma ve otogar yok',
       'Baştan sabit fiyat, gidiş-dönüşte daha hesaplı',
@@ -345,7 +339,7 @@ export const services: Service[] = [
       {
         heading: 'Rezervasyon',
         paragraphs: [
-          'Uzun mesafe yolculuklar için en az bir gün önceden haber verin. Güzergahı, tarihi, saati ve kişi sayısını iletin; fiyatı WhatsApp üzerinden yazılı olarak teyit ederiz. Böylece ikimizde de aynı bilgi olur.',
+          'Uzun mesafe yolculuklar için en az bir gün önceden haber verin. Güzergahı, tarihi, saati ve kişi sayısını söyleyin; fiyatı telefonda net olarak konuşur, yola çıkmadan anlaşırız.',
         ],
       },
     ],
@@ -363,8 +357,8 @@ export const services: Service[] = [
         a: 'Çıkabiliriz. Uzun gece yolculuklarında dinlenme molalarını planlıyor, güvenli sürüşten taviz vermiyoruz.',
       },
       {
-        q: 'Kredi kartı ile ödeyebilir miyim?',
-        a: 'Evet, nakit ve kredi kartı kabul ediyoruz.',
+        q: 'Ödeme nasıl yapılıyor?',
+        a: 'Ödemeler nakit olarak alınıyor. Fiyatı yola çıkmadan konuştuğumuz için ne kadar nakit bulundurmanız gerektiğini önceden bilirsiniz.',
       },
     ],
   },
@@ -380,7 +374,6 @@ export const services: Service[] = [
     metaDescription:
       'Sinop Üniversitesi Ayancık MYO ve lise öğrencileri için taksi. Yurt, okul, otogar ve tatil dönüşü transferleri; paylaşımlı yolculuk ve dönemlik anlaşma.',
     icon: 'student',
-    wa: 'student',
     highlights: [
       'Paylaşımlı yolculukta kişi başı ucuz',
       'Dönem boyu sabit anlaşmalı fiyat',
@@ -447,7 +440,6 @@ export const services: Service[] = [
     metaDescription:
       'Ayancık şehir içi taksi: otogar, pazar, market, eczane ve kısa mesafe yolculuklar. Resmî taksimetre tarifesi, 7/24 açık, hemen arayın.',
     icon: 'city',
-    wa: 'general',
     highlights: [
       'İlçe merkezinde kısa sürede kapınızda',
       'Otogar karşılama — gece varan otobüsler dahil',
@@ -485,7 +477,7 @@ export const services: Service[] = [
       },
       {
         q: 'Konumumu nasıl göndereyim?',
-        a: 'WhatsApp’tan canlı konum göndermeniz en pratik yol. Adres tarif etmekle uğraşmadan sizi buluruz.',
+        a: 'Bulunduğunuz mevkiyi ya da yakınınızdaki bir dükkân, cami veya durak adını söylemeniz yeterli. İlçeyi iyi bildiğimiz için adresi tam bilmeseniz de sizi buluruz.',
       },
       {
         q: 'Gece de çalışıyor musunuz?',
@@ -498,73 +490,6 @@ export const services: Service[] = [
     ],
   },
 
-  {
-    slug: 'paket-evrak-tasima',
-    title: 'Paket ve Evrak Taşıma',
-    navTitle: 'Paket Taşıma',
-    h1: 'Ayancık Paket, Evrak ve Alışveriş Taşıma',
-    short:
-      'Yola çıkmanıza gerek yok. Evrakınızı, ilacınızı, alışverişinizi veya anahtarınızı biz götürelim.',
-    metaTitle: 'Ayancık Paket ve Evrak Taşıma Taksi | Kurye Hizmeti',
-    metaDescription:
-      'Ayancık’ta taksiyle paket, evrak, ilaç ve alışveriş taşıma. Köye market getirme, Sinop’a evrak ulaştırma, anahtar teslimi. Aynı gün, 7/24.',
-    icon: 'package',
-    wa: 'cargo',
-    highlights: [
-      'Aynı gün teslim',
-      'Köye market ve eczane alışverişi',
-      'Sinop’a acil evrak ve numune',
-      'Teslimde fotoğraflı bilgilendirme',
-    ],
-    body: [
-      {
-        heading: 'Küçük yerlerde büyük kolaylık',
-        paragraphs: [
-          'Bazı işler için insanın kendisinin gitmesi gerekmiyor. Köydeki annenizin ilacı, Sinop’taki muhasebeciye ulaşması gereken evrak, yaz evinin anahtarı, laboratuvara götürülecek numune, misafire yetişmesi gereken bir alışveriş… Bunları biz taşıyoruz.',
-          'Kargo şirketlerinin bir günde yapamadığı şeyi aynı gün içinde yapıyoruz, çünkü yolu zaten biliyoruz ve köylerin kapısına kadar gidiyoruz.',
-        ],
-        list: [
-          'Eczaneden ilaç alıp köye götürme',
-          'Market ve pazar alışverişi (liste WhatsApp’tan, fişiyle teslim)',
-          'Noter, muhasebeci, tapu evrakı',
-          'Hastane ve laboratuvar numunesi',
-          'Yazlık ev anahtarı ve misafir karşılama',
-          'Küçük yedek parça, tamir edilen eşya',
-        ],
-      },
-      {
-        heading: 'Nasıl çalışıyor?',
-        paragraphs: [
-          'WhatsApp’tan nereden alınacağını, nereye gideceğini ve kime teslim edileceğini yazın. Fiyatı mesafeye göre söyleyelim. Teslim ettiğimizde size fotoğraf veya kısa bir mesajla haber veririz.',
-          'Para gerektiren alışverişlerde tutarı önce biz öder, teslimde fişle birlikte tahsil ederiz. Güven esaslı çalışıyoruz; ilçede yıllardır aynı numarayla aynı işi yapıyoruz.',
-        ],
-      },
-      {
-        heading: 'Taşımadığımız şeyler',
-        paragraphs: [
-          'Yasa dışı, tehlikeli veya yanıcı maddeler, canlı hayvan ve içeriğini bilmediğimiz kapalı paketler taşımıyoruz. Yüksek değerli eşyalarda ise sorumluluk sınırlarını baştan konuşmamız gerekir.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: 'Paket taşıma ücreti nasıl hesaplanıyor?',
-        a: 'Gideceği mesafeye göre hesaplanır; kargo gibi kilo üzerinden değil. Nereden nereye olduğunu söyleyin, net fiyat verelim.',
-      },
-      {
-        q: 'Alışverişin parasını siz mi ödüyorsunuz?',
-        a: 'Evet, makul tutarlarda alışverişin bedelini önce biz öder, teslimde fişle birlikte tahsil ederiz.',
-      },
-      {
-        q: 'Aynı gün içinde Sinop’a evrak ulaştırabilir misiniz?',
-        a: 'Evet. Yolculuk programımız uygunsa aynı gün, değilse size en yakın saati söyleriz.',
-      },
-      {
-        q: 'Teslim edildiğini nasıl anlayacağım?',
-        a: 'Teslim anında WhatsApp’tan fotoğraf veya kısa bir mesajla haber veriyoruz.',
-      },
-    ],
-  },
 ];
 
 export const featuredServices = services.filter((s) => s.featured);

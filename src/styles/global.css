@@ -18,8 +18,6 @@
   --bg-2: #f6f8fa;
   --bg-3: #eef1f5;
   --ok: #0f7b4f;
-  --wa: #25d366;
-  --wa-dark: #128c7e;
 
   /* Ölçü */
   --wrap: 1140px;
@@ -170,8 +168,6 @@ img, svg { max-width: 100%; height: auto; display: block; }
 
 .btn--call { background: var(--taxi); color: #12151a; box-shadow: 0 6px 18px -6px rgba(255, 184, 0, .7); }
 .btn--call:hover { background: #ffc525; }
-.btn--wa { background: var(--wa); color: #06281a; box-shadow: 0 6px 18px -6px rgba(37, 211, 102, .6); }
-.btn--wa:hover { background: #32e074; }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn--ghost:hover { border-color: var(--taxi); background: var(--taxi-soft); }
 .section--ink .btn--ghost { color: #fff; border-color: #3b4350; }
@@ -301,14 +297,13 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .header-cta__short { display: none; }
 
 /* Orta genişliklerde menü sığsın diye kısaltmalar */
-@media (max-width: 1360px) {
+@media (max-width: 1040px) {
   .header-cta__full { display: none; }
   .header-cta__short { display: inline; }
   .nav a { padding: .5rem .45rem; font-size: .92rem; }
   .langs { margin-left: .2rem; }
   .langs a { padding: .3rem .34rem; font-size: .76rem; }
   .site-header__in { gap: .5rem; }
-  .logo span small { display: none; }
 }
 
 .nav-toggle { display: none; }
@@ -452,3 +447,20 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   .logo svg { width: 30px; height: 30px; }
   .hero-card dd, .hero-card dt { font-size: .88rem; }
 }
+
+/* --- Fotoğraflar --- */
+.photo { margin: 0; }
+.photo img {
+  width: 100%; height: auto; object-fit: cover; display: block;
+  background: var(--bg-3);
+}
+.photo--rounded img { border-radius: var(--r); }
+.photo figcaption {
+  margin-top: .6rem; font-size: .88rem; color: var(--muted); line-height: 1.5;
+}
+.section--ink .photo figcaption { color: #8f9bab; }
+.photo--hero img { border-radius: var(--r-lg); box-shadow: var(--shadow-lg); }
+.photo-grid { display: grid; gap: clamp(.8rem, 2vw, 1.2rem); grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
+.card .photo { margin: -1.15rem -1.15rem 1rem; }
+.card .photo img { border-radius: var(--r) var(--r) 0 0; }
+@media (min-width: 640px) { .card .photo { margin: -1.6rem -1.6rem 1.1rem; } }
