@@ -92,6 +92,6 @@ Merkez sahili ve Kuğu Yalısı dışındaki noktaların hiçbirine düzenli top
 
 **Bırak-al:** Sabah sizi plaja bırakırız, dönmek istediğinizde arar, aynı aracı çağırırsınız. İki yön fiyatı baştan konuşulur, arada taksimetre işlemez. En ekonomik yöntem bu.
 
-**Gün boyu araç:** Birkaç koyu gezmek, arada yemeğe gitmek veya çocukla esnek hareket etmek isteyenler için. Tek bir toplam fiyat verilir.
+**Birden fazla nokta:** Gün içinde başka bir koya veya merkeze geçmek isterseniz tekrar arayın. Her yolculuk ayrı ve fiyatı baştan belli; araç gün boyu sizinle kalmaz.
 
-Kaç kişi olduğunuzu ve çocuk olup olmadığını söylerseniz hangi noktanın size uygun olduğuna telefonda birlikte karar verebiliriz. Yanınıza alacağınız eşyalar için bagaj yeterince geniş.
+Kaç kişi olduğunuzu söylerseniz hangi noktanın size uygun olduğuna telefonda birlikte karar verebiliriz. Yanınıza alacağınız eşyalar için bagaj yeterince geniş.

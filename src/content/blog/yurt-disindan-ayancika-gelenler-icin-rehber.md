@@ -61,7 +61,7 @@ En ekonomik ama en uzun. İstanbul'dan Ayancık'a otobüs **630 km, 10-11 saat**
 
 **Araç sadece çevre gezileri için gerekiyor:** Akgöl, İnaltı Mağarası, Tatlıca Şelaleleri, Hamsilos Koyu, tenha plajlar. Bunlar da tatil boyunca belki 3-5 gün.
 
-Yani 3 haftalık bir tatilde aracı 18 gün park halinde tutmak yerine, gezi günlerinde günübirlik araç tutmak çoğu zaman daha hesaplı oluyor. Ayrıca orman yollarında ve virajlı sahil yolunda yolu bilen biri direksiyonda olunca gezi de daha keyifli geçiyor.
+Yani 3 haftalık bir tatilde aracı 18 gün park halinde tutmak yerine, sadece gideceğiniz günlerde taksi kullanmak çoğu zaman daha hesaplı oluyor. Ayrıca orman yollarında ve virajlı sahil yolunda yolu bilen biri direksiyonda olunca gezi de daha keyifli geçiyor.
 
 ## Tatil boyunca tek numara mantığı
 

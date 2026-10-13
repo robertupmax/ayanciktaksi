@@ -42,8 +42,7 @@ ${site.usp.map((u) => `- **${u.title}:** ${u.text}`).join('\n')}
   belirlenir; gündüz ve gece aynıdır).
 - Şehir dışı, havalimanı ve şehirler arası yolculuklar: yola çıkmadan konuşulan sabit fiyat.
   Köprü ve otoyol ücretleri dahildir, yol üzerinde değişmez.
-- Araç büyük bagajlıdır. Gece ücreti ve bagaj ücreti yoktur. Çocuk koltuğu ücretsizdir
-  (önceden bildirilmesi gerekir).
+- Araç büyük bagajlıdır. Gece ücreti ve bagaj ücreti yoktur.
 - Gidiş-dönüş yolculuklar, araç dönüşte boş gelmediği için tek yönü iki kez almaya göre
   daha uygundur.
 

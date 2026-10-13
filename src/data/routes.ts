@@ -96,7 +96,7 @@ export const routes: Route[] = [
     from: 'Ayancık',
     to: 'Akgöl ve Çangal Ormanları',
     title: 'Ayancık – Akgöl ve Çangal Ormanları Taksi',
-    metaTitle: 'Ayancık Akgöl Taksi | Çangal Ormanları ve İnaltı Mağarası Turu',
+    metaTitle: 'Ayancık Akgöl Taksi | Çangal Ormanları ve İnaltı Mağarası Ulaşım',
     metaDescription:
       'Ayancık’tan Akgöl, Çangal Ormanları ve İnaltı Mağarası’na taksi. Orman yolu, gidiş-dönüş sabit fiyat, bırak-al usulü.',
     km: 30,

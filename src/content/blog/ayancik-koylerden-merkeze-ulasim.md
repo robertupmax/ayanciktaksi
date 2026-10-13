@@ -70,8 +70,6 @@ Bazı işler için köyden çıkmanız gerekmiyor. Yıllardır yaptığımız bi
 
 **İlaç getirme.** Reçeteniz hazırsa eczaneden alıp getiriyoruz.
 
-**Evrak taşıma.** Muhtarlık, banka veya noter evrakını ulaştırmak.
-
 Özellikle kış aylarında, tek başına yaşayan yaşlı komşularımız için bu hizmet yolculuktan daha çok işe yarıyor.
 
 ## Hizmet verdiğimiz köyler

@@ -14,7 +14,7 @@ faq:
   - q: "Ayancık'a yazın gelen çok oluyor mu?"
     a: "Evet. Yaz aylarında yurt içinden ve yurt dışından gelen misafirlerle ilçe nüfusu belirgin şekilde artıyor. Temmuz-ağustos ve bayram dönemleri en yoğun."
   - q: "Araç olmadan Ayancık'ta tatil yapılır mı?"
-    a: "Merkez ve sahil için evet, her şey yürüme mesafesinde. Ancak çevre gezileri (Akgöl, şelaleler, koylar) için araç veya günübirlik taksi turu gerekiyor; bu noktalara toplu taşıma yok."
+    a: "Merkez ve sahil için evet, her şey yürüme mesafesinde. Ancak çevre noktalarına (Akgöl, şelaleler, koylar) toplu taşıma yok; kendi aracınız yoksa taksiyle gidip dönmeniz gerekiyor."
 ---
 
 Ayancık'ta yaz, ilçenin en kalabalık ve en canlı dönemi. Nüfusu 23 bin civarında olan ilçe, temmuz–ağustos aylarında yurt içinden ve yurt dışından gelen misafirlerle belirgin şekilde doluyor. Köy evleri açılıyor, sahil hareketleniyor, düğünler sıralanıyor.
@@ -68,7 +68,7 @@ Ayancık merkezde her şey yürüme mesafesinde — ama ilçe yokuşlu. Ayancık
 Aracınız yoksa pratik seçenekler:
 
 - **Bırak-al:** Sabah plaja/şelaleye bırakılıp dönüş saatinde tekrar alınmak. En ekonomik yöntem.
-- **Gün boyu araç:** Birkaç noktayı gezmek, arada yemeğe gitmek veya çocukla esnek hareket etmek için.
+- **Birden fazla nokta:** Gün içinde başka bir yere geçmek isterseniz tekrar ararsınız. Her yolculuk ayrı, fiyatı baştan belli.
 - **Havalimanı transferi:** Sinop Havalimanı 60 km (1 sa 5 dk), Samsun Çarşamba 250 km (3,5 sa). İkisine de doğrudan toplu taşıma yok.
 
 ## Aileler için notlar

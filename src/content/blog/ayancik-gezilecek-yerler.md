@@ -88,6 +88,6 @@ Ayancık Kilisesi → liman ve Kuğu Yalısı → sahil yürüyüşü → balık
 
 ## Ulaşım notu
 
-Bu durakların çoğu toplu taşımayla ulaşılabilir değil. Akgöl ve İnaltı için orman yolu, Tatlıca ve Hamsilos için ise ilçe dışına çıkmak gerekiyor. Aracınız yoksa en pratik yöntem günübirlik taksi turu: ya araç gün boyu sizinle kalır, ya sizi bırakıp dönüş saatinde tekrar alır.
+Bu durakların çoğu toplu taşımayla ulaşılabilir değil. Akgöl ve İnaltı için orman yolu, Tatlıca ve Hamsilos için ise ilçe dışına çıkmak gerekiyor. Aracınız yoksa taksiyle gidip dönmeniz gerekiyor: sizi bırakırız, dönmek istediğinizde arar aynı aracı çağırırsınız. Gidiş-dönüş fiyatı baştan bellidir.
 
 Hangi duraklara gitmek istediğinizi söylerseniz hangisinin aynı güne sığacağını ve hangi saatte nerenin sakin olacağını birlikte planlayabiliriz.
